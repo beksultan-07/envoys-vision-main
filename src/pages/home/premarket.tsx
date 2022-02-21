@@ -93,7 +93,7 @@ const ChartValues = styled.div`
  display: flex;
   justify-content: space-between;
   margin-top: 41px;
-  padding: 29px;
+  padding: 29px 29px 118px 29px;
 `
 
 const ChartValue = styled.div`

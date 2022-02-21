@@ -55,6 +55,7 @@ export const BannerDate = styled.p`
 ` 
 type Props ={
     margin: boolean;
+    mnTop?: boolean;
 }
 
 export const BannerInfoText = styled.p<Props>`
@@ -65,17 +66,20 @@ export const BannerInfoText = styled.p<Props>`
     line-height: 18px;
     letter-spacing: 0.02em;
     color: #101010;
-    margin-top: 15px;
     margin-left: ${(props) => props.margin?'10px':'0'};
+    margin-top: ${(props) => props.mnTop?'15px':'0'};
+
 `
 
 export const BannerInfoIncrease = styled(BannerInfoText)<Props>`
     color: #4CFFD7;
+    margin-top: 0;
     margin-left: ${(props) => props.margin?'10px':'0'};
 `
 
 export const BannerInfoDecrease = styled(BannerInfoText)<Props>`
     color: #ff4c4c;
+    margin-top: 0;
     margin-left: ${(props) => props.margin?'10px':'0'};
 `
 

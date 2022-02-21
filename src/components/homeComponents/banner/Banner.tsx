@@ -1,11 +1,14 @@
 import React from "react";
 import { Container, Flex } from "../../../uikit/uikit";
 import BannerInfo from "../bannerInfo/BannerInfo";
+import HeaderSwiper from "../headerSwiper/HeaderSwiper";
 import { BannerBtn, BannerFlex, BannerText, BannerWrap } from "./BannerSC";
 
 const Banner:React.FC = () => {
     return (
         <BannerWrap>
+            <HeaderSwiper/>
+
             <Container>
                 <BannerFlex align="center" justify="space-around">
                     <Flex align="flex-start" direction="column">

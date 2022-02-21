@@ -1,8 +1,12 @@
 import React from 'react'
+import Premarket from "./premarket";
 
 const Home:React.FC = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Premarket/>
+    </div>
+
   )
 }
 

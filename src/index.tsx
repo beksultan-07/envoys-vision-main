@@ -17,19 +17,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    #root {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
-   position: relative;
-  }
 }
+*{box-sizing:border-box;
+padding: 0;margin:0;}
 `
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <GlobalStyle />
       <App />
     </BrowserRouter>
   </React.StrictMode>,

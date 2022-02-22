@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
 }
 *{box-sizing:border-box;
-padding: 0;margin:0;}
+padding: 0;margin:0; font-family: 'Exo 2', sans-serif;}
 
 
 /* Position and sizing of burger button */

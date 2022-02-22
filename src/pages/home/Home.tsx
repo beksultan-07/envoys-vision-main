@@ -9,11 +9,12 @@ import Investing from "./Investing";
 const Home:React.FC = () => {
     return (
         <div>
+            <Banner/>
             <Premarket/>
             <Trends/>
             <Grid/>
             <NoNameBlock/>
-        <Investing/>
+            <Investing/>
         </div>
 
     )

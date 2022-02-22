@@ -1,6 +1,9 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
-import BG from '../../assets/techTrends.png'
+import BG from '../../assets/techTrends.jpg'
+import respBG from '../../assets/respBg.jpg'
+import respBG1 from '../../assets/respBg1.jpg'
+
 
 const Wrapper = styled.div`
  width: 100%;
@@ -8,6 +11,14 @@ const Wrapper = styled.div`
   background: url(${BG}) 0 0 / cover;
   display: flex;
   align-items: center;
+
+  @media (max-width: 766px) {
+        background: url(${respBG}) 0 0 / cover;
+    }
+
+    @media (max-width: 600px) {
+        background: url(${respBG1}) 0 0 / cover;
+    }
 `
 
 const Container = styled.div`
@@ -24,14 +35,20 @@ display: flex;
 
 
 const TrendsTitle = styled.p`
+  font-family: Exo 2;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
   line-height: 48px;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   color: #FFFFFF;
   max-width: 570px;
+  @media(max-width: 766px){
+    font-size: 36px;
+  }
+  @media (max-width: 600px) {
+    font-size: 30px;
+    }
 `
 
 const TrendsSubtitle = styled.p`
@@ -43,6 +60,12 @@ const TrendsSubtitle = styled.p`
   color: #FFFFFF;
   max-width: 470px;
   margin: 30px 0 40px;
+  @media(max-width: 766px){
+    font-size: 18px;
+  }
+ @media (max-width: 600px) {
+    font-size: 16px;
+    } 
 
 `
 
@@ -64,8 +87,19 @@ type Props = {
   border-radius: 2px;
   height: 60px;
   padding: 0 20px;
-   width: 270px;
-   margin: ${(props) => props.margin};
+  margin: ${(props) => props.margin};
+  width: 270px;
+  cursor: pointer;
+   @media(max-width: 766px){
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    width: 250px;
+    height: 55px;
+    font-size: 16px;
+    
+   } 
 `
 
 

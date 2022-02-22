@@ -11,12 +11,14 @@ import {Flex} from "../../uikit/uikit";
 const Grids = styled.div`
 width: 100%;
   border-bottom: 1px solid #DADADA;
+  display: flex;
 `
 
 const Container = styled.div`
     width: 1200px;
     margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
 `
 
 const FirstBlock = styled.div`

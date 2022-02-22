@@ -5,15 +5,16 @@ import Grid from "./grid";
 import NoNameBlock from "./NoNameBlock";
 import Banner from '../../components/homeComponents/banner/Banner'
 import Investing from "./Investing";
+import Footer from '../../components/footer/Footer';
 
 const Home:React.FC = () => {
     return (
         <div>
-            <Premarket/>
-            <Trends/>
+            {/*<Premarket/>*/}
+        {/*    <Trends/>*/}
             <Grid/>
-            <NoNameBlock/>
-        <Investing/>
+        {/*    <NoNameBlock/>*/}
+        {/*<Investing/>*/}
         </div>
 
     )

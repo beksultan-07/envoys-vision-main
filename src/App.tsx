@@ -13,7 +13,7 @@ import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper'
 function App() {
   return (
     <div className="App">
-      <Header/>
+      {/*<Header/>*/}
 
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -21,7 +21,7 @@ function App() {
         <Route path="/dividendCelender" element={<DividendC/>}/>
       </Routes>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </div>
   );
 }

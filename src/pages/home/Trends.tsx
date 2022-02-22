@@ -46,7 +46,12 @@ const TrendsSubtitle = styled.p`
 
 `
 
-const TrendsBtn = styled.button`
+type Props = {
+    margin?: string | '0';
+};
+
+
+ export const ActionBtn = styled.button <Props>`
   font-style: normal;
   border-style: none;
   font-weight: 800;
@@ -58,8 +63,11 @@ const TrendsBtn = styled.button`
   background: #F47F1F;
   border-radius: 2px;
   height: 60px;
-  padding: 0 44px;
+  padding: 0 20px;
+   width: 270px;
+   margin: ${(props) => props.margin};
 `
+
 
 const Trends : FC = () => {
     return (
@@ -69,7 +77,7 @@ const Trends : FC = () => {
                  <TrendsTitle>Nasdaq Decodes:
                      Tech Trends</TrendsTitle>
                  <TrendsSubtitle>Discover the technology trends that are driving the global markets forward</TrendsSubtitle>
-                 <TrendsBtn>Призыв к действию</TrendsBtn>
+                 <ActionBtn margin={'0'}>Призыв к действию</ActionBtn>
              </TrendsText>
          </Container>
 

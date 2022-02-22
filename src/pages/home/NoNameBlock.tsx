@@ -2,12 +2,13 @@ import React, {FC} from 'react';
 import styled from "styled-components";
 import {Flex} from "../../uikit/uikit";
 import listStyle from '../../assets/listItemStyle.svg'
-import morgan from '../../assets/morgan.svg'
-import databank from '../../assets/dattabanksvg.svg'
-import ing from '../../assets/ing.svg'
-import muzino from '../../assets/muzuno.svg'
-import natixis from '../../assets/natixis.svg'
-import novikom from '../../assets/novicom.svg'
+import morgan from '../../assets/jpmorgan.svg'
+import databank from '../../assets/databank2.svg'
+import ing from '../../assets/ing2).svg'
+import muzino from '../../assets/mizuno.svg'
+import natixis from '../../assets/natixis2.svg'
+import novikom from '../../assets/novicombank).svg'
+import {ActionBtn} from "./Trends";
 
 const Wrapper = styled.div`
 width: 100%;
@@ -19,14 +20,24 @@ const Container = styled.div`
   margin: 0 auto;;
 `
 
-const Title = styled.div`
-  max-width: 600px;
-  padding: 25px 65px 25px 30px;
+type Props = {
+    margin?: string | '0';
+    padding?: string | '0';
+    width?: string | '0';
+    height?: string | '0';
+    fontSize?: string | '0';
+    lineHeight?: string | '0';
+
+};
+
+ export const Title = styled.div <Props>`
+  max-width: ${(props) => props.width};
+  padding: ${(props) => props.padding};
   background: #4478BB;
   font-style: normal;
   font-weight: normal;
-  font-size: 40px;
-  line-height: 48px;
+  font-size:${(props) => props.fontSize} ;
+  line-height: ${(props) => props.lineHeight};
   text-transform: uppercase;
   color: #FFFFFF;
 `
@@ -53,11 +64,21 @@ const LeftSideText2 = styled.div`
   line-height: 150%;
   color: #101010;
   max-width: 567px;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 45px;
+  position: relative;
+  &:before{
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 100%;
+    background: #F47F1F;
+    left: 30px;
+  }
 `
 
 const List = styled.ul`
     margin-top: 30px;
+    margin-left: 48px;
 `
 
 const ListItem = styled.li`
@@ -92,10 +113,8 @@ const Logos1 = styled.div`
   margin-bottom: 30px;
 `
 
-const Logos2 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-left: -23px;
+const Logos2 = styled.img` 
+ margin-bottom:32px;
 `
 
 const NoNameBlock:FC = () => {
@@ -105,7 +124,7 @@ const NoNameBlock:FC = () => {
 
            <Wrapper>
                <Container>
-                   <Title>
+                   <Title lineHeight={'48px'} fontSize={'40px'} width={'600px'} padding={'25px 65px 25px 30px'}>
                        <TitleText>Lorem ipsum dolor sit amet, consectetur adipiscing elit Ac morbi</TitleText>
                    </Title>
                </Container>
@@ -115,8 +134,9 @@ const NoNameBlock:FC = () => {
                    <Flex direction={"column"}>
                        <LeftSideText1>
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus elementum, nunc posuere elit. Turpis a egestas velit velit at. Sed et turpis ipsum ultrices at donec vulputate. Ante eu purus id ac risus nisi, eu amet. Nibh vestibulum viverra gravida ut faucibus suspendisse nunc sapien, ac. Elementum augue non nec urna, et, sit porta. In sit sit tempus erat ac.</LeftSideText1>
-                       <LeftSideText2>Dictum ac eget egestas ut lectus nisi integer. Blandit turpis massa facilisis dignissim risus massa vitae interdum. Tempus massa dui et velit elit fames interdum purus.
+                       <LeftSideText2>Dictum ac eget egestas ut lectus nisi integer. Blandit turpis massa facilisis dignissim risus massa vitae interdum. Tempus massa dui et velit elit fames interdum purus. <br/>
                            Enim sed nec vestibulum sollicitudin amet pretium, ornare lorem malesuada. Turpis senectus arcu mi volutpat morbi dolor. Viverra duis facilisis nisl, scelerisque. Nec nam hendrerit ornare enim lorem mauris. Tellus mus massa quam dignissim vestibulum purus. Quis nibh interdum morbi tempus morbi ornare elit. Lobortis.</LeftSideText2>
+                   <ActionBtn margin={'40px 0 0 30px'}>Призыв к дейстивию</ActionBtn>
                    </Flex>
                    <Flex direction={"column"}>
                     <List>
@@ -126,16 +146,16 @@ const NoNameBlock:FC = () => {
                     </List>
                        <Flex align={"center"}>
                            <Logos1>
-                               <img src={morgan} alt=""/>
+                               <Logos2 src={morgan} alt=""/>
                                <img src={muzino} alt=""/>
                            </Logos1>
                            <Logos1>
-                               <img src={databank} alt=""/>
+                               <Logos2 src={databank} alt=""/>
                                <img src={natixis} alt=""/>
                            </Logos1>
 
                            <Logos1>
-                               <img src={ing} alt=""/>
+                               <Logos2 src={ing} alt=""/>
                                <img src={novikom} alt=""/>
                            </Logos1>
                        </Flex>

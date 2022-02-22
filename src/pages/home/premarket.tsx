@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {LineChart, Line} from 'recharts';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Vector from '../../assets/Vector.png'
+import Rechart from '../../components/homeComponents/bannerInfo/Rechart';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -111,11 +112,11 @@ const ChartValue = styled.div`
 `
 
 const PositiveNumber = styled.span`
-    color: #4CFFD7
+    color: #4CFFD7;
 `
 
 const NegativeNumber = styled.span`
-    color: #EA9A9B
+    color: #EA9A9B;
 `
 
 const LastNewsBlock = styled.div`
@@ -176,14 +177,44 @@ const ViewMore = styled.button`
 `
 
 const Premarket : FC = () => {
-    const data = [
-        {
-            name: 'Page A',
-            uv: 22000,
-            pv: 2400,
-            amt: 2400,
-        },
-    ];
+    const data = [{
+        name: '1',
+        uv: 12,
+      },{
+        name: '2',
+        uv: 20,
+      },{
+        name: '3',
+        uv: 19,
+      },{
+        name: '4',
+        uv: 25,
+      },{
+        name: '5',
+        uv: 37,
+      },{
+        name: '6',
+        uv: 50,
+      },{
+        name: '7',
+        uv: 46,
+      },{
+        name: '8',
+        uv: 37,
+      },{
+        name: '9',
+        uv: 64,
+      },{
+        name: '10',
+        uv: 29,
+      },{
+        name: '11',
+        uv: 65,
+      },{
+        name: '12am',
+        uv: 70,
+      },];
+
     return (
         <Wrapper>
         <PreMarket>
@@ -209,45 +240,45 @@ const Premarket : FC = () => {
                 </CompositeIndexBox>
             </CompositeIndexBlock>
       <ChartBlock>
+            {/* <Rechart data={data} color='EB9FA0'/>
+            <Rechart data={data} color='53FFD9'/> */}
+          
           <Chart>
               <ResponsiveContainer width="100%" height="100%">
                   <AreaChart
                       width={500}
                       height={400}
-                      data={data}
-                      margin={{
-                          top: 10,
-                          right: 30,
-                          left: 0,
-                          bottom: 0,
-                      }}
-                  >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                      data={data}>
+                      <defs>
+                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#EB9FA0" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="#EB9FA0" stopOpacity={0}/>
+                        </linearGradient>
+                    </defs>
+                      <CartesianGrid horizontal vertical={false}/>
+                      <XAxis hide/>
+                      <YAxis orientation='right'/>
+                      <Area type="monotone" dataKey="uv" stroke="#EB9FA0" fill="#EB9FA0" />
                   </AreaChart>
               </ResponsiveContainer>
           </Chart>
+
           <Chart>
               <ResponsiveContainer width="100%" height="100%">
                   <AreaChart
                       width={500}
                       height={400}
-                      data={data}
-                      margin={{
-                          top: 10,
-                          right: 30,
-                          left: 0,
-                          bottom: 0,
-                      }}
-                  >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                      data={data}>
+                      <defs>
+                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#53FFD9" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="#53FFD9" stopOpacity={0}/>
+                        </linearGradient>
+                    </defs>
+                      <CartesianGrid horizontal vertical={false}/>
+                      <XAxis hide/>
+                      <YAxis orientation='right'/>
+                      <Area type="monotone" dataKey="uv" stroke="#53FFD9" fill="#53FFD9" />
                   </AreaChart>
               </ResponsiveContainer>
           </Chart>

@@ -7,6 +7,7 @@ import Home from './pages/home/Home';
 
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
+import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper';
 
 
 function App() {

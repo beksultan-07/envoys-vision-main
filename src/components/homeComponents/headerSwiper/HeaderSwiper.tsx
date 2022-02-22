@@ -46,8 +46,26 @@ const HeaderSwiper:React.FC = () => {
   return (
     <HeaderSwiperS>
         <Swiper
-            slidesPerView={5}
             loop
+            breakpoints= {{
+                320: {
+                    slidesPerView: 1,
+                },
+                497: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+                1200: {
+                    slidesPerView: 5,
+                }
+            }
+              }
+            
             >
 
             {values.map((val, i) => {

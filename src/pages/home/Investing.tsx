@@ -10,6 +10,10 @@ import { Flex } from '../../uikit/uikit';
 const Wrapper = styled.div`
   border-top: 1px solid #DADADA;
   border-bottom: 1px solid #DADADA;
+  &:last-child{
+    border-bottom: none;  
+    margin-top: 122px;
+  }
 `
 
 const Container = styled.div`
@@ -75,7 +79,7 @@ const LinkText1 = styled.p`
 `
 const HowInvest = styled.div`
   max-width: 830px;
-  padding: 30px 30px 0 30px;
+  padding: 30px 30px 107px 30px;
   border-right: 1px solid #DADADA;
   position: relative;
 `

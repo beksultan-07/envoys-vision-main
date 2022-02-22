@@ -19,7 +19,7 @@ export const Flex = styled.div<Props>`
 
 
 export const Container = styled.div`
-  width: 1380px;
+  max-width: 1380px;
   margin: 0 auto;
   padding: 0 10px;
   height: 100%;

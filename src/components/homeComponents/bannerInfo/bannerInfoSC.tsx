@@ -5,9 +5,9 @@ import { Flex } from "../../../uikit/uikit";
 export const BannerInfoS = styled.div`
     background: #fff;
     border-radius: 10px;
-    width: 370px;
+    max-width: 370px;
     /* height: 527px; */
-`
+    `
 
 export const BannerInfoWrap = styled.div`
     padding: 25px;
@@ -68,7 +68,6 @@ export const BannerInfoText = styled.p<Props>`
     color: #101010;
     margin-left: ${(props) => props.margin?'10px':'0'};
     margin-top: ${(props) => props.mnTop?'15px':'0'};
-
 `
 
 export const BannerInfoIncrease = styled(BannerInfoText)<Props>`

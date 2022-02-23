@@ -78,7 +78,7 @@ const EventQuantity = styled.span`
   /* identical to box height */
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #979797
+  color: #979797;
 `
 
 const Title = styled.div`

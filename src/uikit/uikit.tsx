@@ -6,6 +6,7 @@ type Props = {
   margin?: string | '0';
   flex?: number;
   direction?: 'column' | 'row';
+  flexWrap?: string ;
 };
 
 export const Flex = styled.div<Props>`
@@ -15,6 +16,7 @@ export const Flex = styled.div<Props>`
   align-items: ${(props) => props.align || 'stretch'};
   flex-direction: ${(props) => props.direction || 'row'};
   margin: ${(props) => props.margin};
+  flex-wrap: ${(props) => props.flexWrap || 'nowrap'};
 `;
 
 

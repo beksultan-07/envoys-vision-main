@@ -10,11 +10,9 @@ import { Flex } from "../../uikit/uikit";
 type Props = {
     pageWrapId?: string;
     outerContainerId?: string;
-
-    
 }
 
-const SideBar:React.FC<Props> = (props) => {
+const Burger:React.FC<Props> = (props) => {
 
     const [navLinks, setNavLinks] = React.useState(['Решения', 'Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
     const [navLinksEn, setNavLinksEn] = React.useState(['Solutions', 'Markets', 'Listing', 'Clearing', 'News&Analytics', 'AboutUs'])
@@ -57,4 +55,4 @@ const SideBar:React.FC<Props> = (props) => {
   );
 };
 
-export default SideBar
+export default Burger

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Flex } from "../../../uikit/uikit";
+import { SideBarTitle } from '../SideBar/SideBarSC'
+
 
 export const CompanyWrap = styled.div`
 
@@ -63,6 +65,17 @@ export const CompanyListItemIconWrap = styled(Flex)<Props>`
     border-radius: 50%;
     border: ${props => !props.active?'1px solid #045599':'none'}; 
     cursor: pointer;
+`
+
+export const CompanyTitle = styled.h3`
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #101010;
 `
 
 export const CompanyDDWrap = styled.div<Props>`

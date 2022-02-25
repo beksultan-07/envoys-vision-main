@@ -1,9 +1,56 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Flex } from "../../../uikit/uikit";
+
+type Props = {
+    click: boolean;
+}
+
+export const SideBarIcon = styled.img`
+    visibility: hidden;
+    width: 0;
+    @media (max-width: 765px) {
+        visibility: visible;
+        width: 20px;
+        margin: 9px 0 0 0;
+
+    }
+`
 
 
 export const SideBarWrap = styled.div`
     padding: 0px 40px 0 0;
+    @media (max-width: 765px) {
+        padding: 0px 10px 0 0;
+        
+    }
+    `
+
+export const SideBarCloseWrap = styled.div<Props>`
+    @media (max-width: 765px) {
+        transition: .3s linear;
+        position: absolute;
+        top: 0;
+        opacity: ${props => props.click?'1':'0'};
+        z-index: ${props => props.click?'1':'-100'};
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3)};
+    }
+`
+
+export const SideBarFlex = styled(Flex)<Props>`
+    @media (max-width: 765px) {
+        position: absolute;
+        padding: 20px;
+        top: 0;
+        transition: .4s;
+        left: ${props => props.click?'0':'-120%'};
+        background: #373a47;
+        height: 100%;
+        z-index: 2;
+    }
 `
 
 export const SideBarTitle = styled.h3`
@@ -16,6 +63,25 @@ export const SideBarTitle = styled.h3`
     text-transform: uppercase;
     color: #101010;
     margin: 0 0 36px 0;
+    @media (max-width: 765px) {
+            color: #fff;
+            width: 100%
+    }
+`
+
+export const SideBarBtn = styled.button`
+    visibility: hidden;
+    color: #fff;
+    background: none;
+    padding: 0;
+    border: none;
+
+    img{
+        width: 15px;
+    }
+    @media (max-width: 765px) {
+        visibility: visible;
+    }
 `
 
 export const SideBarLink = styled.button`
@@ -33,8 +99,15 @@ export const SideBarLink = styled.button`
     cursor: pointer;
     text-align: start;
     margin: 20px 0;
+    @media (max-width: 765px) {
+        margin: 10px 0;
+        color: #fff;
+    }
 `
 
 export const SideBarLinkActive = styled(SideBarLink)`
     color: #045599;
+    @media (max-width: 765px) {
+        color: #fff;
+    }
 `

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { CompanyInfoName, CompanyInfoValue, CompanyInfoValueLink, CompanyList, CompanyListItemIcon, CompanyListItemIconWrap, CompanyListItemText, CompanyWrap } from './CompanySC'
-import { SideBarTitle } from '../SideBar/SideBarSC'
+import { CompanyInfoName, CompanyInfoValue, CompanyInfoValueLink, CompanyList, CompanyListItemIcon, CompanyListItemIconWrap, CompanyListItemText, CompanyTitle, CompanyWrap } from './CompanySC'
 import { Flex } from '../../../uikit/uikit'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import CompanyListItem from './CompanyListItem'
@@ -42,7 +41,7 @@ const CompanySide:React.FC = () => {
 
     React.useEffect(() => {
         if(location.state === null){
-            navigate('/Listing')
+            navigate('/listing')
         }else{
             setCompanyName(location.state.CompanyName)
         }
@@ -51,7 +50,7 @@ const CompanySide:React.FC = () => {
 
   return (
     <CompanyWrap>
-        <SideBarTitle>{companyName}</SideBarTitle>
+        <CompanyTitle>{companyName}</CompanyTitle>
 
         <Flex direction='column'>
             {companyInfo.map((el, i) => {

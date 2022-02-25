@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CompanyInfoName, CompanyInfoValue, CompanyInfoValueLink, CompanyList, CompanyListItemIcon, CompanyListItemIconWrap, CompanyListItemText, CompanyWrap } from './CompanySC'
 import { SideBarTitle } from '../SideBar/SideBarSC'
 import { Flex } from '../../../uikit/uikit'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import CompanyListItem from './CompanyListItem'
 
 const CompanySide:React.FC = () => {
@@ -35,13 +35,27 @@ const CompanySide:React.FC = () => {
         'Документы',
         'Новости',
     ])
+    const [companyName, setCompanyName] = React.useState('')
+
+    const location = useLocation()
+    const navigate = useNavigate() 
+
+    React.useEffect(() => {
+        if(location.state === null){
+            navigate('/Listing')
+        }else{
+            setCompanyName(location.state.CompanyName)
+        }
+    }, [])
+    
+
   return (
     <CompanyWrap>
-        <SideBarTitle>АО "АзияАгроФуд" (AAFD)</SideBarTitle>
+        <SideBarTitle>{companyName}</SideBarTitle>
 
         <Flex direction='column'>
             {companyInfo.map((el, i) => {
-                return <Flex margin='30px 0 0 0'>
+                return <Flex margin='30px 0 0 0'  key={i}>
                         <CompanyInfoName>{el.name}:</CompanyInfoName>
                         {el.name==='Сайт'||el.name==='Электронная почта'
                         ?<CompanyInfoValueLink><Link to='#'>{el.info}</Link></CompanyInfoValueLink>

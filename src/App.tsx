@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from "react-router";
 
 import DividendC from './pages/dividendCalendar/DividendC';
@@ -15,15 +15,45 @@ import Company from './pages/Company/Company';
 
 function App() {
   const [showSwiper, setShowSwiper] = React.useState(true)
+  const [pathLocation, setPathLocation] = useState<string[]>(['home'])
 
   const location = useLocation() 
   
+  function pathControlls(){
+    let path:string[] = []
+      let pathName: string = ''
+      let locPath = location.pathname 
+      for(let i = 0; i < locPath.length; i++){
+        pathName += locPath[i]
+        if(i !== 0 && locPath[i] === '/' || i === locPath.length-1){
+            path.push(pathName)
+            console.log(pathName);
+            pathName = ''
+        }
+      }
+      let newPathLoc = []
+      newPathLoc.push('Home')
+      path.forEach((el, index) => {
+        if(el[0] === '/'){
+          el = el.slice(1)
+        }
+        if(el[el.length-1] === '/'){
+          el = el.slice(0, el.length-1)
+          console.log(el);
+        }
+        newPathLoc.push(el)
+      })
+      setPathLocation(newPathLoc)
+  }
+
   React.useEffect(() => {
     if(location.pathname === '/' || location.pathname.toLowerCase() === '/home'){
       setShowSwiper(false)
     }else{
       setShowSwiper(true)
+      pathControlls()
     }
+      
   }, [location])
   
 
@@ -31,15 +61,15 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      {showSwiper?<HeaderSwiperBase/>:<></>}
+      {showSwiper?<HeaderSwiperBase path={pathLocation}/>:<></>}
 
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/Listing" element={<Listing/>}/>
-        <Route path="/Listing/Company" element={<Company/>}/>
-        <Route path="/earningCelender" element={<EarningC/>}/>
-        <Route path="/dividendCelender" element={<DividendC/>}/>
+        <Route path="/listing" element={<Listing/>}/>
+        <Route path="/listing/company" element={<Company/>}/>
+        <Route path="/earningcelender" element={<EarningC/>}/>
+        <Route path="/dividendcelender" element={<DividendC/>}/>
       </Routes>
 
       <Footer/>

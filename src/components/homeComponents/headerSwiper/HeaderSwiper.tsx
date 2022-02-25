@@ -73,7 +73,7 @@ const HeaderSwiper:React.FC = () => {
                     posB = true
                 }
                 
-                return <SwiperSlide>
+                return <SwiperSlide  key={i}>
                     <HeaderSwiperItem>
                         <Flex align='center'>
                             <HeaderSwiperIcon src={posB?incr:decr}/>

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import styled from "styled-components";
 import {Flex} from '../../../uikit/uikit';
 import globus from '../../../assets/Globus.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const ListCompany = styled.div`
@@ -114,8 +114,8 @@ const ListItem = styled.div`
   letter-spacing: 0.02em;
   text-decoration-line: underline;
   color: #045599;
+  cursor: pointer;
   a{
-    cursor: pointer;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -155,7 +155,15 @@ const ListinC: FC = () => {
         {companyCode: 'AAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
     ]
 
-const count = listItems.length
+    const count = listItems.length
+
+    const navigate = useNavigate()
+    const loc = useLocation()
+
+    function linkHandler(e:React.MouseEvent) {
+      navigate(loc.pathname+'/company', {state: {CompanyName: e.target.outerText}})
+    }
+
 
     return (
         <ListCompany>
@@ -179,7 +187,8 @@ const count = listItems.length
                             { idx === 0 
                             ?<ListItem style={{color: 'black', textDecoration: 'none'}} key={idx}>{el.companyName}</ListItem> 
                             :
-                              <ListItem key={idx}><Link to='/Listing/Company'>{el.companyName}</Link></ListItem>
+                              <ListItem key={idx} onClick={(e) => linkHandler(e)}>{el.companyName}
+                              </ListItem>
                            }
 
                             {el.webSite === 'Сайт' ? <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> : <ListItem><img src={el.webSite} alt=""/></ListItem>

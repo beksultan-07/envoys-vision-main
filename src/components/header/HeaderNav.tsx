@@ -10,7 +10,7 @@ import { Flex } from "../../uikit/uikit";
 const HeaderNav:React.FC = () => {
 
     const [navLinks, setNavLinks] = React.useState(['Решения', 'Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
-    const [navLinksEn, setNavLinksEn] = React.useState(['Solutions', 'Markets', 'Listing', 'Clearing', 'News&Analytics', 'AboutUs'])
+    const [navLinksEn, setNavLinksEn] = React.useState(['solutions', 'markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
 
 
 

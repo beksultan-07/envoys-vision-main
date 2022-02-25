@@ -12,7 +12,11 @@ import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfo
 import { Link, useLocation } from 'react-router-dom'
 
 
-const HeaderSwiperBase:React.FC = () => {
+type Props = {
+    path: string[]
+}
+
+const HeaderSwiperBase:React.FC<Props> = (props) => {
     const [values, setValues] = React.useState([
         {
             name: 'Бензин 80',
@@ -50,11 +54,15 @@ const HeaderSwiperBase:React.FC = () => {
   const location = useLocation() 
 
   React.useEffect(() => {
-    if(location.pathname.toLowerCase() === '/listing'){
+    if(location.pathname === '/listing'){
         setLocationText('Список компаний')
+    }else if(location.pathname === '/listing/company'){
+        setLocationText('Раскрытие информации компаниями')
     }else{
         setLocationText('undefined')
     }
+    console.log(props.path);
+    
   }, [location])
 
   return (
@@ -87,7 +95,7 @@ const HeaderSwiperBase:React.FC = () => {
                         posB = true
                     }
                     
-                    return <SwiperSlide>
+                    return <SwiperSlide  key={i}>
                         <HeaderSwiperItem>
                             <Flex align='center'>
                                 <HeaderSwiperIcon src={posB?incr:decr}/>
@@ -107,24 +115,20 @@ const HeaderSwiperBase:React.FC = () => {
 
         <Container>
             <Flex align='center' margin='40px 0 0 0' flexWrap='wrap'>
-                <HeaderSwiperPath>
-                    <Link to='/'>Главная</Link>
-                </HeaderSwiperPath>
-                <HeaderSwiperIcon1 src={next} alt="" />
-
-                <HeaderSwiperPath>
-                    <Link to='#'>Продукты и услуги</Link>
-                </HeaderSwiperPath>
-                <HeaderSwiperIcon1 src={next} alt="" />
-
-                <HeaderSwiperPath>
-                    <Link to='#'>Листинг</Link>
-                </HeaderSwiperPath>
-                <HeaderSwiperIcon1 src={next} alt="" />
-
-                <HeaderSwiperPath>
-                    <Link to='#'>Список компаний</Link>
-                </HeaderSwiperPath>
+                {props.path.map((el, index) => {
+                    if(index === props.path.length -1){
+                        return <HeaderSwiperPath key={index}>
+                        <Link to='/listing/company'>{el}</Link>
+                    </HeaderSwiperPath>
+                    }else{
+                        return <>
+                             <HeaderSwiperPath key={index}>
+                                            <Link to={el}>{el}</Link>
+                                    </HeaderSwiperPath>
+                                    <HeaderSwiperIcon1 src={next} alt="" />
+                         </>
+                    }
+                })}
             </Flex>
 
             <HeaderSwiperTitle>{locationText}</HeaderSwiperTitle>

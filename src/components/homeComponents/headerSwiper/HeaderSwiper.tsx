@@ -67,13 +67,13 @@ const HeaderSwiper:React.FC = () => {
             }
               }>
 
-            {values.map((val, i) => {
+            {values.map((val, index) => {
                 let posB = false
                 if(val.pos[0] === '+'){
                     posB = true
                 }
                 
-                return <SwiperSlide  key={i}>
+                return <SwiperSlide  key={index}>
                     <HeaderSwiperItem>
                         <Flex align='center'>
                             <HeaderSwiperIcon src={posB?incr:decr}/>

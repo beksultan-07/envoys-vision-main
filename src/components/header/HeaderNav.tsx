@@ -19,9 +19,9 @@ const HeaderNav:React.FC = () => {
          <Flex align='center' justify='space-between' flex={1}>
             {navLinks.map((el, index) => {
                 if(el === 'Клиринг' || el === 'Новости и аналитика' || el === 'О нас'){
-                    return <HeaderNavLink to={navLinksEn[index]}> {el} </HeaderNavLink>
+                    return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
                 }
-                return <HeaderNavLink to={navLinksEn[index]}>
+                return <HeaderNavLink key={index} to={navLinksEn[index]}>
                 <Flex align='center'>
                     {el}
                     <HeaderDropDownLogo src={Dd}/>

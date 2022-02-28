@@ -134,7 +134,9 @@ export const CompanyListItemDDBottomText = styled.p<Props>`
     opacity: ${props => !props.active?'0':'1'};
     visibility: ${props => !props.active?'hidden':'visible'};
     text-align: center;
+    margin: 0 5px;
     :first-child{
+        margin: 0 ;
         text-align: start;
     }
 

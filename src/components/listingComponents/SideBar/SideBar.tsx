@@ -27,15 +27,15 @@ const SideBar:React.FC = () => {
                 </Flex>
             </SideBarTitle>
     
-            {links.map((el, i) => {
+            {links.map((el, index) => {
                 if(el=== activeLink){
-                    return <SideBarLinkActive key={i} onClick={(e) => {
+                    return <SideBarLinkActive key={index} onClick={(e) => {
                         setActivveLink(el)
                         setSideBarClickIcon(false)
                     } }>{el}</SideBarLinkActive>
                 }
 
-                return <SideBarLink key={i} onClick={(e) => {
+                return <SideBarLink key={index} onClick={(e) => {
                     setActivveLink(el)
                     setSideBarClickIcon(false)
                 }}>{el}</SideBarLink>

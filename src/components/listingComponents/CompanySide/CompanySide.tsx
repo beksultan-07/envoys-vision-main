@@ -53,8 +53,8 @@ const CompanySide:React.FC = () => {
         <CompanyTitle>{companyName}</CompanyTitle>
 
         <Flex direction='column'>
-            {companyInfo.map((el, i) => {
-                return <Flex margin='30px 0 0 0'  key={i}>
+            {companyInfo.map((el, index) => {
+                return <Flex margin='30px 0 0 0'  key={index}>
                         <CompanyInfoName>{el.name}:</CompanyInfoName>
                         {el.name==='Сайт'||el.name==='Электронная почта'
                         ?<CompanyInfoValueLink><Link to='#'>{el.info}</Link></CompanyInfoValueLink>
@@ -64,8 +64,8 @@ const CompanySide:React.FC = () => {
             })}
 
             <CompanyList>
-                {list.map((el, i) => {
-                    return <CompanyListItem key={i} name={el} id={i}/>
+                {list.map((el, index) => {
+                    return <CompanyListItem key={index} name={el} id={index}/>
                 })}            
             </CompanyList>
 

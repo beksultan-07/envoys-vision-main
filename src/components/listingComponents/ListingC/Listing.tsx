@@ -156,6 +156,7 @@ const ListinC: FC = () => {
     ]
 
     const count = listItems.length
+    const [inputVal, setInputVal] = React.useState()
 
     const navigate = useNavigate()
     const loc = useLocation()
@@ -164,6 +165,11 @@ const ListinC: FC = () => {
       navigate(loc.pathname+'/company', {state: {CompanyName: e.target.outerText}})
     }
 
+    function onChangeHandler(e:React.ChangeEvent<HTMLInputElement>){
+      console.log(e.target.value);
+      setInputVal(e.target.value)
+        
+    }
 
     return (
         <ListCompany>
@@ -177,23 +183,23 @@ const ListinC: FC = () => {
                 </LCNav>
                 <LCCounter>Всего эмитентов - {count}</LCCounter>
             </Flex>
-            <LCSearch placeholder={'Поиск (по коду или названию компании)'}/>
+            <LCSearch placeholder={'Поиск (по коду или названию компании)'} onChange={(e) => onChangeHandler(e)}/>
             <List>
                 <>
                     {listItems.map((el, idx) => (
                         <ListItems key={idx}>
-                            { idx === 0 ? <ListItem style={{color: 'black', textDecoration: 'none'}} key={idx}>{el.companyCode}</ListItem> : <ListItem key={idx}>{el.companyCode}</ListItem> }
+                            { idx === 0 ? <ListItem style={{color: 'black', textDecoration: 'none'}}>{el.companyCode}</ListItem> : <ListItem>{el.companyCode}</ListItem> }
 
                             { idx === 0 
-                            ?<ListItem style={{color: 'black', textDecoration: 'none'}} key={idx}>{el.companyName}</ListItem> 
+                            ?<ListItem style={{color: 'black', textDecoration: 'none'}}>{el.companyName}</ListItem> 
                             :
-                              <ListItem key={idx} onClick={(e) => linkHandler(e)}>{el.companyName}
+                              <ListItem onClick={(e) => linkHandler(e)}>{el.companyName}
                               </ListItem>
                            }
 
                             {el.webSite === 'Сайт' ? <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> : <ListItem><img src={el.webSite} alt=""/></ListItem>
                             }
-                            <ListItem key={idx}>{el.capitalize}</ListItem>
+                            <ListItem style={{cursor: 'auto'}}>{el.capitalize}</ListItem>
                         </ListItems>
 
                     ))}

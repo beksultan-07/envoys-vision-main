@@ -14,14 +14,14 @@ const Third:React.FC<Props> = (props) => {
     <>
 
         <CompanyListItemDDTop justify='space-between' active={props.DDClick}>
-            {props.header.map((el, index) => {
+            {props.header.map((el:any, index:number) => {
                 return <CompanyListItemDDBottomText key={index}  active={props.DDClick}>{el}</CompanyListItemDDBottomText>
             })}
         </CompanyListItemDDTop>
     
-        {props.values.map((element, index) => {
+        {props.values.map((element:any, index:number) => {
             return <CompanyListItemDDBottom key={index} active={props.DDClick} justify='space-between'>
-                {element.map((el, i) => {
+                {element.map((el:string, i:number) => {
                     return <CompanyListItemDDBottomText key={i} active={props.DDClick}>{el}</CompanyListItemDDBottomText>
                 })}
             </CompanyListItemDDBottom>

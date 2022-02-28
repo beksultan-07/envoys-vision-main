@@ -26,12 +26,10 @@ const Fourth:React.FC<Props> = (props) => {
             return <CompanyListItemDDBottom key={index} active={props.DDClick} justify='space-between'>
                 {element.map((el, i) => {
                     if(i===0){
-                        return <CompanyListItemDDBottomText key={i} style={{textAlign: i===1?'end':'start'}} active={props.DDClick}>
-                            <Flex>
+                        return <Flex key={i} flex={1}>
                                 <CompanyListItemIcon src={img} style={{marginRight: '20px'}}/>
-                                {el}
-                            </Flex>
-                        </CompanyListItemDDBottomText>
+                                <CompanyListItemDDBottomText style={{textAlign: i===1?'end':'start'}} active={props.DDClick}>{el}</CompanyListItemDDBottomText>
+                        </Flex>
                     }
                     return <CompanyListItemDDBottomText key={i} style={{textAlign: i===1?'end':'start'}} active={props.DDClick}>{el}</CompanyListItemDDBottomText>
                 })}

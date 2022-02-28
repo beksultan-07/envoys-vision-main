@@ -59,9 +59,8 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
     }else{
-        setLocationText('undefined')
+        setLocationText('Страница не найдена')
     }
-    console.log(props.path);
     
   }, [location])
 
@@ -89,13 +88,13 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
                 }
                   }>
     
-                {values.map((val, i) => {
+                {values.map((val, index) => {
                     let posB = false
                     if(val.pos[0] === '+'){
                         posB = true
                     }
                     
-                    return <SwiperSlide  key={i}>
+                    return <SwiperSlide  key={index}>
                         <HeaderSwiperItem>
                             <Flex align='center'>
                                 <HeaderSwiperIcon src={posB?incr:decr}/>
@@ -121,12 +120,12 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
                         <Link to='/listing/company'>{el}</Link>
                     </HeaderSwiperPath>
                     }else{
-                        return <>
-                             <HeaderSwiperPath key={index}>
+                        return <Flex  key={index}>
+                             <HeaderSwiperPath>
                                             <Link to={el}>{el}</Link>
                                     </HeaderSwiperPath>
                                     <HeaderSwiperIcon1 src={next} alt="" />
-                         </>
+                         </Flex>
                     }
                 })}
             </Flex>

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import styled from "styled-components";
 import {Flex} from '../../../uikit/uikit';
 import globus from '../../../assets/Globus.svg'
@@ -146,17 +146,18 @@ const ListItem = styled.div`
 
 const ListinC: FC = () => {
 
-    const listItems = [
-        {companyCode: 'Код', companyName: 'Компания', webSite: 'Сайт', capitalize: 'Капитлаизация, млрд сом'},
-        {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
-        {companyCode: 'AAFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
-        {companyCode: 'AAFD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
-        {companyCode: 'AAFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
-        {companyCode: 'AAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
-    ]
+    const[listItems, setListItems] = React.useState ([
+      {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
+      {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
+      {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
+      {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
+      {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'}
+    ])
+
+    const[listItems2, setListItems2] = React.useState ([...listItems])
 
     const count = listItems.length
-    const [inputVal, setInputVal] = React.useState()
+    const [inputVal, setInputVal] = React.useState<string>('')
 
     const navigate = useNavigate()
     const loc = useLocation()
@@ -166,10 +167,30 @@ const ListinC: FC = () => {
     }
 
     function onChangeHandler(e:React.ChangeEvent<HTMLInputElement>){
-      console.log(e.target.value);
-      setInputVal(e.target.value)
-        
+      let val = e.target.value
+      let newListItems:any = [...listItems]
+
+      if (val.length <= inputVal.length) {
+        newListItems = [...listItems2]
+      }
+
+      if(val.length > 0){
+        newListItems = newListItems.map((el, index) => {
+          if(el !== undefined){
+            if(val.toLowerCase() === el.companyCode.slice(0, val.length).toLowerCase() || val.toLowerCase() === el.companyName.slice(0, val.length).toLowerCase()) {
+              return el 
+            }else{
+              return undefined
+            }
+          }
+          })
+        setListItems(newListItems)
+      }else{
+        setListItems(listItems2)
+      }
+      setInputVal(val);
     }
+    
 
     return (
         <ListCompany>
@@ -185,25 +206,25 @@ const ListinC: FC = () => {
             </Flex>
             <LCSearch placeholder={'Поиск (по коду или названию компании)'} onChange={(e) => onChangeHandler(e)}/>
             <List>
-                <>
-                    {listItems.map((el, idx) => (
-                        <ListItems key={idx}>
-                            { idx === 0 ? <ListItem style={{color: 'black', textDecoration: 'none'}}>{el.companyCode}</ListItem> : <ListItem>{el.companyCode}</ListItem> }
+                <ListItems>
+                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Код</ListItem>
+                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Компания</ListItem>
+                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem>
+                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Капитлаизация, млрд сом</ListItem>
+                </ListItems>
 
-                            { idx === 0 
-                            ?<ListItem style={{color: 'black', textDecoration: 'none'}}>{el.companyName}</ListItem> 
-                            :
-                              <ListItem onClick={(e) => linkHandler(e)}>{el.companyName}
-                              </ListItem>
-                           }
+                    {listItems.map((el, idx) => {
+                      if(el !== undefined){
+                         return <ListItems key={idx}>
+                            <ListItem>{el.companyCode}</ListItem>
 
-                            {el.webSite === 'Сайт' ? <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> : <ListItem><img src={el.webSite} alt=""/></ListItem>
-                            }
+                            <ListItem onClick={(e) => linkHandler(e)}>{el.companyName} </ListItem> 
+                            
+                            <ListItem><img src={el.webSite} alt=""/></ListItem>
+                            
                             <ListItem style={{cursor: 'auto'}}>{el.capitalize}</ListItem>
                         </ListItems>
-
-                    ))}
-                </>
+                      }})}
             </List>
         </ListCompany>
     );

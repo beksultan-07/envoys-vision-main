@@ -85,6 +85,11 @@ const LCSearch = styled.input`
     letter-spacing: 0.02em;
     color: #969696;
   }
+  @media(max-width: 396px){
+    &::placeholder {
+      font-size: 12px;
+    }
+  }
 `
 
 const List = styled.div`
@@ -115,6 +120,7 @@ const ListItem = styled.div`
   text-decoration-line: underline;
   color: #045599;
   cursor: pointer;
+  margin: 0 5px;
   a{
     font-style: normal;
     font-weight: normal;
@@ -125,13 +131,7 @@ const ListItem = styled.div`
     color: #045599;
   }
   &:nth-child(1){
-    width: 100px;
-  }
-  &:nth-child(2){
-    width: 200px;
-  }
-  &:nth-child(3){
-    width: 100px;
+    margin: 0;
   }
   &:nth-child(4){
     width: 100px;

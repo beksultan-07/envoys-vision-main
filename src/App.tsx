@@ -27,7 +27,6 @@ function App() {
         pathName += locPath[i]
         if(i !== 0 && locPath[i] === '/' || i === locPath.length-1){
             path.push(pathName)
-            console.log(pathName);
             pathName = ''
         }
       }
@@ -39,7 +38,6 @@ function App() {
         }
         if(el[el.length-1] === '/'){
           el = el.slice(0, el.length-1)
-          console.log(el);
         }
         newPathLoc.push(el)
       })

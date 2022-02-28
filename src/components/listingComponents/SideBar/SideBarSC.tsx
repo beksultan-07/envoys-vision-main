@@ -13,6 +13,7 @@ export const SideBarIcon = styled.img`
         visibility: visible;
         width: 20px;
         margin: 9px 0 0 0;
+        cursor: pointer;
 
     }
 `
@@ -43,13 +44,14 @@ export const SideBarCloseWrap = styled.div<Props>`
 export const SideBarFlex = styled(Flex)<Props>`
     @media (max-width: 765px) {
         position: absolute;
-        padding: 20px;
+        padding: 20px 10px;
         top: 0;
         transition: .4s;
         left: ${props => props.click?'0':'-120%'};
         background: #373a47;
         height: 100%;
         z-index: 2;
+        width: 190px;
     }
 `
 
@@ -78,6 +80,7 @@ export const SideBarBtn = styled.button`
 
     img{
         width: 15px;
+        cursor: pointer;
     }
     @media (max-width: 765px) {
         visibility: visible;

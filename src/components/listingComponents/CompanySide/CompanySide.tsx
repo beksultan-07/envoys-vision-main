@@ -65,7 +65,7 @@ const CompanySide:React.FC = () => {
 
             <CompanyList>
                 {list.map((el, i) => {
-                    return <CompanyListItem key={i} name={el}/>
+                    return <CompanyListItem key={i} name={el} id={i}/>
                 })}            
             </CompanyList>
 

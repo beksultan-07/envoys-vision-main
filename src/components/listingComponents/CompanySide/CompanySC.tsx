@@ -106,11 +106,19 @@ export const CompanyListItemDDTop = styled(Flex)<Props>`
     transition: .3s linear;
     padding: ${props => !props.active?'0 20px': '15px 20px'};
     visibility: ${props => !props.active?'hidden':'visible'};
+    height: ${props => !props.active?'0':'auto'};
 `
 
 export const CompanyListItemDDBottom = styled(CompanyListItemDDTop)<Props>`
     background: #ECF1F8;
     padding: ${props => !props.active?'0 20px': '15px 20px'};
+    height: ${props => !props.active?'0':'auto'};
+    :nth-child(odd){
+        background: #ECF1F8;
+    }
+    :nth-child(even){
+        background: #fff;
+    }
 `
 
 export const CompanyListItemDDBottomText = styled.p<Props>`
@@ -130,4 +138,28 @@ export const CompanyListItemDDBottomText = styled.p<Props>`
         text-align: start;
     }
 
+`
+
+export const CompanyListItemDDTitle = styled.h3<Props>`
+    visibility: ${props => !props.active?'hidden':'visible'};
+    height: ${props => !props.active?'0':'auto'};
+
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.02em;
+    color: #101010;
+    margin-bottom: ${props => !props.active?'0':'20px'};
+    a{
+        font-family: Exo 2;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.02em;
+        text-decoration-line: underline;
+        color: #045599;
+    }
 `

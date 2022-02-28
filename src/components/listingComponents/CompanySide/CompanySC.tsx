@@ -84,7 +84,7 @@ export const CompanyDDWrap = styled.div<Props>`
 
 export const CompanyListItemIcon = styled.img<Props>`
     margin-top: ${props => !props.active?'0':'-2px'};
-    width: 24px;
+    width: 15px;
 `
 
 export const CompanyListItemS = styled.li`

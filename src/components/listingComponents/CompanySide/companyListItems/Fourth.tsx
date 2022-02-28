@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { CompanyListItemDDBottom, CompanyListItemDDBottomText, CompanyListItemDDTitle, CompanyListItemDDTop } from '../CompanySC';
+import { CompanyListItemDDBottom, CompanyListItemDDBottomText, CompanyListItemDDTitle, CompanyListItemDDTop, CompanyListItemIcon } from '../CompanySC';
+
+import img from '../../../../assets/document.svg'
+import { Flex } from '../../../../uikit/uikit';
 
 type Props = {
     header: any;
@@ -22,6 +25,14 @@ const Fourth:React.FC<Props> = (props) => {
         {props.values.map((element, index) => {
             return <CompanyListItemDDBottom key={index} active={props.DDClick} justify='space-between'>
                 {element.map((el, i) => {
+                    if(i===0){
+                        return <CompanyListItemDDBottomText key={i} style={{textAlign: i===1?'end':'start'}} active={props.DDClick}>
+                            <Flex>
+                                <CompanyListItemIcon src={img} style={{marginRight: '20px'}}/>
+                                {el}
+                            </Flex>
+                        </CompanyListItemDDBottomText>
+                    }
                     return <CompanyListItemDDBottomText key={i} style={{textAlign: i===1?'end':'start'}} active={props.DDClick}>{el}</CompanyListItemDDBottomText>
                 })}
             </CompanyListItemDDBottom>

@@ -4,9 +4,18 @@ import styled from "styled-components";
 import calendar from '../celenderTop/img/calendar.svg'
 import lupa from '../celenderTop/img/lupa.svg'
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {Autoplay} from 'swiper'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
 const Wrapper = styled.div`
-    max-width: 1170px;
-    margin: 0 auto;
+  padding: 40px 0 10px;
+  max-width: 100%;
+  margin: 0 auto;
 `
 
 const Search = styled.input`
@@ -62,24 +71,61 @@ const Calendar = styled.div`
   border-radius: 8px;
 `
 
+const InpCel = styled.input`
+  border: none;
+  padding: 19px 25px 21px;
+  background: #F1F1F1;
+  outline: none;
+  border-radius: 8px;
+
+  ::placeholder{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: #ff0000;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+      background: url(${calendar}) no-repeat;
+      color: rgba(0, 0, 0, 0);
+      opacity: 1;
+      width: 20px;
+    }
+
+`
+
 const CelenderTop:React.FC = () => {
     const days = ['Пт, 28 янв.', 'Пн, 07 фев.', 'Пт, 04 фев.', 'Чт, 03 фев.', 'Ср, 2 фев.']
+    const [startDate, setStartDate] = React.useState<Date>(new Date());
+
+
   return (
    <Wrapper>
        <Flex style={{width:'100%'}} align="center" justify='space-between'>
-           <SearchBLock>
+           <SearchBLock >
                <Search placeholder='Введите название'/>
                <Lupa/>
            </SearchBLock>
-           <Flex style={{ background:'#F1F1F1', borderRadius: '8px', padding: '21px 26px'}} justify={'space-between'}>
-               {
-                   days.map((el, idx) => (
-                       <Day>{el}</Day>
-                   ))
-               }
-           </Flex>
+           <Flex style={{ maxWidth: '60%', background:'#F1F1F1', borderRadius: '8px', padding: '21px 26px'}} justify={'space-between'}>
+                <Swiper loop slidesPerView={4}
+                 modules={[Navigation, Autoplay]}
+                 autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+              }}
+                 >
 
-           <Calendar><img src={calendar} alt=""/></Calendar>
+               {days.map((el, idx) => (
+                       <SwiperSlide><Day>{el}</Day></SwiperSlide>
+                   ))}
+                </Swiper>
+                  {/* <div className="swiper-button-prev-unique"></div>
+                  <div className="swiper-button-next-unique"></div> */}
+           </Flex>
+           <InpCel type="date" onChange={e => setStartDate(e.target
+            .value)}/>
 
        </Flex>
    </Wrapper>

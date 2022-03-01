@@ -8,7 +8,7 @@ import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper';
-import Listing from "./pages/listing/Listing";
+import Listing from "./pages/Listing/Listing";
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
@@ -36,12 +36,7 @@ function App() {
       {showSwiper?<HeaderSwiperBase/>:<></>}
 
       <Routes>
-
-        <Route path="/Listing" element={<Listing/>}/>
-        <Route path="/earningCelender" element={<EarningC/>}/>
-        <Route path="/dividendCelender" element={<DividendC/>}/>
-
-        <Route path="/" element={<DividendC/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>

@@ -148,7 +148,7 @@ const CompanySearchBtn = styled.button`
   background: #F1F1F1;
   border: none;
   border-radius: 0 8px 8px  0; 
-  padding: 10px;
+  padding: 12px;
   img{
     width: 22px;
   }

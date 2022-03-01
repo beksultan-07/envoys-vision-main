@@ -40,7 +40,11 @@ const LCCounter = styled.span`
   color: #101010;
   margin: 30px 0 35px 10px;
 `
-const NavItem = styled.li`
+type NavProps = {
+  click: boolean
+}
+
+const NavItem = styled.li<NavProps>`
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -52,22 +56,22 @@ const NavItem = styled.li`
   margin-top: 10px;
   position: relative;
   cursor: pointer;
+  transition: .3s;
+
   &:last-child {
     margin-right: 0;
   }
-  &:hover{
-    border-bottom: 1px solid #F47F1F;
+
+  border-bottom: ${props => props.click?'1px solid #F47F1F':'none'};
     &:before{
-      position: absolute;
+      position: ${props => props.click?'absolute':'static'};
       content: '';
       width: 15px;
       height: 15px;
-      background: #F47F1F;
+      background: ${props => props.click?'#F47F1F':'none'};
       left: -23px;
       border-radius: 50% ;  
     }
-  }
-  
 `
 
 const LCSearch = styled.input`
@@ -154,6 +158,11 @@ const CompanySearchBtn = styled.button`
   }
 `
 
+type NavItemProps = {
+  name: string;
+  check: boolean;
+}
+
 const ListinC:React.FC = () => {
 
     const[listItems, setListItems] = React.useState ([
@@ -165,6 +174,12 @@ const ListinC:React.FC = () => {
     ])
 
     const[listItems2, setListItems2] = React.useState ([...listItems])
+    const [NavitemsSort, setNavitemsSort] = React.useState({
+      all: true,
+      listing: false,
+      notListing: false,
+      default: false,
+    })
 
     const [inputVal, setInputVal] = React.useState<string>('')
 
@@ -174,30 +189,7 @@ const ListinC:React.FC = () => {
     function linkHandler(e:React.MouseEvent) {
       navigate(loc.pathname+'/company', {state: {CompanyName: e.target.outerText}})
     }
-    
-
-    function onSubmitHandler(e:React.FormEvent){
-      e.preventDefault()
-      console.log('luck');
-
-      // let newListItems:any = [...listItems]
-      // let val = inputVal
-      // if(inputVal.length > 0){
-      //   newListItems = newListItems.map((company:any) => {
-      //     if(company !== undefined){
-      //       for (let i = 0; i < company.companyName.length; i++) {          
-      //         if(company.companyName.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
-      //           return company
-      //         }else if(company.companyCode.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
-      //           return company
-      //         }
-      //       }
-      //     }
-      //   })
-      // }
-      // setListItems(newListItems)
-    }
-    
+        
 
     function onChangeHandler(e:React.ChangeEvent<HTMLInputElement>){
       let val = e.target.value
@@ -225,28 +217,46 @@ const ListinC:React.FC = () => {
   }
     
 
+  function clickSortNav (e){
+    let newNav = {...NavitemsSort}
+    for(let i in newNav){
+      if(newNav[i]){
+        newNav[i] = !i
+      }
+    }
+    
+    if(e.target.outerText === 'Все'){
+      newNav.all = !newNav.all
+    }else if(e.target.outerText === 'Листинговые'){
+      newNav.listing = !newNav.listing
+    }else if(e.target.outerText === 'Нелистинговые'){
+      newNav.notListing = !newNav.notListing
+    }else if(e.target.outerText === 'Допустившие дефолт'){
+      newNav.default = !newNav.default
+    }
+    setNavitemsSort(newNav)
+  }
+
     return (
         <ListCompany>
             <LCTitle>Список Компаний</LCTitle>
             <Flex justify={'space-between'}>
                 <LCNav>
-                    <NavItem>Все</NavItem>
-                    <NavItem>Листинговые</NavItem>
-                    <NavItem>Нелистинговые</NavItem>
-                    <NavItem>Допустившие дефолт</NavItem>
+                  <NavItem click={NavitemsSort.all} onClick={(e) => clickSortNav (e)}>Все</NavItem>
+                  <NavItem click={NavitemsSort.listing} onClick={(e) => clickSortNav (e)}>Листинговые</NavItem>
+                  <NavItem click={NavitemsSort.notListing} onClick={(e) => clickSortNav (e)}>Нелистинговые</NavItem>
+                  <NavItem click={NavitemsSort.default} onClick={(e) => clickSortNav (e)}>Допустившие дефолт</NavItem>
                 </LCNav>
                 <LCCounter>Всего эмитентов - {listItems.length}</LCCounter>
             </Flex>
 
-            <form action="#" onSubmit={(e) => onSubmitHandler(e)}>
               <Flex align='center' margin='0 0 30px 0' style={{width: '100%'}}>
                 <LCSearch placeholder={'Поиск (по коду или названию компании)'} style={{width: '100%'}} onChange={(e) => onChangeHandler(e)}/>
-                <CompanySearchBtn onSubmit={(e) => onSubmitHandler(e)}>
+                <CompanySearchBtn>
                   <img src={search} alt="" />
                 </CompanySearchBtn>
               </Flex>
 
-            </form>
             <List>
                 <ListItems>
                   <ListItem style={{color: 'black', textDecoration: 'none'}}>Код</ListItem>

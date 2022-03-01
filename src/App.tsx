@@ -8,6 +8,7 @@ import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper';
+import Listing from "./pages/listing/Listing";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       {/*<Header/>*/}
 
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Listing/>}/>
         <Route path="/earningCelender" element={<EarningC/>}/>
         <Route path="/dividendCelender" element={<DividendC/>}/>
       </Routes>

@@ -9,6 +9,7 @@ import 'swiper/css';
 import { Flex } from '../../../uikit/uikit';
 import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfoSC';
 
+import { Autoplay} from "swiper";
 
 const HeaderSwiper:React.FC = () => {
     const [values, setValues] = React.useState([
@@ -47,7 +48,12 @@ const HeaderSwiper:React.FC = () => {
   return (
     <HeaderSwiperS>
         <Swiper
-            loop
+            loop={true}
+            autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+            }}
+            modules={[Autoplay ]}
             breakpoints= {{
                 320: {
                     slidesPerView: 1,

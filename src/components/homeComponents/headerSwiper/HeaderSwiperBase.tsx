@@ -10,6 +10,8 @@ import 'swiper/css';
 import { Container, Flex } from '../../../uikit/uikit';
 import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfoSC';
 import { Link, useLocation } from 'react-router-dom'
+import { Autoplay} from "swiper";
+
 
 
 
@@ -88,9 +90,9 @@ const HeaderSwiperBase:React.FC= () => {
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
     }else if(location.pathname === '/earningcelender'){
-        setLocationText('Earnings Calendar')
+        setLocationText('Earnings MyApp')
     }else if(location.pathname === '/dividendcelender'){
-        setLocationText('Dividend Calendar')
+        setLocationText('Dividend MyApp')
     }else{
         setLocationText('Страница не найдена')
     }
@@ -102,6 +104,11 @@ const HeaderSwiperBase:React.FC= () => {
         <HeaderSwiperS>
             <Swiper
                 loop
+                autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay ]}
                 breakpoints= {{
                     320: {
                         slidesPerView: 1,

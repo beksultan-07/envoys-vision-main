@@ -213,6 +213,8 @@ const ListinC:React.FC = () => {
         })
         setListItems(newListItems)
         setInputVal(val);
+    }else{
+      setListItems(listItems2)
     }
   }
     
@@ -221,7 +223,7 @@ const ListinC:React.FC = () => {
     let newNav = {...NavitemsSort}
     for(let i in newNav){
       if(newNav[i]){
-        newNav[i] = !i
+        newNav[i] = false
       }
     }
     

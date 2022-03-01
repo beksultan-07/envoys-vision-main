@@ -111,12 +111,15 @@ const CelenderTop:React.FC = () => {
            <Flex style={{ maxWidth: '60%', background:'#F1F1F1', borderRadius: '8px', padding: '21px 26px'}} justify={'space-between'}>
                 <Swiper loop slidesPerView={4}
                  modules={[Navigation, Autoplay]}
-                 autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
-              }}
-                 >
+                        centeredSlides={true}
+                        spaceBetween={-40}
+                        pagination={{
+                            clickable: true,
 
+                        }}
+                        navigation={true}
+                        className="mySwiper"
+                 >
                {days.map((el, idx) => (
                        <SwiperSlide><Day>{el}</Day></SwiperSlide>
                    ))}
@@ -124,8 +127,7 @@ const CelenderTop:React.FC = () => {
                   {/* <div className="swiper-button-prev-unique"></div>
                   <div className="swiper-button-next-unique"></div> */}
            </Flex>
-           <InpCel type="date" onChange={e => setStartDate(e.target
-            .value)}/>
+           <InpCel type="date" onChange={e => setStartDate(e.target.value)}/>
 
        </Flex>
    </Wrapper>

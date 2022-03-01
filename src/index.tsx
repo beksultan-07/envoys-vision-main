@@ -21,6 +21,16 @@ const GlobalStyle = createGlobalStyle`
 *{box-sizing:border-box;
 padding: 0;margin:0; font-family: 'Exo 2', sans-serif;}
 
+.swiper-button-prev{
+  color: #000;
+  width: 20px;
+  height: 44px;
+}
+  .swiper-button-next{
+    color: #000;
+    width: 20px;
+    height: 44px;
+  }
 
 /* Position and sizing of burger button */
 .bm-burger-button {

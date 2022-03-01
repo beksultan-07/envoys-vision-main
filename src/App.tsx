@@ -8,10 +8,11 @@ import Home from './pages/home/Home';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper';
-import Listing from "./pages/Listing/Listing";
+
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
+import Listing from "./pages/listing/Listing";
 
 
 

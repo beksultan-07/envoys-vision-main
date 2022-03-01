@@ -202,10 +202,10 @@ const ListinC:React.FC = () => {
       if(val.length > 0){
         newListItems = newListItems.map((company:any) => {
           if(company !== undefined){
-            for (let i = 0; i < company.companyName.length; i++) {          
-              if(company.companyName.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+            for (let i = 0; i < company.companyName.length; i++) { 
+              if(company.companyName.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
-              }else if(company.companyCode.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+              }else if(company.companyCode.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
               }
             }

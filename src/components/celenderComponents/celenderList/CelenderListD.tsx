@@ -7,10 +7,10 @@ import { CelenderHeader, CelenderIconWrap, CelenderHeaderText, CelenderIcon } fr
 
 type Props = {
     header: string[];
-    value: {}[];
+    value: string[];
 }
 
-const CelenderList:React.FC<Props> = (props) => {   
+const CelenderListD:React.FC<Props> = (props) => {    
   return (
     <>
         <CelenderHeader>
@@ -21,18 +21,17 @@ const CelenderList:React.FC<Props> = (props) => {
             })}
         </CelenderHeader> 
         <Flex direction='column' margin='0 0 100px 0'>
-            {props.value.map((el:any,index) => {
-                return <Flex key={index} margin='30px 0 0 0' align='center'>
-                    <CelenderIconWrap><CelenderIcon src={el.icon=='moon'?moon:sun} alt="" /></CelenderIconWrap>
-                    {el.value.map((el:any, index:number) => {
-                        if(index === 0){
-                            return <CelenderHeaderText key={index}>
-                                <Link to='#'>{el}</Link>
-                            </CelenderHeaderText> 
+            {props.value.map((arr:any, i) => {
+                return <Flex margin='30px 0 0 0' key={i}>
+                    {arr.map((el:string, index:number) => {
+                        if(index === 0 || index === 1){
+                            return <CelenderHeaderText style={{flex: index==0?'.5':'1',margin: index==0?'0':'0 10px'}} key={index}>
+                                            <Link to='#'>{el}</Link>
+                                        </CelenderHeaderText> 
                         }
                         return <CelenderHeaderText key={index}>{el}</CelenderHeaderText>
-                    })}
-                </Flex>
+                        })}
+                    </Flex>         
             })}
         </Flex>
         
@@ -40,4 +39,4 @@ const CelenderList:React.FC<Props> = (props) => {
   )
 }
 
-export default CelenderList
+export default CelenderListD

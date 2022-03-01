@@ -12,11 +12,8 @@ import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfo
 import { Link, useLocation } from 'react-router-dom'
 
 
-type Props = {
-    path: string[]
-}
 
-const HeaderSwiperBase:React.FC<Props> = (props) => {
+const HeaderSwiperBase:React.FC= () => {
     const [values, setValues] = React.useState([
         {
             name: 'Бензин 80',
@@ -50,14 +47,50 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
         },
     ])
     const [locationText, setLocationText] = React.useState('undefined')
+    const [pathLocation, setPathLocation] = React.useState<string[]>(['home'])
+
 
   const location = useLocation() 
 
+  function pathControlls(){
+    let path:string[] = []
+      let pathName: string = ''
+      let locPath = location.pathname 
+      for(let i = 0; i < locPath.length; i++){
+        pathName += locPath[i]
+        if(i !== 0 && locPath[i] === '/' || i === locPath.length-1){
+            path.push(pathName)
+            pathName = ''
+        }
+      }
+      let newPathLoc = []
+      newPathLoc.push('Home')
+      path.forEach((el, index) => {
+        if(el[0] === '/'){
+          el = el.slice(1)
+        }
+        if(el[el.length-1] === '/'){
+          el = el.slice(0, el.length-1)
+        }
+        newPathLoc.push(el)
+      })
+      setPathLocation(newPathLoc)
+  }
+
+  
+
   React.useEffect(() => {
+
+    pathControlls()
+
     if(location.pathname === '/listing'){
         setLocationText('Список компаний')
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
+    }else if(location.pathname === '/earningcelender'){
+        setLocationText('Earnings Calendar')
+    }else if(location.pathname === '/dividendcelender'){
+        setLocationText('Dividend Calendar')
     }else{
         setLocationText('Страница не найдена')
     }
@@ -114,15 +147,15 @@ const HeaderSwiperBase:React.FC<Props> = (props) => {
 
         <Container>
             <Flex align='center' margin='40px 0 0 0' flexWrap='wrap'>
-                {props.path.map((el, index) => {
-                    if(index === props.path.length -1){
+                {pathLocation.map((el, index) => {
+                    if(index === pathLocation.length -1){
                         return <HeaderSwiperPath key={index}>
-                        <Link to='/listing/company'>{el}</Link>
+                        <Link to='#'>{el}</Link>
                     </HeaderSwiperPath>
                     }else{
                         return <Flex  key={index}>
-                             <HeaderSwiperPath>
-                                            <Link to={el}>{el}</Link>
+                                    <HeaderSwiperPath>
+                                        <Link to={el}>{el}</Link>
                                     </HeaderSwiperPath>
                                     <HeaderSwiperIcon1 src={next} alt="" />
                          </Flex>

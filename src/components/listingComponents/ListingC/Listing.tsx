@@ -2,6 +2,7 @@ import React, {FC, useEffect} from 'react';
 import styled from "styled-components";
 import {Flex} from '../../../uikit/uikit';
 import globus from '../../../assets/Globus.svg'
+import search from '../../../assets/search.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -71,11 +72,10 @@ const NavItem = styled.li`
 
 const LCSearch = styled.input`
   background: #F1F1F1;
-  border-radius: 8px;
+  border-radius: 8px 0 0 8px; 
   outline: none;
   border-style: none;
   padding: 16px 0 16px 20px;
-  margin-bottom: 30px;
 
   &::placeholder {
     font-style: normal;
@@ -144,7 +144,17 @@ const ListItem = styled.div`
   }
 `
 
-const ListinC: FC = () => {
+const CompanySearchBtn = styled.button`
+  background: #F1F1F1;
+  border: none;
+  border-radius: 0 8px 8px  0; 
+  padding: 10px;
+  img{
+    width: 22px;
+  }
+`
+
+const ListinC:React.FC = () => {
 
     const[listItems, setListItems] = React.useState ([
       {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
@@ -156,7 +166,6 @@ const ListinC: FC = () => {
 
     const[listItems2, setListItems2] = React.useState ([...listItems])
 
-    const count = listItems.length
     const [inputVal, setInputVal] = React.useState<string>('')
 
     const navigate = useNavigate()
@@ -165,6 +174,30 @@ const ListinC: FC = () => {
     function linkHandler(e:React.MouseEvent) {
       navigate(loc.pathname+'/company', {state: {CompanyName: e.target.outerText}})
     }
+    
+
+    function onSubmitHandler(e:React.FormEvent){
+      e.preventDefault()
+      console.log('luck');
+
+      // let newListItems:any = [...listItems]
+      // let val = inputVal
+      // if(inputVal.length > 0){
+      //   newListItems = newListItems.map((company:any) => {
+      //     if(company !== undefined){
+      //       for (let i = 0; i < company.companyName.length; i++) {          
+      //         if(company.companyName.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+      //           return company
+      //         }else if(company.companyCode.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+      //           return company
+      //         }
+      //       }
+      //     }
+      //   })
+      // }
+      // setListItems(newListItems)
+    }
+    
 
     function onChangeHandler(e:React.ChangeEvent<HTMLInputElement>){
       let val = e.target.value
@@ -175,21 +208,21 @@ const ListinC: FC = () => {
       }
 
       if(val.length > 0){
-        newListItems = newListItems.map((el, index) => {
-          if(el !== undefined){
-            if(val.toLowerCase() === el.companyCode.slice(0, val.length).toLowerCase() || val.toLowerCase() === el.companyName.slice(0, val.length).toLowerCase()) {
-              return el 
-            }else{
-              return undefined
+        newListItems = newListItems.map((company:any) => {
+          if(company !== undefined){
+            for (let i = 0; i < company.companyName.length; i++) {          
+              if(company.companyName.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+                return company
+              }else if(company.companyCode.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+                return company
+              }
             }
           }
-          })
+        })
         setListItems(newListItems)
-      }else{
-        setListItems(listItems2)
-      }
-      setInputVal(val);
+        setInputVal(val);
     }
+  }
     
 
     return (
@@ -202,9 +235,18 @@ const ListinC: FC = () => {
                     <NavItem>Нелистинговые</NavItem>
                     <NavItem>Допустившие дефолт</NavItem>
                 </LCNav>
-                <LCCounter>Всего эмитентов - {count}</LCCounter>
+                <LCCounter>Всего эмитентов - {listItems.length}</LCCounter>
             </Flex>
-            <LCSearch placeholder={'Поиск (по коду или названию компании)'} onChange={(e) => onChangeHandler(e)}/>
+
+            <form action="#" onSubmit={(e) => onSubmitHandler(e)}>
+              <Flex align='center' margin='0 0 30px 0' style={{width: '100%'}}>
+                <LCSearch placeholder={'Поиск (по коду или названию компании)'} style={{width: '100%'}} onChange={(e) => onChangeHandler(e)}/>
+                <CompanySearchBtn onSubmit={(e) => onSubmitHandler(e)}>
+                  <img src={search} alt="" />
+                </CompanySearchBtn>
+              </Flex>
+
+            </form>
             <List>
                 <ListItems>
                   <ListItem style={{color: 'black', textDecoration: 'none'}}>Код</ListItem>

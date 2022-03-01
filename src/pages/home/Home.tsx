@@ -16,7 +16,6 @@ const Home:React.FC = () => {
             <Grid/>
             <NoNameBlock/>
             <Investing/>
-            <Grid/>
         </div>
 
     )

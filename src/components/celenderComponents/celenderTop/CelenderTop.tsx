@@ -80,7 +80,7 @@ const CelenderTop:React.FC = () => {
            </Flex>
 
            <Calendar><img src={calendar} alt=""/></Calendar>
-
+x`
        </Flex>
    </Wrapper>
   )

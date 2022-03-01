@@ -9,6 +9,7 @@ import 'swiper/css';
 import { Flex } from '../../../uikit/uikit';
 import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfoSC';
 
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 const HeaderSwiper:React.FC = () => {
     const [values, setValues] = React.useState([
@@ -47,7 +48,19 @@ const HeaderSwiper:React.FC = () => {
   return (
     <HeaderSwiperS>
         <Swiper
-            loop
+            loop={true}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+            }}
+            pagination={{
+                clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
             breakpoints= {{
                 320: {
                     slidesPerView: 1,

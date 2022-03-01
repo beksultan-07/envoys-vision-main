@@ -41,8 +41,7 @@ function App() {
         <Route path="/earningCelender" element={<EarningC/>}/>
         <Route path="/dividendCelender" element={<DividendC/>}/>
 
-        <Route path="/" element={<DividendC/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>
         <Route path="/earningcelender" element={<EarningC/>}/>

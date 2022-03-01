@@ -1,18 +1,49 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
+import { Container } from '../../uikit/uikit';
 
-const FooterBlock = styled.footer`
- width: 100%;
+const FooterWrap = styled.footer`
+  position: relative;
+`
+
+const FooterBlock = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  @media(max-width: 920px){
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media(max-width: 740px){
+    justify-content: start;
+    margin-left: 23%;
+  }
+
+  @media(max-width: 470px){
+    margin-left: 10%;
+  }
+  @media(max-width: 375px){
+    margin-left: 0;
+  }
 `
 
 const FooterItems = styled.div`
- width: 33.3%;
+ /* width: 33.3%; */
   padding: 40px 86px 100px 31px;
   border-right: 1px solid #DADADA;
   &:last-child{
     border-right: none;
+  }
+  @media(max-width: 920px){
+    &:nth-child(2){
+      border-right: none;
+    }
+  }
+  @media(max-width: 740px){
+      border-right: none;
+      padding: 40px 86px 40px 31px;
+
   }
 `
 
@@ -22,6 +53,8 @@ const Contacts = styled.div`
 `
 
 const Contact = styled.span`
+
+font-family: Exo 2;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -32,9 +65,15 @@ const Contact = styled.span`
   &:last-child{
     text-transform: lowercase;
   }
+
+  @media(max-width: 1020px){
+    font-size: 26px;
+
+  }
 `
 
 const WorkDays = styled.span`
+  font-family: Exo 2;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -45,23 +84,29 @@ const WorkDays = styled.span`
 `
 
 const CompanyName = styled.span`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 16px;
-  letter-spacing: 0.02em;
-  color: #101010;
   margin: 20px 0 10px 0;
+  a{
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #101010;
+  }
 `
 
 const PrivacyPolicy = styled.span`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 16px;
-  letter-spacing: 0.02em;
-  text-decoration-line: underline;
-  color: #F47F1F;
+  a{
+    font-family: Exo 2;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 16px;
+      letter-spacing: 0.02em;
+      text-decoration-line: underline;
+      color: #F47F1F;
+  }
 `
 
 const FooterNavHeading = styled.h2`
@@ -72,24 +117,32 @@ const FooterNavHeading = styled.h2`
     letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #101010;
+  @media(max-width: 1020px){
+    font-size: 18px;
+
+  }
 `
 
 const NavItem = styled.li`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #101010;
   margin: 30px 0 20px 0;
   list-style: none;
+  a{
+    text-decoration: none;
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #101010;
+    cursor: pointer;
+    white-space: nowrap;
+  }
 `
 
-const Container = styled.div`
- width: 1200px;
-  margin: 0 auto;
+const FooterContainer = styled(Container)`
+  max-width: 1200px;
   border-right: 1px solid #DADADA;
   border-left: 1px solid #DADADA;
-  position: relative;
   &:before{
     position: absolute;
     content: '';
@@ -97,44 +150,44 @@ const Container = styled.div`
     width: 100vw;
     height: 6px;
     top: 0;
-    right: -368px;
+    left: 0;
   }
 `
 
 
 const Footer = () => {
   return (
-      <Container>
-      <FooterBlock>
-        <FooterItems>
-          <Contacts>
-            <Contact>+996 (559) 18 00 33</Contact>
-            <WorkDays>Пн-Пт 9.00-20.00</WorkDays>
-            <Contact>info@evde.kg</Contact>
-            <CompanyName>Envoys vision digital exchange 2022</CompanyName>
-            <PrivacyPolicy>Политика конфиденциальности</PrivacyPolicy>
-          </Contacts>
-        </FooterItems>
-        <FooterItems>
-          <FooterNavHeading>Навигация по сайту</FooterNavHeading>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-        </FooterItems>
-        <FooterItems>
-          <FooterNavHeading>Навигация по сайту</FooterNavHeading>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-          <NavItem>Навигация по сайту</NavItem>
-        </FooterItems>
-      </FooterBlock>
-      </Container>
+      <FooterWrap>
+        <FooterContainer>
+        <FooterBlock>
+          <FooterItems>
+            <Contacts>
+              <Contact>+996 (559) 18 00 33</Contact>
+              <WorkDays>Пн-Пт 9.00-20.00</WorkDays>
+              <Contact><Link to='#'>info@evde.kg</Link></Contact>
+              <CompanyName>Envoys vision digital exchange 2022</CompanyName>
+              <PrivacyPolicy><Link to='#'>Политика конфиденциальности</Link></PrivacyPolicy>
+            </Contacts>
+          </FooterItems>
+          <FooterItems>
+            <FooterNavHeading>Навигация по сайту</FooterNavHeading>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+          </FooterItems>
+          <FooterItems>
+            <FooterNavHeading>Навигация по сайту</FooterNavHeading>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+            <NavItem><Link to='#'>Навигация по сайту</Link></NavItem>
+          </FooterItems>
+        </FooterBlock>
+        </FooterContainer>
+      </FooterWrap>
   );
 };
 

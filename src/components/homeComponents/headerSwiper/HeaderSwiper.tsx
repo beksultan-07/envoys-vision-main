@@ -9,6 +9,7 @@ import 'swiper/css';
 import { Flex } from '../../../uikit/uikit';
 import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfoSC';
 
+
 const HeaderSwiper:React.FC = () => {
     const [values, setValues] = React.useState([
         {
@@ -64,17 +65,15 @@ const HeaderSwiper:React.FC = () => {
                     slidesPerView: 5,
                 }
             }
-              }
-            
-            >
+              }>
 
-            {values.map((val, i) => {
+            {values.map((val, index) => {
                 let posB = false
                 if(val.pos[0] === '+'){
                     posB = true
                 }
                 
-                return <SwiperSlide>
+                return <SwiperSlide  key={index}>
                     <HeaderSwiperItem>
                         <Flex align='center'>
                             <HeaderSwiperIcon src={posB?incr:decr}/>

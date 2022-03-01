@@ -26,7 +26,7 @@ export const HeaderLogoWrap = styled.div`
 `
 
 export const HeaderLogoLink = styled(Link)`
-    
+
     `
 export const HeaderLogo = styled.img`
     min-width: 40px;
@@ -63,7 +63,7 @@ export const HeaderMenuNav1 = styled(Flex)`
     @media (max-width: 1200px) {
         margin: 20px;
     }
-` 
+`
 
 export const HeaderMenuNav = styled(Flex)`
     @media (max-width: 1020px) {

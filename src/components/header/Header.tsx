@@ -7,11 +7,8 @@ import { Container, Flex } from '../../uikit/uikit'
 import { HeaderCont, HeaderHomeIcon, HeaderHomeIconWrap, HeaderHomeLink,  HeaderLogo, HeaderLogoWrap,   HeaderStyle, HeaderWrapper, HeaderLogoLink } from './hedearStyledComponents'
 
 
-
-
-import { slide as Menu } from 'react-burger-menu'
-import SideBar from './SideBar';
 import HeaderNav from './HeaderNav';
+import Burger from './Burger';
 
 
 
@@ -32,7 +29,7 @@ const Header:React.FC = () => {
                     </HeaderHomeLink>
                 </HeaderHomeIconWrap>
 
-                <SideBar/>
+                <Burger/>
                 <HeaderNav/>
                 
 

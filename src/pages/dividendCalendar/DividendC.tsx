@@ -1,8 +1,9 @@
 import React from 'react'
+import CelenderTop from "../../components/celenderComponents/celenderTop/CelenderTop";
 
 const DividendC:React.FC = () => {
   return (
-    <div>dividendC</div>
+    <CelenderTop/>
   )
 }
 

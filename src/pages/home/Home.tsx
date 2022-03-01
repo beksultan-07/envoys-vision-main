@@ -10,11 +10,13 @@ import Footer from '../../components/footer/Footer';
 const Home:React.FC = () => {
     return (
         <div>
-            {/*<Premarket/>*/}
-        {/*    <Trends/>*/}
+            <Banner/>
+            <Premarket/>
+            <Trends/>
             <Grid/>
-        {/*    <NoNameBlock/>*/}
-        {/*<Investing/>*/}
+            <NoNameBlock/>
+            <Investing/>
+            <Grid/>
         </div>
 
     )

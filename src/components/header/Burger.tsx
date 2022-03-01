@@ -10,14 +10,12 @@ import { Flex } from "../../uikit/uikit";
 type Props = {
     pageWrapId?: string;
     outerContainerId?: string;
-
-    
 }
 
-const SideBar:React.FC<Props> = (props) => {
+const Burger:React.FC<Props> = (props) => {
 
     const [navLinks, setNavLinks] = React.useState(['Решения', 'Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
-    const [navLinksEn, setNavLinksEn] = React.useState(['Solutions', 'Markets', 'Listing', 'Clearing', 'News&Analytics', 'AboutUs'])
+    const [navLinksEn, setNavLinksEn] = React.useState(['solutions', 'markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
 
   return (
     <HeaderMenu right>
@@ -26,9 +24,9 @@ const SideBar:React.FC<Props> = (props) => {
             <HeaderMenuNav align='center' margin='0 50px' justify='space-between' flex={1}>
                 {navLinks.map((el, index) => {
                     if(el === 'Клиринг' || el === 'Новости и аналитика' || el === 'О нас'){
-                        return <HeaderNavLink to={navLinksEn[index]}> {el} </HeaderNavLink>
+                        return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
                     }
-                    return <HeaderNavLink to={navLinksEn[index]}>
+                    return <HeaderNavLink  key={index} to={navLinksEn[index]}>
                     <Flex align='center'>
                         {el}
                         <HeaderDropDownLogo src={Dd}/>
@@ -57,4 +55,4 @@ const SideBar:React.FC<Props> = (props) => {
   );
 };
 
-export default SideBar
+export default Burger

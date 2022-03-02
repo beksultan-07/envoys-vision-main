@@ -22,6 +22,8 @@ const CelenderList:React.FC<Props> = (props) => {
         </CelenderHeader> 
         <Flex direction='column' margin='0 0 100px 0'>
             {props.value.map((el:any,index) => {
+                if(el !== undefined){
+
                 return <Flex key={index} margin='30px 0 0 0' align='center'>
                     <CelenderIconWrap><CelenderIcon src={el.icon=='moon'?moon:sun} alt="" /></CelenderIconWrap>
                     {el.value.map((el:any, index:number) => {
@@ -33,6 +35,7 @@ const CelenderList:React.FC<Props> = (props) => {
                         return <CelenderHeaderText key={index}>{el}</CelenderHeaderText>
                     })}
                 </Flex>
+                }
             })}
         </Flex>
         

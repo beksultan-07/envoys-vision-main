@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BG from '../../assets/techTrends.jpg'
 import respBG from '../../assets/respBg.jpg'
 import respBG1 from '../../assets/respBg1.jpg'
+import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
 
 
 const Wrapper = styled.div`
@@ -111,7 +112,7 @@ const Trends : FC = () => {
                  <TrendsTitle>Nasdaq Decodes:
                      Tech Trends</TrendsTitle>
                  <TrendsSubtitle>Discover the technology trends that are driving the global markets forward</TrendsSubtitle>
-                 <ActionBtn margin={'0'}>Призыв к действию</ActionBtn>
+                 <BannerBtn>Призыв к действию</BannerBtn>
              </TrendsText>
          </Container>
 

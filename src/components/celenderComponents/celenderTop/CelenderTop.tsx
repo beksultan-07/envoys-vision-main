@@ -95,17 +95,18 @@ const InpCel = styled.input`
     }
 
 `
+type CelenderHeaderTop = {
+  setInputValue: Function
+}
 
-const CelenderTop:React.FC = () => {
+const CelenderTop:React.FC<CelenderHeaderTop> = (props) => {
     const days = ['Пт, 28 янв.', 'Пн, 07 фев.', 'Пт, 04 фев.', 'Чт, 03 фев.', 'Ср, 2 фев.']
-    const [startDate, setStartDate] = React.useState<Date>(new Date());
-
 
   return (
    <Wrapper>
        <Flex style={{width:'100%'}} align="center" justify='space-between'>
            <SearchBLock >
-               <Search placeholder='Введите название'/>
+               <Search placeholder='Введите название' onChange={(e) => props.setInputValue(e)}/>
                <Lupa/>
            </SearchBLock>
            <Flex style={{ maxWidth: '60%', background:'#F1F1F1', borderRadius: '8px', padding: '21px 26px'}} justify={'space-between'}>

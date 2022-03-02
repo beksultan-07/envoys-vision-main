@@ -54,7 +54,7 @@ const BannerInfo:React.FC = () => {
 
             <BannerDate>22 Января 2022</BannerDate>
 
-            <BannerInfoText margin={false}>NASDAQ Composite Index</BannerInfoText>
+            <BannerInfoText margin={false}>Envoys Composite Index</BannerInfoText>
             <Flex margin='15px 0 15px 0'>
                 <BannerInfoText margin={false}>13 768.92 </BannerInfoText>
                 <BannerInfoIncrease margin={true}>+385.10</BannerInfoIncrease> 
@@ -69,7 +69,7 @@ const BannerInfo:React.FC = () => {
 
             <Flex justify='space-between' margin='25px 0 25px 0'>
                 <Flex direction='column' >
-                    <BannerInfoText margin={false} mnTop={true}>NASDAQ-100</BannerInfoText>
+                    <BannerInfoText margin={false} mnTop={true}>Envoys-100</BannerInfoText>
                     <BannerInfoText margin={false} mnTop={true}>14438.4</BannerInfoText>
                     <Flex margin='15px 0 15px 0'>
                         <BannerInfoIncrease  margin={false}>+408.06</BannerInfoIncrease> 

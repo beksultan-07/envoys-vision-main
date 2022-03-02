@@ -72,6 +72,13 @@ export const HeaderMenuNav = styled(Flex)`
     }
 `
 
+export const HeaderNavText = styled.p`
+    font-family: Exo 2;
+    font-style: normal;
+    font-weight: 500;
+    color: #045599;
+    cursor: pointer;
+`
 
 export const HeaderNavLink = styled(Link)`
     font-family: Exo 2;
@@ -135,4 +142,26 @@ export const HeaderlangLogo = styled.img`
 export const HeaderDropDownLogo = styled.img`
     width: 10px;
     margin: 0 0 0 10px;
+`
+
+export const HeaderDropDownS = styled.div`
+    width: 100%;
+    height: 35px;
+    background: #045599;
+    clip-path: polygon(50% 63%,45% 100%,55% 100%);
+
+`
+export const HeaderDropDownWrap = styled.div`
+
+color: #fff;
+position: absolute;
+top: 100%;
+left: -13.5rem;
+z-index: 2;
+`
+
+export const HeaderDropDown = styled.div`
+background: #045599;
+    padding: 10px;
+
 `

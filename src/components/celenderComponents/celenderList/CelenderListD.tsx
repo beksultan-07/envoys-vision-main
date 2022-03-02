@@ -7,7 +7,7 @@ import { CelenderHeader, CelenderIconWrap, CelenderHeaderText, CelenderIcon } fr
 
 type Props = {
     header: string[];
-    value: string[];
+    value: [][];
 }
 
 const CelenderListD:React.FC<Props> = (props) => {    
@@ -22,16 +22,18 @@ const CelenderListD:React.FC<Props> = (props) => {
         </CelenderHeader> 
         <Flex direction='column' margin='0 0 100px 0'>
             {props.value.map((arr:any, i) => {
-                return <Flex margin='30px 0 0 0' key={i}>
-                    {arr.map((el:string, index:number) => {
-                        if(index === 0 || index === 1){
-                            return <CelenderHeaderText style={{flex: index==0?'.5':'1',margin: index==0?'0':'0 10px'}} key={index}>
-                                            <Link to='#'>{el}</Link>
-                                        </CelenderHeaderText> 
-                        }
-                        return <CelenderHeaderText key={index}>{el}</CelenderHeaderText>
-                        })}
-                    </Flex>         
+                if(arr !== undefined){
+                    return <Flex margin='30px 0 0 0' key={i}>
+                        {arr.map((el:string, index:number) => {
+                            if(index === 0 || index === 1){
+                                return <CelenderHeaderText style={{flex: index==0?'.5':'1',margin: index==0?'0':'0 10px'}} key={index}>
+                                                <Link to='#'>{el}</Link>
+                                            </CelenderHeaderText> 
+                            }
+                            return <CelenderHeaderText key={index}>{el}</CelenderHeaderText>
+                            })}
+                        </Flex>         
+                }
             })}
         </Flex>
         

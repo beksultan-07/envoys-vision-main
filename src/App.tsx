@@ -35,7 +35,6 @@ function App() {
     <div className="App">
       <Header/>
       {showSwiper?<HeaderSwiperBase/>:<></>}
-
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>

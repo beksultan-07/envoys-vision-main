@@ -9,6 +9,7 @@ import muzino from '../../assets/mizuno.svg'
 import natixis from '../../assets/natixis2.svg'
 import novikom from '../../assets/novicombank).svg'
 import {ActionBtn} from "./Trends";
+import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
 
 const Wrapper = styled.div`
 width: 100%;
@@ -136,7 +137,7 @@ const NoNameBlock:FC = () => {
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus elementum, nunc posuere elit. Turpis a egestas velit velit at. Sed et turpis ipsum ultrices at donec vulputate. Ante eu purus id ac risus nisi, eu amet. Nibh vestibulum viverra gravida ut faucibus suspendisse nunc sapien, ac. Elementum augue non nec urna, et, sit porta. In sit sit tempus erat ac.</LeftSideText1>
                        <LeftSideText2>Dictum ac eget egestas ut lectus nisi integer. Blandit turpis massa facilisis dignissim risus massa vitae interdum. Tempus massa dui et velit elit fames interdum purus. <br/>
                            Enim sed nec vestibulum sollicitudin amet pretium, ornare lorem malesuada. Turpis senectus arcu mi volutpat morbi dolor. Viverra duis facilisis nisl, scelerisque. Nec nam hendrerit ornare enim lorem mauris. Tellus mus massa quam dignissim vestibulum purus. Quis nibh interdum morbi tempus morbi ornare elit. Lobortis.</LeftSideText2>
-                   <ActionBtn margin={'40px 0 0 30px'}>Призыв к дейстивию</ActionBtn>
+                   <BannerBtn style={{margin: "40px 0 0 30px"}}>Призыв к дейстивию</BannerBtn>
                    </Flex>
                    <Flex direction={"column"}>
                     <List>

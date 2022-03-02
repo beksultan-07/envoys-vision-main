@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Dd from '../../assets/vectorDown.svg';
 import User from '../../assets/userIcon.svg';
 import Lang from '../../assets/ru.svg';
 
-import {HeaderNavLink, HeaderSignIn, HeaderSignInLogo, HeaderlangLogo, HeaderLangText, HeaderDropDownLogo, HeaderMenuNav1} from './hedearStyledComponents'
+import {HeaderNavLink, HeaderSignIn, HeaderSignInLogo, HeaderlangLogo, HeaderLangText, HeaderDropDownLogo, HeaderMenuNav1, HeaderNavText} from './hedearStyledComponents'
 import { Flex } from "../../uikit/uikit";
+import DropDownMarkets from "./DropDowns/DropDownMarkets";
+import DropDownListing from "./DropDowns/DropDownListing";
 
 const HeaderNav:React.FC = () => {
 
-    const [navLinks, setNavLinks] = React.useState(['Решения', 'Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
-    const [navLinksEn, setNavLinksEn] = React.useState(['solutions', 'markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
+    const [navLinks, setNavLinks] = React.useState(['Рынки', 'Листинг', 'Клиринг', 'Новости и аналитика', 'О нас'])
+    const [navLinksEn, setNavLinksEn] = React.useState(['markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
+    const [marketClick, setMarketClick] = useState(false)
+    const [listingClick, setListingClick] = useState(false)
+
 
 
 
@@ -18,15 +23,36 @@ const HeaderNav:React.FC = () => {
     <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 50px'>
          <Flex align='center' justify='space-between' flex={1}>
             {navLinks.map((el, index) => {
-                if(el === 'Клиринг' || el === 'Новости и аналитика' || el === 'О нас'){
-                    return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
-                }
-                return <HeaderNavLink key={index} to={navLinksEn[index]}>
-                <Flex align='center'>
-                    {el}
+                if(el === 'Рынки'){
+                    return <Flex 
+                    margin='0 15px'
+                    key={index} 
+                    align='center' 
+                    style={{position: 'relative'}}
+                    onMouseEnter={() => setMarketClick(true)} 
+                    onMouseLeave={() => setMarketClick(false)}
+                    >
+                    <HeaderNavText>{el}</HeaderNavText>
+                    {marketClick?<DropDownMarkets/>:<></>}
                     <HeaderDropDownLogo src={Dd}/>
                 </Flex>
-            </HeaderNavLink>
+                }
+
+                if(el === 'Листинг'){
+                    return <Flex 
+                        margin='0 15px'
+                        key={index} 
+                        align='center' 
+                        style={{position: 'relative'}}
+                        onMouseEnter={() => setListingClick(true)} 
+                        onMouseLeave={() => setListingClick(false)}
+                    >
+                    <HeaderNavText>{el}</HeaderNavText>
+                    {listingClick?<DropDownListing/>:<></>}
+                    <HeaderDropDownLogo src={Dd}/>
+                </Flex>
+                }
+                return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
             })}
         </Flex>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import playBtn from '../../assets/play-btn.svg'
 import handCoin from '../../assets/hand-coin-fill.svg'
-import stock from '../../assets/stock-fill.svg'
+import changes from '../../assets/home/changes .svg'
 import funds from '../../assets/funds-box-fill.svg'
 import {Flex} from "../../uikit/uikit";
 
@@ -128,12 +128,14 @@ const BlueEllipse = styled.img`
   height: 40px;
   border-radius: 50%;
   margin-right: 15px;
+  padding: 7px;
 `
 const OrangeEllipse = styled.img`
   background: #F47F1F;
   width: 40px;
   height:40px;
   border-radius: 50%;
+  padding: 7px;
 `
 
 const EventDetalis = styled.div`
@@ -233,7 +235,7 @@ const Grid = () => {
                        </div>
                        <div>
                            <BlueEllipse src={playBtn}/>
-                           <OrangeEllipse src={stock}/>
+                           <OrangeEllipse src={changes}/>
                        </div>
                             </Flex>
                             <EventDetalis>

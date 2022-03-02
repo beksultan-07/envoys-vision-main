@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CelenderList from '../../components/celenderComponents/celenderList/CelenderList'
 import CelenderTop from '../../components/celenderComponents/celenderTop/CelenderTop'
 import { Container } from '../../uikit/uikit'
+import Investing from '../home/Investing'
 
 const EarningC:React.FC = () => {
   const [infoHeader, setInfoHaader] = useState([
@@ -53,10 +54,14 @@ const EarningC:React.FC = () => {
   }
 
   return (
-    <Container>
-      <CelenderTop setInputValue={inputValueChange}/>
-      <CelenderList header={infoHeader} value={infoValue}/>
-    </Container>
+    <>
+      <Container>
+        <CelenderTop setInputValue={inputValueChange}/>
+        <CelenderList header={infoHeader} value={infoValue}/>
+      </Container>
+       <Investing></Investing>
+    </>
+
   )
 }
 

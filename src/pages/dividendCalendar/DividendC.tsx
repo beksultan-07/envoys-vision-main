@@ -2,6 +2,7 @@ import React from 'react'
 import CelenderTop from "../../components/celenderComponents/celenderTop/CelenderTop";
 import CelenderListD from '../../components/celenderComponents/celenderList/CelenderListD'
 import { Container } from '../../uikit/uikit'
+import Investing from '../home/Investing';
 
 const DividendC:React.FC = () => {
 
@@ -45,10 +46,14 @@ const DividendC:React.FC = () => {
     }
 
   return (
-    <Container>
-      <CelenderTop setInputValue={inputValueChange}/>
-      <CelenderListD header={infoHeader} value={infoValue}/>
-    </Container>
+    <>
+      <Container>
+        <CelenderTop setInputValue={inputValueChange}/>
+        <CelenderListD header={infoHeader} value={infoValue}/>
+      </Container>
+       <Investing></Investing>
+    </>
+
   )
 }
 

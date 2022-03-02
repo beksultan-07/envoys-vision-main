@@ -52,7 +52,7 @@ const Contacts = styled.div`
  flex-direction: column;
 `
 
-const Contact = styled.span`
+const Contact = styled.a`
 
 font-family: Exo 2;
   font-style: normal;
@@ -162,7 +162,7 @@ const Footer = () => {
         <FooterBlock>
           <FooterItems>
             <Contacts>
-              <Contact>+996 (559) 18 00 33</Contact>
+              <Contact href="tel:+996 (559) 18 00 33">+996 (559) 18 00 33</Contact>
               <WorkDays>Пн-Пт 9.00-20.00</WorkDays>
               <Contact><Link to='#'>info@evde.kg</Link></Contact>
               <CompanyName>Envoys vision digital exchange 2022</CompanyName>

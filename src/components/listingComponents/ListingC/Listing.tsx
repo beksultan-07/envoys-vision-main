@@ -170,7 +170,17 @@ const ListinC:React.FC = () => {
       {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
       {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
       {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
-      {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'}
+      {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
+        {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
+        {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
+        {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
+        {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
+        {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
+        {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
+        {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
+        {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
+        {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
+        {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
     ])
 
     const[listItems2, setListItems2] = React.useState ([...listItems])

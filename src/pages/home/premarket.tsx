@@ -23,7 +23,7 @@ const PreMarketHeader = styled.div`
   display: flex;
   justify-content: space-between;   
   border-bottom: 1px solid #DADADA;
-  padding-left: 29px;
+  height: 58px;
 `
 // PRM = это сокращение от PreMarket
 const PrmHeaderTitle = styled.h1`
@@ -32,16 +32,17 @@ const PrmHeaderTitle = styled.h1`
   font-size: 16px;
   line-height: 18px;
   display: flex;
-  letter-spacing: 0.02em; 
-  align-items: center;
+  letter-spacing: 0.02em;
+  padding: 16px 0 16px 29px;
+  align-items: flex-end;
 `
 
 const HeaderBtns = styled.div`
  display: flex;
+  height: 100%;
 `
 
 const HeaderBtn = styled.button`
-  height: 58px;
   padding: 0 37px;
   background: #E6E6E6;
   border-style: none;
@@ -165,7 +166,7 @@ const ViewMoreAndData = styled.div`
   margin-top: 13px;
 `
 
-const ViewMore = styled.button`
+const ViewMore = styled.a`
   border-style: none;
   color: #045599;
   background: transparent ;
@@ -174,9 +175,16 @@ const ViewMore = styled.button`
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.02em;
+  cursor: pointer;
 `
 
 const Premarket : FC = () => {
+    const month = new Date().getMonth()
+    const date = new Date().toLocaleDateString().split('.')
+    console.log(month+1)
+
+
+
     const data = [{
         name: '1',
         uv: 12,
@@ -220,7 +228,8 @@ const Premarket : FC = () => {
         <PreMarket>
             <PreMarketHeader>
                 <PrmHeaderTitle>
-                    U.S PRE MARKET. MARKET OPENS IN 2H 6M
+                  <span style={{fontSize:"28px", lineHeight: '100%', marginRight:'10px'}}> U.S</span>
+                    <span>U.S PRE MARKET. MARKET OPENS IN 2H 6M</span>
                 </PrmHeaderTitle>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>
@@ -310,29 +319,29 @@ const Premarket : FC = () => {
         <LastNewsBlock>
             <NewsBox>
                 <NewsText>
-                    Astana International Exchange и Euroclear Bank запускают сервис по расширенным расчетам
+                    США запретили операции с Центробанком, ФНБ и Минфином России
                 </NewsText>
                 <ViewMoreAndData>
-                 <span>21 января</span>
-                    <ViewMore>Подробнее <img src={Vector} alt=""/></ViewMore>
+                 <span>28 Апреля</span>
+                    <ViewMore target='_blank' href={'https://www.tazabek.kg/news:1765705/?from=tazabek&place=search&sth=a008ba60d08545cfa2488de0beec7cb1'}>Подробнее <img src={Vector} alt=""/></ViewMore>
                 </ViewMoreAndData>
             </NewsBox>
             <NewsBox>
                 <NewsText>
-                    Astana International Exchange и Euroclear Bank запускают сервис по расширенным расчетам
+                    Объемы торгов на криптобирже резко увеличились из-за нестабильности рубля
                 </NewsText>
                 <ViewMoreAndData>
-                    <span>21 января</span>
-                    <ViewMore>Подробнее <img src={Vector} alt=""/></ViewMore>
+                    <span>1 Марта</span>
+                    <ViewMore target='_blank' href='https://www.tazabek.kg/news:1765895/?from=tazabek&place=search&sth=f8e96f8c6271d71db3772d05c96bdab5'>Подробнее <img src={Vector} alt=""/></ViewMore>
                 </ViewMoreAndData>
             </NewsBox>
             <NewsBox>
                 <NewsText>
-                    Astana International Exchange и Euroclear Bank запускают сервис по расширенным расчетам
+                    «Интерфакс»: Обменные пункты в Нур-Султане и Алма-Ате приостановили продажу иностранной валюты
                 </NewsText>
                 <ViewMoreAndData>
-                    <span>21 января</span>
-                    <ViewMore>Подробнее <img src={Vector} alt=""/></ViewMore>
+                    <span>28 Апреля</span>
+                    <ViewMore target={"_blank"} href='https://www.tazabek.kg/news:1765552/?from=tazabek&place=search&sth=9522f392056bb7785fd13f1038c2ffde'>Подробнее <img src={Vector} alt=""/></ViewMore>
                 </ViewMoreAndData>
             </NewsBox>
         </LastNewsBlock>

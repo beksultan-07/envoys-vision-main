@@ -47,6 +47,7 @@ const DescLink = styled.button`
   display: flex;
   align-items: start;
   flex-direction: column;
+  cursor: pointer;
 `
 
 const LinkText2 = styled.p`
@@ -137,6 +138,7 @@ const ReadMoreBtn = styled.button`
   border-style: none;
   background: transparent;
   position: relative;
+  cursor: pointer;
   &:before {
     position: absolute;
     content: '';
@@ -187,7 +189,7 @@ const Investing: FC = () => {
                         <img src={stonks} alt=""/>
                         <TextBlock left={'60px'} top={'60px'}>
                             <HowInvestBtn>Акции</HowInvestBtn>
-                            <HowInvestDesc fontSize={'24px'}>Стоит ли покупать эти акции</HowInvestDesc>
+                            <HowInvestDesc fontSize={'24px'}>Стоит ли покупать <br/> эти акции</HowInvestDesc>
                             <ReadMoreBtn>Читать полностью</ReadMoreBtn>
                         </TextBlock>
                     </Stonks>

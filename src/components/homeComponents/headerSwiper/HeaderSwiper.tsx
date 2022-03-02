@@ -1,6 +1,6 @@
 import React from 'react'
 import {  HeaderSwiperIcon, HeaderSwiperItem, HeaderSwiperS, HeaderSwiperText } from './HeaderSwiperSC'
-
+import axios from "axios";
 import incr from '../../../assets/vectorUpGreen.svg'
 import decr from '../../../assets/vectorDownRed.svg'
 
@@ -11,7 +11,11 @@ import { BannerInfoDecrease, BannerInfoIncrease } from '../bannerInfo/bannerInfo
 
 import { Autoplay} from "swiper";
 
+
 const HeaderSwiper:React.FC = () => {
+
+    const data = axios('https://www.cbr-xml-daily.ru/daily_jsonp.js').then(({data}) => JSON.stringify(data))
+    console.log('======>',data)
     const [values, setValues] = React.useState([
         {
             name: 'Бензин 80',
@@ -50,7 +54,7 @@ const HeaderSwiper:React.FC = () => {
         <Swiper
             loop={true}
             autoplay={{
-                delay: 1000,
+                delay: 2000,
                 disableOnInteraction: false,
             }}
             modules={[Autoplay ]}

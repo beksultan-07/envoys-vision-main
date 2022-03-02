@@ -12,7 +12,7 @@ import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper'
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
-import Listing from "./pages/listing/Listing";
+import Listing from "./pages/Listing/Listing";
 
 
 

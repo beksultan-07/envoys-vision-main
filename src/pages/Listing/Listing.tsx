@@ -5,12 +5,12 @@ import { Container, Flex } from '../../uikit/uikit'
 
 const Listing:React.FC = () => {
   return (
-    <Container>
-      <Flex margin='40px 0 40px 0'>
-        <SideBar/>
-        <ListingC/>
-      </Flex>
-    </Container>
+      <Container>
+        <Flex margin='40px 0 40px 0'>
+          <SideBar/>
+          <ListingC/>
+        </Flex>
+      </Container>
   )
 }
 

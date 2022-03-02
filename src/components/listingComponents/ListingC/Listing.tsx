@@ -212,10 +212,10 @@ const ListinC:React.FC = () => {
       if(val.length > 0){
         newListItems = newListItems.map((company:any) => {
           if(company !== undefined){
-            for (let i = 0; i < company.companyName.length; i++) {          
-              if(company.companyName.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+            for (let i = 0; i < company.companyName.length; i++) { 
+              if(company.companyName.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
-              }else if(company.companyCode.slice(i, i+val.length).toLowerCase() === val.toLowerCase()){
+              }else if(company.companyCode.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
               }
             }
@@ -223,6 +223,8 @@ const ListinC:React.FC = () => {
         })
         setListItems(newListItems)
         setInputVal(val);
+    }else{
+      setListItems(listItems2)
     }
   }
     
@@ -231,7 +233,7 @@ const ListinC:React.FC = () => {
     let newNav = {...NavitemsSort}
     for(let i in newNav){
       if(newNav[i]){
-        newNav[i] = !i
+        newNav[i] = false
       }
     }
     

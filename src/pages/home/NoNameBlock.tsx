@@ -46,7 +46,7 @@ const TitleText = styled.p`
  max-width: 505px;
 `
 
-const LeftSideText1 = styled.div`
+ export  const LeftSideText1 = styled.div`
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -57,7 +57,8 @@ const LeftSideText1 = styled.div`
   padding: 0 0 0 30px;
 `
 
-const LeftSideText2 = styled.div`
+
+export const LeftSideText2 = styled.div<Props>`
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -66,6 +67,7 @@ const LeftSideText2 = styled.div`
   max-width: 567px;
   padding: 0 0 0 45px;
   position: relative;
+  margin: ${(props) => props.margin};
   &:before{
     position: absolute;
     content: '';

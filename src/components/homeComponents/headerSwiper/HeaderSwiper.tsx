@@ -14,8 +14,6 @@ import { Autoplay} from "swiper";
 
 const HeaderSwiper:React.FC = () => {
 
-    const data = axios('https://www.cbr-xml-daily.ru/daily_jsonp.js').then(({data}) => JSON.stringify(data))
-    console.log('======>',data)
     const [values, setValues] = React.useState([
         {
             name: 'Бензин 80',

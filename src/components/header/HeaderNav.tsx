@@ -18,7 +18,7 @@ const HeaderNav:React.FC = () => {
     <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 50px'>
          <Flex align='center' justify='space-between' flex={1}>
             {navLinks.map((el, index) => {
-                if(el === 'Клиринг' || el === 'Новости и аналитика' || el === 'О нас'){
+                if( el === 'Новости и аналитика' || el === 'О нас'){
                     return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
                 }
                 return <HeaderNavLink key={index} to={navLinksEn[index]}>

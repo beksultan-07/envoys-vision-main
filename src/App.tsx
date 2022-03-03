@@ -12,7 +12,8 @@ import HeaderSwiper from './components/homeComponents/headerSwiper/HeaderSwiper'
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
-import Listing from "./pages/Listing/Listing";
+import Listing from "./pages/listing/Listing";
+import Clearing from "./pages/clearing/Clearing";
 
 
 
@@ -38,12 +39,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/home" element={<Home/>}/>
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>
+        <Route path="/clearing" element={<Clearing/>}/>
         <Route path="/earningcelender" element={<EarningC/>}/>
         <Route path="/dividendcelender" element={<DividendC/>}/>
-
       </Routes>
 
       <Footer/>

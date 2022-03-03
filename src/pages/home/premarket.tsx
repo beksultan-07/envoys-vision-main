@@ -4,6 +4,7 @@ import {LineChart, Line} from 'recharts';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Vector from '../../assets/Vector.png'
 import Rechart from '../../components/homeComponents/bannerInfo/Rechart';
+import {NavLink} from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -166,7 +167,7 @@ const ViewMoreAndData = styled.div`
   margin-top: 13px;
 `
 
-const ViewMore = styled.a`
+ export const ViewMore = styled.a`
   border-style: none;
   color: #045599;
   background: transparent ;
@@ -179,12 +180,6 @@ const ViewMore = styled.a`
 `
 
 const Premarket : FC = () => {
-    const month = new Date().getMonth()
-    const date = new Date().toLocaleDateString().split('.')
-    console.log(month+1)
-
-
-
     const data = [{
         name: '1',
         uv: 12,

@@ -13,7 +13,7 @@ const ListCompany = styled.div`
 `
 // LC - сокращение от ListCompany
 
-const LCTitle = styled.h2`
+export const LCTitle = styled.h2`
   font-style: normal;
   font-weight: normal;
   font-size: 40px;

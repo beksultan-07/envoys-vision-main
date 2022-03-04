@@ -29,8 +29,8 @@ const DropDownMarkets:React.Fc = () => {
                     })}
                 </Flex>
                     <Flex>
-                        {headerLinks.map((el) => {
-                            return <Flex direction='column' flex={1} margin='0 10px'>
+                        {headerLinks.map((el, i) => {
+                            return <Flex key={i} direction='column' flex={1} margin='0 10px'>
                                 {el.value.map((name, i) => {
                                     return <HeaderNavLink to='/market' style={{color: '#fff', margin: '10px 0'}} key={i}>{name}</HeaderNavLink>
                                 })}

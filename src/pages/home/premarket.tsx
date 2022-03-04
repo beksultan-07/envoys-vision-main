@@ -181,9 +181,6 @@ const ViewMore = styled.a`
 const Premarket : FC = () => {
     const month = new Date().getMonth()
     const date = new Date().toLocaleDateString().split('.')
-    console.log(month+1)
-
-
 
     const data = [{
         name: '1',

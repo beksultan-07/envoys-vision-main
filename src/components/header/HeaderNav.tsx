@@ -25,8 +25,8 @@ const HeaderNav:React.FC = () => {
             {navLinks.map((el, index) => {
                 if(el === 'Рынки'){
                     return <Flex 
-                    margin='0 15px'
                     key={index} 
+                    margin='0 15px'
                     align='center' 
                     style={{position: 'relative'}}
                     onMouseEnter={() => setMarketClick(true)} 

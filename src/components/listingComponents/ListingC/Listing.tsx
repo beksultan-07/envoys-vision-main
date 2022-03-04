@@ -165,23 +165,9 @@ type NavItemProps = {
 
 const ListinC:React.FC = () => {
 
-    const[listItems, setListItems] = React.useState ([
-      {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
-      {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
-      {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
-      {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
-      {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
-        {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
-        {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
-        {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
-        {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
-        {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
-        {companyCode: 'AAFD', companyName: 'ОАО Оптима Банк', webSite: globus, capitalize: '4 410,00    '},
-        {companyCode: 'ABFD', companyName: 'ОАО Учкун', webSite: globus, capitalize: '72,42'},
-        {companyCode: 'AAGD', companyName: 'ОАО Северэлектро', webSite: globus, capitalize: '216,21'},
-        {companyCode: 'AZFD', companyName: 'ЗАО «UBS Transit»', webSite: globus, capitalize: '17%'},
-        {companyCode: 'EAFD', companyName: 'ОАО "Айыл Банк"', webSite: globus, capitalize: '3 524,62'},
-    ])
+    const[listItems, setListItems] = React.useState (require('./listing.json'))
+
+    
 
     const[listItems2, setListItems2] = React.useState ([...listItems])
     const [NavitemsSort, setNavitemsSort] = React.useState({
@@ -212,10 +198,11 @@ const ListinC:React.FC = () => {
       if(val.length > 0){
         newListItems = newListItems.map((company:any) => {
           if(company !== undefined){
-            for (let i = 0; i < company.companyName.length; i++) { 
-              if(company.companyName.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
+            
+            for (let i = 0; i < company.outside.name.length; i++) { 
+              if(company.outside.name.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
-              }else if(company.companyCode.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
+              }else if(company.outside.code.slice(i, i+val.length).toLowerCase().replace(/ +/g, ' ').trim() === val.toLowerCase().replace(/ +/g, ' ').trim()){
                 return company
               }
             }
@@ -280,13 +267,13 @@ const ListinC:React.FC = () => {
                     {listItems.map((el, idx) => {
                       if(el !== undefined){
                          return <ListItems key={idx}>
-                            <ListItem>{el.companyCode}</ListItem>
+                            <ListItem>{el.outside.code}</ListItem>
 
-                            <ListItem onClick={(e) => linkHandler(e)}>{el.companyName} </ListItem> 
+                            <ListItem onClick={(e) => linkHandler(e)}>{el.outside.name} </ListItem> 
                             
                             <ListItem><img src={el.webSite} alt=""/></ListItem>
                             
-                            <ListItem style={{cursor: 'auto'}}>{el.capitalize}</ListItem>
+                            <ListItem style={{cursor: 'auto'}}>{el.outside.money}</ListItem>
                         </ListItems>
                       }})}
             </List>

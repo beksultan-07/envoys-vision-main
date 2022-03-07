@@ -51,14 +51,6 @@ const CompanySide:React.FC = () => {
                     </>
                 }
             })}
-{/*             
-                            return <Flex margin='30px 0 0 0'  key={index}>
-                                    <CompanyInfoName>{el.name}:</CompanyInfoName>
-                                    {el.name==='Сайт'||el.name==='Электронная почта'
-                                    ?<CompanyInfoValueLink><Link to='#'>{el.info}</Link></CompanyInfoValueLink>
-                                    :<CompanyInfoValue>{el.info}:</CompanyInfoValue>
-                                }
-                                </Flex> */}
 
             <CompanyList>
                 {list.map((el, index) => {

@@ -8,7 +8,7 @@ import usa from '../../assets/header/united-states.png';
 import {HeaderNavLink, HeaderSignIn, HeaderSignInLogo, HeaderlangLogo, HeaderLangText, HeaderDropDownLogo, HeaderMenuNav1, HeaderNavText, HeaderChangeLang} from './hedearStyledComponents'
 import { Flex } from "../../uikit/uikit";
 import DropDownMarkets from "./DropDowns/DropDownMarkets";
-import DropDownListing from "./DropDowns/DropDownMarkets";
+import DropDownListing from "./DropDowns/DropDownListing";
 import {changeLang} from "../../Translater/i18next";
 
 const HeaderNav:React.FC = () => {

@@ -8,7 +8,7 @@ const Company:React.FC = () => {
   return (
     <Container>
       <Flex margin='40px 0 40px 0'>
-        <SideBar/>
+        <SideBar />
         <CompanySide/>
       </Flex>
     </Container>

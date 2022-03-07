@@ -59,7 +59,6 @@ const HeaderSwiper:React.FC = () => {
     
     React.useEffect(() => {
         const pricesArr:string[] = []
-        let nowDate = getDateNow()
 
         urlReqs.forEach((el, index) => {
             axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)

@@ -14,7 +14,7 @@ const Home:React.FC = () => {
             <Premarket/>
             <Trends/>
             <Grid/>
-            <NoNameBlock/>
+            {/*<NoNameBlock/>*/}
             <Investing/>
         </div>
 

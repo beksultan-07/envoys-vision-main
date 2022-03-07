@@ -72,7 +72,6 @@ const HeaderSwiper:React.FC = () => {
                             }
                         }
                     }
-                    console.log(pricesArr.length);
                     if(pricesArr.length >= urlReqs.length){
                         setPrices(pricesArr)
                         setShowSwiper(true)

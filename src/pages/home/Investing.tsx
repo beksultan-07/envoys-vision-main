@@ -186,7 +186,7 @@ const Investing: FC = () => {
                         <img src={stonks} alt=""/>
                         <TextBlock left={'60px'} top={'60px'}>
                             <HowInvestBtn>{t("investing.stock")}</HowInvestBtn>
-                            <HowInvestDesc fontSize={'24px'}>{t("investing.bayStock")}</HowInvestDesc>
+                            <HowInvestDesc style={{width:'256px'}} fontSize={'24px'}>{t("investing.bayStock")}</HowInvestDesc>
                             <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </Stonks>

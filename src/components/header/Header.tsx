@@ -32,7 +32,7 @@ const Header:React.FC = () => {
                 <Burger/>
                 <HeaderNav/>
                 
-
+                
             </HeaderWrapper>
         </HeaderCont>
     </HeaderStyle>

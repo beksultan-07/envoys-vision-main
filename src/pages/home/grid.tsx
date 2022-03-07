@@ -315,13 +315,13 @@ const Grid = () => {
                         <Title2>НАИБОЛЕЕ АКТИВНЫЕ ПО ДОЛЛАРОВОМУ ОБЪЕМУ</Title2>
                        <Flex justify={"space-between"}>
                            <ActiveDollar>
-                               <ActiveName>NASDAQ-100</ActiveName>
+                               <ActiveName>Envoys-100</ActiveName>
                                {/*//прайс*/}
                                <ActiveValue>14438.4</ActiveValue>
                                <Income>+408.06 +2.75%</Income>
                            </ActiveDollar>
                            <ActiveDollar>
-                               <ActiveName>NASDAQ-100</ActiveName>
+                               <ActiveName>Envoys-100</ActiveName>
                                {/*//прайс*/}
                                <ActiveValue>14438.4</ActiveValue>
                                <Income>+408.06 +2.75%</Income>
@@ -331,13 +331,13 @@ const Grid = () => {
                     <GridItem3>
                         <Flex justify={"space-between"}>
                             <ActiveDollar>
-                                <ActiveName>NASDAQ-100</ActiveName>
+                                <ActiveName>Envoys-100</ActiveName>
                                 {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
                             <ActiveDollar>
-                                <ActiveName>NASDAQ-100</ActiveName>
+                                <ActiveName>Envoys-100</ActiveName>
                                 {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
@@ -347,13 +347,13 @@ const Grid = () => {
                     <GridItem3>
                         <Flex justify={"space-between"}>
                             <ActiveDollar>
-                                <ActiveName>NASDAQ-100</ActiveName>
+                                <ActiveName>Envoys-100</ActiveName>
                                 {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>
                             </ActiveDollar>
                             <ActiveDollar>
-                                <ActiveName>NASDAQ-100</ActiveName>
+                                <ActiveName>Envoys-100</ActiveName>
                                 {/*//прайс*/}
                                 <ActiveValue>14438.4</ActiveValue>
                                 <Income>+408.06 +2.75%</Income>

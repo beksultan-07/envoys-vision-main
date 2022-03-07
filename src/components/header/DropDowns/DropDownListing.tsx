@@ -13,9 +13,9 @@ const DropDownListing:React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <HeaderDropDownWrap>
+    <HeaderDropDownWrap style={{left: '-1.5rem'}}>
       <HeaderDropDownS></HeaderDropDownS>
-      <HeaderDropDown style={{left: '-1.5rem'}}>
+      <HeaderDropDown>
         <Flex direction='column'>
           {listingList.map((el, index) => {
             return <HeaderNavText

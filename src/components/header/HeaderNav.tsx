@@ -5,7 +5,7 @@ import User from '../../assets/userIcon.svg';
 import Lang from '../../assets/ru.svg';
 import usa from '../../assets/header/united-states.png';
 
-import {HeaderNavLink, HeaderSignIn, HeaderSignInLogo, HeaderlangLogo, HeaderLangText, HeaderDropDownLogo, HeaderMenuNav1, HeaderNavText, HeaderChangeLang} from './hedearStyledComponents'
+import {HeaderNavLink, HeaderSignIn, HeaderSignInLogo, HeaderlangLogo, HeaderLangText, HeaderDropDownLogo, HeaderMenuNav1, HeaderNavText, HeaderChangeLang, LangWrap} from './hedearStyledComponents'
 import { Flex } from "../../uikit/uikit";
 import DropDownMarkets from "./DropDowns/DropDownMarkets";
 import DropDownListing from "./DropDowns/DropDownListing";
@@ -17,10 +17,12 @@ const HeaderNav:React.FC = () => {
     const [navLinksEn, setNavLinksEn] = React.useState(['markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
     const [marketClick, setMarketClick] = useState(false)
     const [listingClick, setListingClick] = useState(false)
+    const [activeLang, setActiveLang] = useState('Russian')
+    const [showLangCh, setShowLangCh] = useState(true)
 
 
     return (
-        <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 50px'>
+        <HeaderMenuNav1 align="center" flex={1} justify='space-between' margin='0 0 0 20px'>
             <Flex align='center' justify='space-between' flex={1}>
                 {navLinks.map((el, index) => {
                     if(el === 'Рынки'){
@@ -56,12 +58,26 @@ const HeaderNav:React.FC = () => {
                 })}
             </Flex>
 
-            <Flex direction='column' align='center' margin='0 0 0 auto'>
+            <Flex direction='column' align='center' margin='0 0 0 100px' style={{position: 'relative'}}>
+                    <Flex align="center" onClick={() => setShowLangCh(val => !val)}>
+                        <HeaderChangeLang >{activeLang}</HeaderChangeLang>
+                        <HeaderlangLogo src={Dd}/>
+                    </Flex>
 
-                <Flex margin='5px 0 0 0' direction={'column'}>
-                        <HeaderChangeLang onClick={() => changeLang("en") }>English</HeaderChangeLang>
-                        <HeaderChangeLang onClick={() => changeLang("ru")}>Russian</HeaderChangeLang>
-                </Flex>
+                    {showLangCh?
+                        <LangWrap direction='column' align='center'>
+                            <HeaderChangeLang onClick={() => {
+                                changeLang("en")
+                                setActiveLang('English')
+                            } }>English</HeaderChangeLang>
+                            <HeaderChangeLang style={{margin: '10px 0'}} onClick={() => {
+                                changeLang("ru")
+                                setActiveLang('Russian')
+                            }}>Russian</HeaderChangeLang>
+                        </LangWrap>
+                    :<></>    
+            }
+
             </Flex>
 
         </HeaderMenuNav1>

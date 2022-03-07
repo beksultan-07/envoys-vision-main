@@ -238,12 +238,12 @@ const Premarket : FC = () => {
             </PreMarketHeader>
             <CompositeIndexBlock>
                 <CompositeIndexBox>
-                    <IndexText>NASDAQ {t("home.index")}</IndexText>
+                    <IndexText>Envoys {t("home.index")}</IndexText>
                     <IndexText>13 768.92 <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
                     <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
                 </CompositeIndexBox>
                 <CompositeIndexBox>
-                    <IndexText>NASDAQ {t("home.index")}</IndexText>
+                    <IndexText>Envoys {t("home.index")}</IndexText>
                     <IndexText>13 768.92  <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
                     <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
                 </CompositeIndexBox>
@@ -294,22 +294,22 @@ const Premarket : FC = () => {
       </ChartBlock>
             <ChartValues>
                 <ChartValue>
-                    <span>NASDAQ-100</span>
+                    <span>Envoys-100</span>
                     <span style={{margin: '15px 0'}}>14438.4</span>
                     <NegativeNumber>-408.06 -2.75%</NegativeNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>NASDAQ-100</span>
+                    <span>Envoys-100</span>
                     <span style={{margin: '15px 0'}}>14438.4</span>
                     <NegativeNumber>-408.06 -2.75%</NegativeNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>NASDAQ-100</span>
+                    <span>Envoys-100</span>
                    <span style={{margin: '15px 0'}}>14438.4</span>
                     <PositiveNumber>-408.06 -2.75%</PositiveNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>NASDAQ-100</span>
+                    <span>Envoys-100</span>
                    <span style={{margin: '15px 0'}}>14438.4</span>
                     <PositiveNumber>-408.06 -2.75%</PositiveNumber>
                 </ChartValue>

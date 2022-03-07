@@ -1,7 +1,7 @@
 {
   "home": {
-    "homeTitle": "Weekly Preview: Earnings To Watch this Week (AAPL, AMD, INTC, MSFT, TSLA)",
-    "button": "Call to action",
+    "homeTitle": "Investments in the securities market",
+    "button": "More",
     "index": "Composite index",
     "placeholder": "Enter the title"
   },
@@ -11,7 +11,7 @@
     "majorIndex": "MAJOR INDEX"
   },
     "trend": {
-      "title": "Nasdaq Decodes:\nTech Trends",
+      "title": "Envoys Decodes:\nTech Trends",
       "subtitle": "Discover the technology trends that are driving the global markets forward"
     },
   "event": {

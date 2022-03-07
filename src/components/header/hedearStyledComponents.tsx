@@ -55,6 +55,7 @@ export const HeaderMenu = styled(Menu)`
 `
 
 export const HeaderMenuNav1 = styled(Flex)`
+  width: 100%;
   @media (max-width: 1020px) {
     display: none;
   }
@@ -131,8 +132,8 @@ export const HeaderLangText = styled.p`
 `
 
 export const HeaderlangLogo = styled.img`
-  width: 20px;
-  margin-right: 10px;
+  width: 15px;
+  margin-left: 7px;
 `
 
 export const HeaderDropDownLogo = styled.img`
@@ -167,10 +168,26 @@ export const HeaderChangeLang = styled.button`
   letter-spacing: 0.02em;
   color: #045599;
   height: 20px;
-  margin-bottom: 10px;
   border-style: none;
   background: transparent;
+  cursor: pointer;
   &:last-child{
     margin-bottom: 0;
   }
+`
+
+
+export const LangWrap = styled(Flex)`
+  z-index: 2;
+  position: absolute;
+  left: -19px;
+  top: 274%;
+  background: #fff;
+  width: 153%;
+  border: 1px solid #DADADA;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  height: auto;
+  padding: 10px;
+
 `

@@ -27,6 +27,16 @@ const HeaderSwiper:React.FC = () => {
             name: 'Бензин 92',
             value: '6 875.93',
             pos: '-93.15(2.81%)'
+        },
+        {
+            name: 'Бензин 80',
+            value: '6 875.93',
+            pos: '+193.15(2.81%)'
+        },
+        {
+            name: 'Бензин 92',
+            value: '6 875.93',
+            pos: '-93.15(2.81%)'
         }
     ])
 
@@ -59,7 +69,6 @@ const HeaderSwiper:React.FC = () => {
     
     React.useEffect(() => {
         const pricesArr:string[] = []
-        let nowDate = getDateNow()
 
         urlReqs.forEach((el, index) => {
             axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
@@ -113,7 +122,7 @@ const HeaderSwiper:React.FC = () => {
                     slidesPerView: 6,
                 }}
               }>
-                  {showSwiper?prices.map((el, index) => {
+                  {/* {showSwiper?prices.map((el, index) => {
                       return <SwiperSlide  key={index}>
                           <HeaderSwiperItem>
                                 <Flex direction='column'>
@@ -125,9 +134,9 @@ const HeaderSwiper:React.FC = () => {
                                 </Flex>
                           </HeaderSwiperItem>
                       </SwiperSlide>
-                  }):<></>}
+                  }):<></>} */}
 
-            {/* {values.map((val, index) => {
+            {values.map((val, index) => {
                 let posB = false
                 if(val.pos[0] === '+') posB = true
                 return <SwiperSlide  key={index}>
@@ -144,7 +153,7 @@ const HeaderSwiper:React.FC = () => {
                         </Flex>
                     </HeaderSwiperItem>
                 </SwiperSlide>
-            })} */}
+            })}
         </Swiper>
     </HeaderSwiperS>
   )

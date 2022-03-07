@@ -119,6 +119,8 @@ const HeaderSwiperBase:React.FC= () => {
         setLocationText('Earnings Calendar')
     }else if(location.pathname === '/dividendcelender'){
         setLocationText('Dividend Calendar ')
+    }else if(location.pathname === '/clearing'){
+        setLocationText('Клириг и Депозитарий ')
     }else{
         setLocationText('Страница не найдена')
     }
@@ -131,7 +133,7 @@ const HeaderSwiperBase:React.FC= () => {
             <Swiper
                 loop
                 autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                     reverseDirection: true
@@ -183,7 +185,7 @@ const HeaderSwiperBase:React.FC= () => {
                                 <HeaderSwiperIcon src={posB?incr:decr}/>
                                 <Flex direction='column'>
                                     <HeaderSwiperText>{val.name}</HeaderSwiperText>
-                                    <Flex margin='2px 0 0 0'>
+                                    <Flex margin='10px 0 0 0'>
                                         <HeaderSwiperText>{val.value}</HeaderSwiperText>
                                         {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>{val.pos}</BannerInfoIncrease>}
                                     </Flex>

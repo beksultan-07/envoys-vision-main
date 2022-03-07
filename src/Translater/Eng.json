@@ -1,0 +1,36 @@
+{
+  "home": {
+    "homeTitle": "Weekly Preview: Earnings To Watch this Week (AAPL, AMD, INTC, MSFT, TSLA)",
+    "button": "Call to action",
+    "index": "Composite index",
+    "placeholder": "Enter the title"
+  },
+  "premarket":{
+    "title": "U.S PRE MARKET. MARKET OPENS IN 2H 6M",
+    "volume": "volume",
+    "majorIndex": "MAJOR INDEX"
+  },
+    "trend": {
+      "title": "Nasdaq Decodes:\nTech Trends",
+      "subtitle": "Discover the technology trends that are driving the global markets forward"
+    },
+  "event": {
+    "title": "UPCOMING MARKET\nEVENTS",
+    "earning": "Earnings",
+    "dividends": "Dividends",
+    "stock": "Stock Splits",
+    "mostActive": "MOST ACTIVE BY DOLLAR VOLUME\n",
+    "eventCount": "Events"
+  },
+  "investing": {
+    "title": "Investing During Volatility",
+    "subtitle": "What is an investor to do when the market is volatile? In short: Breathe, don't panic, and stay educated. Here are primers for you to stay smart during volatile trading periods.",
+    "howInvest": "How invest",
+    "info": "On long\nroller coaster\nstock market",
+    "readMore": "Read more",
+    "goBlock": "Go to blog",
+    "moreInvest": "78 more articles about investments",
+    "stock": "stock",
+    "bayStock": "Is it worth buying this stock"
+  }
+}

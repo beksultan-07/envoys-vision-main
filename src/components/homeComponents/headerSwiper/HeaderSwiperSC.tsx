@@ -44,10 +44,7 @@ export const HeaderSwiperTitle = styled.h3`
 
 
 export const HeaderSwiperItem = styled.div`
-    padding: 10px 10px;
-    p{
-        font-size: 14px !important;
-    }
+    padding: 20px 30px;
 ` 
 
 export const HeaderSwiperIcon = styled.img`
@@ -59,7 +56,7 @@ export const HeaderSwiperText = styled.p`
     font-family: Exo 2;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
     letter-spacing: 0.02em;
     color: #ffffff;

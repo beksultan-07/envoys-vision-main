@@ -136,7 +136,7 @@ const HeaderSwiper:React.FC = () => {
                             <HeaderSwiperIcon src={posB?incr:decr}/>
                             <Flex direction='column'>
                                 <HeaderSwiperText>{val.name}</HeaderSwiperText>
-                                <Flex margin='2px 0 0 0'>
+                                <Flex margin='10px 0 0 0'>
                                     <HeaderSwiperText>{val.value}</HeaderSwiperText>
                                     {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>{val.pos}</BannerInfoIncrease>}
                                 </Flex>

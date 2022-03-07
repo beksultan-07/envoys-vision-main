@@ -5,6 +5,7 @@ import handCoin from '../../assets/hand-coin-fill.svg'
 import changes from '../../assets/home/changes .svg'
 import funds from '../../assets/funds-box-fill.svg'
 import {Flex} from "../../uikit/uikit";
+import {useTranslation} from "react-i18next";
 
 
 
@@ -105,7 +106,7 @@ const Title2 = styled.div`
   top: 0;
   left: 0;
  width: 100%;
-  height: 92px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,11 +216,12 @@ const Income = styled.span`
 
 
 const Grid = () => {
+    const {t} = useTranslation()
     return (
         <>
             <Grids>
                 <Container>
-                    <GridItem1><Title>UPCOMING MARKET EVENTS</Title></GridItem1>
+                    <GridItem1><Title>{t("event.title")}</Title></GridItem1>
                     <GridItem1></GridItem1>
                     <GridItem1></GridItem1>
                 </Container>
@@ -230,8 +232,8 @@ const Grid = () => {
                         <Events>
                             <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
                        <div>
-                           <EventTitle>Earnings</EventTitle>
-                           <EventQuantity>410 EVENTS</EventQuantity>
+                           <EventTitle>{t("event.earning")}</EventTitle>
+                           <EventQuantity>410 {t("event.eventCount")}</EventQuantity>
                        </div>
                        <div>
                            <BlueEllipse src={playBtn}/>
@@ -256,8 +258,8 @@ const Grid = () => {
                         <Events>
                             <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
                                 <div>
-                                    <EventTitle>Dividends</EventTitle>
-                                    <EventQuantity>120 EVENTS</EventQuantity>
+                                    <EventTitle>{t("dividends")}</EventTitle>
+                                    <EventQuantity>120 {t("event.eventCount")}</EventQuantity>
                                 </div>
                                 <div>
                                     <BlueEllipse src={playBtn}/>
@@ -282,8 +284,8 @@ const Grid = () => {
                         <Events>
                             <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
                                 <div>
-                                    <EventTitle>Stock Splits</EventTitle>
-                                    <EventQuantity>4 EVENTS</EventQuantity>
+                                    <EventTitle>{t("stock")}</EventTitle>
+                                    <EventQuantity>4 {t("event.eventCount")}</EventQuantity>
                                 </div>
                                 <div>
                                     <BlueEllipse src={playBtn}/>
@@ -310,7 +312,7 @@ const Grid = () => {
             <Grids>
                 <Container>
                     <GridItem3>
-                        <Title2>MOST ACTIVE BY DOLLAR VOLUME</Title2>
+                        <Title2>НАИБОЛЕЕ АКТИВНЫЕ ПО ДОЛЛАРОВОМУ ОБЪЕМУ</Title2>
                        <Flex justify={"space-between"}>
                            <ActiveDollar>
                                <ActiveName>NASDAQ-100</ActiveName>

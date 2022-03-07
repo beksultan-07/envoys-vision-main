@@ -4,6 +4,8 @@ import {LineChart, Line} from 'recharts';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Vector from '../../assets/Vector.png'
 import Rechart from '../../components/homeComponents/bannerInfo/Rechart';
+import {NavLink} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -166,7 +168,7 @@ const ViewMoreAndData = styled.div`
   margin-top: 13px;
 `
 
-const ViewMore = styled.a`
+ export const ViewMore = styled.a`
   border-style: none;
   color: #045599;
   background: transparent ;
@@ -181,6 +183,7 @@ const ViewMore = styled.a`
 const Premarket : FC = () => {
     const month = new Date().getMonth()
     const date = new Date().toLocaleDateString().split('.')
+    const {t} = useTranslation()
 
     const data = [{
         name: '1',
@@ -226,27 +229,27 @@ const Premarket : FC = () => {
             <PreMarketHeader>
                 <PrmHeaderTitle>
                   <span style={{fontSize:"28px", lineHeight: '100%', marginRight:'10px'}}> U.S</span>
-                    <span>U.S PRE MARKET. MARKET OPENS IN 2H 6M</span>
+                    <span>{t("premarket.title")}</span>
                 </PrmHeaderTitle>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>
-                    <HeaderBtn>MAJOR INDEX</HeaderBtn>
+                    <HeaderBtn>{t("premarket.majorIndex")}</HeaderBtn>
                 </HeaderBtns>
             </PreMarketHeader>
             <CompositeIndexBlock>
                 <CompositeIndexBox>
-                    <IndexText>Envoys Composite Index</IndexText>
+                    <IndexText>NASDAQ {t("home.index")}</IndexText>
                     <IndexText>13 768.92 <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
-                    <IndexText>Volume:5,746,186,301</IndexText>
+                    <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
                 </CompositeIndexBox>
                 <CompositeIndexBox>
-                    <IndexText>Envoys Composite Index</IndexText>
+                    <IndexText>NASDAQ {t("home.index")}</IndexText>
                     <IndexText>13 768.92  <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
-                    <IndexText>Volume:5,746,186,301</IndexText>
+                    <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
                 </CompositeIndexBox>
             </CompositeIndexBlock>
       <ChartBlock>
-            {/* <Rechart data={data} color='EB9FA0'/>
+            {/* <Rechart data={data} color='EB9FA0'/>ё
             <Rechart data={data} color='53FFD9'/> */}
           
           <Chart>
@@ -291,22 +294,22 @@ const Premarket : FC = () => {
       </ChartBlock>
             <ChartValues>
                 <ChartValue>
-                    <span>Envoys-100</span>
+                    <span>NASDAQ-100</span>
                     <span style={{margin: '15px 0'}}>14438.4</span>
                     <NegativeNumber>-408.06 -2.75%</NegativeNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>Envoys-100</span>
+                    <span>NASDAQ-100</span>
                     <span style={{margin: '15px 0'}}>14438.4</span>
                     <NegativeNumber>-408.06 -2.75%</NegativeNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>Envoys-100</span>
+                    <span>NASDAQ-100</span>
                    <span style={{margin: '15px 0'}}>14438.4</span>
                     <PositiveNumber>-408.06 -2.75%</PositiveNumber>
                 </ChartValue>
                 <ChartValue>
-                    <span>Envoys-100</span>
+                    <span>NASDAQ-100</span>
                    <span style={{margin: '15px 0'}}>14438.4</span>
                     <PositiveNumber>-408.06 -2.75%</PositiveNumber>
                 </ChartValue>

@@ -19,14 +19,14 @@ export const BannerText = styled.h2`
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #fff;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 `
 
 export const BannerBtn = styled.button`
     color: #fff;
     background: #F47F1F;
     border: none;
-    padding: 13px 25px;
+    padding: 21px 43px;
     font-family: Exo 2;
     font-style: normal;
     font-weight: bold;

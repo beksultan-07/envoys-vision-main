@@ -6,6 +6,7 @@ import investBG from '../../assets/investingBG.svg'
 import readmore from '../../assets/readmore.svg'
 import stonks from '../../assets/stonksBG.svg'
 import { Flex } from '../../uikit/uikit';
+import {useTranslation} from "react-i18next";
 
 const Wrapper = styled.div`
   border-top: 1px solid #DADADA;
@@ -45,9 +46,9 @@ const DescLink = styled.button`
   padding: 20px 79px 18px 78px;
   border-style: none;
   display: flex;
-  align-items: start;
   flex-direction: column;
   cursor: pointer;
+  align-items: center;
 `
 
 const LinkText2 = styled.p`
@@ -158,19 +159,17 @@ const Stonks = styled.div`
 
 
 const Investing: FC = () => {
+    const {t} = useTranslation()
     return (
         <Wrapper>
             <Container>
-                <Title lineHeight={'36px'} fontSize={'30px'} width={'830px'} padding={'10px 0 10px 30px'}>Investing
-                    During Volatility</Title>
+                <Title lineHeight={'36px'} fontSize={'30px'} width={'830px'} padding={'10px 0 10px 30px'}>{t("investing.title")}</Title>
             </Container>
             <Wrapper>
                 <Container>
                     <Desc>
-                        <DescText> What is an investor to do when the market is volatile? In short: Breathe, don't
-                            panic, and stay educated. Here are primers for you to stay smart during volatile trading
-                            periods.</DescText>
-                        <DescLink><LinkText1>Перейти в блок</LinkText1><LinkText2>Ещё 78 статей про инвестии</LinkText2></DescLink>
+                        <DescText>{t("investing.subtitle")}</DescText>
+                        <DescLink><LinkText1>{t("investing.goBlock")}</LinkText1><LinkText2>{t("investing.moreInvest")}</LinkText2></DescLink>
                     </Desc>
                 </Container>
             </Wrapper>
@@ -178,19 +177,17 @@ const Investing: FC = () => {
                 <Flex>
                     <HowInvest><img src={investBG} alt=""/>
                         <TextBlock top={'60px'} left={'100px'}>
-                            <HowInvestBtn>Как инветировать</HowInvestBtn>
-                            <HowInvestDesc fontSize={'30px'}>На длинных
-                                американских горках
-                                фондового рынка</HowInvestDesc>
-                            <ReadMoreBtn>Читать полностью</ReadMoreBtn>
+                            <HowInvestBtn>{t("investing.howInvest")}</HowInvestBtn>
+                            <HowInvestDesc fontSize={'30px'}>{t("investing.info")}</HowInvestDesc>
+                            <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </HowInvest>
                     <Stonks>
                         <img src={stonks} alt=""/>
                         <TextBlock left={'60px'} top={'60px'}>
-                            <HowInvestBtn>Акции</HowInvestBtn>
-                            <HowInvestDesc fontSize={'24px'}>Стоит ли покупать <br/> эти акции</HowInvestDesc>
-                            <ReadMoreBtn>Читать полностью</ReadMoreBtn>
+                            <HowInvestBtn>{t("investing.stock")}</HowInvestBtn>
+                            <HowInvestDesc fontSize={'24px'}>{t("investing.bayStock")}</HowInvestDesc>
+                            <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </Stonks>
                 </Flex>

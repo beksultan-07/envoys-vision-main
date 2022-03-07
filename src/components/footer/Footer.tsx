@@ -164,7 +164,7 @@ const Footer = () => {
             <Contacts>
               <Contact href="tel:+996 (559) 18 00 33">+996 (559) 18 00 33</Contact>
               <WorkDays>Пн-Пт 9.00-20.00</WorkDays>
-              <Contact><Link to='#'>info@evde.kg</Link></Contact>
+              <Contact href="info@evde.kg">info@evde.kg</Contact>
               <CompanyName>Envoys vision digital exchange 2022</CompanyName>
               <PrivacyPolicy><Link to='#'>Политика конфиденциальности</Link></PrivacyPolicy>
             </Contacts>

@@ -3,9 +3,11 @@ import { Flex } from '../../../uikit/uikit'
 import { BannerDate, BannerInfoIncrease, BannerInfoLink, BannerInfoS, BannerInfoText, BannerInfoWrap, BannerSearch, BannerSearchBtn, BannerSearchBtnIcon } from './bannerInfoSC'
 import Icon from '../../../assets/search.svg';
 import Rechart from './Rechart';
+import {useTranslation} from "react-i18next";
 
 const BannerInfo:React.FC = () => {
     const [inputValue, setInputValue] = React.useState('')
+    const {t} = useTranslation()
     const data = [{
           name: '1',
           uv: 12,
@@ -54,7 +56,7 @@ const BannerInfo:React.FC = () => {
 
             <BannerDate>22 Января 2022</BannerDate>
 
-            <BannerInfoText margin={false}>NASDAQ Composite Index</BannerInfoText>
+            <BannerInfoText margin={false}>NASDAQ {t("home.index")}</BannerInfoText>
             <Flex margin='15px 0 15px 0'>
                 <BannerInfoText margin={false}>13 768.92 </BannerInfoText>
                 <BannerInfoIncrease margin={true}>+385.10</BannerInfoIncrease> 

@@ -5,28 +5,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import CompanyListItem from './CompanyListItem'
 
 const CompanySide:React.FC = () => {
-    const [companyInfo, setCompanyInfo] = React.useState([
-        {
-            name: 'Контакты',
-            info: 'Телефоны: 7 (727) 321 00 22 Республика Казахстан, 040930, Алматинская обл., р-н Карасайский, сельский округ Жибек Жолы, село Жибек жолы, ул. Суйінбай, 1'
-        },
-        {
-            name: 'Сайт',
-            info: 'asiaagrofood.kz'
-        },
-        {
-            name: 'Электронная почта',
-            info: 'zerno@asiaagro.kz'
-        },
-        {
-            name: 'Основная деятельность',
-            info: 'производство и оптовая продажа муки, патоки и продуктов переработки пшеницы и кукурузы'
-        },
-        {
-            name: 'Первый руководитель',
-            info: 'Ашенов Саян Баймұратұлы Председатель Правления'
-        },
-    ])
+    const [companyInfo, setCompanyInfo] = React.useState(require('../ListingC/listing.json'))
     const [list, setList] = useState([
         'Ценные бумаги',
         'Акционеры',
@@ -40,6 +19,7 @@ const CompanySide:React.FC = () => {
     const navigate = useNavigate() 
 
     React.useEffect(() => {
+        console.log(location);
         if(location.state === null){
             navigate('/listing')
         }else{
@@ -54,14 +34,31 @@ const CompanySide:React.FC = () => {
 
         <Flex direction='column'>
             {companyInfo.map((el, index) => {
-                return <Flex margin='30px 0 0 0'  key={index}>
-                        <CompanyInfoName>{el.name}:</CompanyInfoName>
-                        {el.name==='Сайт'||el.name==='Электронная почта'
-                        ?<CompanyInfoValueLink><Link to='#'>{el.info}</Link></CompanyInfoValueLink>
-                        :<CompanyInfoValue>{el.info}:</CompanyInfoValue>
-                    }
-                    </Flex>
+                if(el.inside.name === companyName){
+                    return <>
+                        <Flex margin='30px 0 0 0'  key={index}>
+                            <CompanyInfoName>Контакты:</CompanyInfoName>
+                            <CompanyInfoName>{el.inside.address}</CompanyInfoName>
+                        </Flex>
+                        <Flex margin='30px 0 0 0'  key={index}>
+                            <CompanyInfoName>Основная деятельность:</CompanyInfoName>
+                            <CompanyInfoName>{el.inside.kindOfActivity}</CompanyInfoName>
+                        </Flex>
+                        <Flex margin='30px 0 0 0'  key={index}>
+                            <CompanyInfoName>Руководитель:</CompanyInfoName>
+                            <CompanyInfoName>{el.inside.boss}</CompanyInfoName>
+                        </Flex>
+                    </>
+                }
             })}
+{/*             
+                            return <Flex margin='30px 0 0 0'  key={index}>
+                                    <CompanyInfoName>{el.name}:</CompanyInfoName>
+                                    {el.name==='Сайт'||el.name==='Электронная почта'
+                                    ?<CompanyInfoValueLink><Link to='#'>{el.info}</Link></CompanyInfoValueLink>
+                                    :<CompanyInfoValue>{el.info}:</CompanyInfoValue>
+                                }
+                                </Flex> */}
 
             <CompanyList>
                 {list.map((el, index) => {

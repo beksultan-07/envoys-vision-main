@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {Suspense} from 'react';
 import { Route, Routes } from "react-router";
 
 import DividendC from './pages/dividendCalendar/DividendC';
@@ -33,7 +33,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <Suspense fallback={'Loader...'} className="App">
       <Header/>
       {showSwiper?<HeaderSwiperBase/>:<></>}
 
@@ -47,7 +47,7 @@ function App() {
       </Routes>
 
       <Footer/>
-    </div>
+    </Suspense>
   );
 }
 

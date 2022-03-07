@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BG from '../../assets/techTrends.jpg'
 import respBG from '../../assets/respBg.jpg'
 import respBG1 from '../../assets/respBg1.jpg'
+import {useTranslation} from "react-i18next";
 
 
 const Wrapper = styled.div`
@@ -104,14 +105,14 @@ type Props = {
 
 
 const Trends : FC = () => {
+     const {t} = useTranslation()
     return (
      <Wrapper>
          <Container>
              <TrendsText>
-                 <TrendsTitle>Nasdaq Decodes:
-                     Tech Trends</TrendsTitle>
-                 <TrendsSubtitle>Discover the technology trends that are driving the global markets forward</TrendsSubtitle>
-                 <ActionBtn margin={'0'}>Призыв к действию</ActionBtn>
+                 <TrendsTitle>{t("trend.title")}</TrendsTitle>
+                 <TrendsSubtitle>{t("trend.subtitle")}</TrendsSubtitle>
+                 <ActionBtn margin={'0'}>{t("home.button")}</ActionBtn>
              </TrendsText>
          </Container>
 

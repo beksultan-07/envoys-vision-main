@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex } from '../../../uikit/uikit'
 import { HeaderDropDown, HeaderDropDownS, HeaderDropDownWrap, HeaderNavLink, HeaderNavText } from '../hedearStyledComponents'
 
-const DropDownMarkets:React.Fc = () => {
+const DropDownMarkets:React.FC = () => {
     const [headerLinks, setHeaderLink] = React.useState([
         {title: 'Фондовый рынок', value: ['Российский рынок', 'Америаканский рынок', 'Кыргызский рынок']},
         {title: 'Сектора', value: ['Горднодобывающий сектор','Промышленность','Финансовый сектор','Сельское хозяйство']},

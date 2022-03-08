@@ -10,6 +10,7 @@ import { Flex } from "../../uikit/uikit";
 import DropDownMarkets from "./DropDowns/DropDownMarkets";
 import DropDownListing from "./DropDowns/DropDownListing";
 import {changeLang} from "../../Translater/i18next";
+import DropDownNews from "./DropDowns/DropDownNews";
 
 const HeaderNav:React.FC = () => {
 
@@ -17,8 +18,10 @@ const HeaderNav:React.FC = () => {
     const [navLinksEn, setNavLinksEn] = React.useState(['markets', 'listing', 'clearing', 'news&analytics', 'aboutus'])
     const [marketClick, setMarketClick] = useState(false)
     const [listingClick, setListingClick] = useState(false)
+    const [newsClick, setNewsClick] = useState(false)
+
     const [activeLang, setActiveLang] = useState('Russian')
-    const [showLangCh, setShowLangCh] = useState(true)
+    const [showLangCh, setShowLangCh] = useState(false)
 
 
     return (
@@ -34,7 +37,7 @@ const HeaderNav:React.FC = () => {
                             onMouseEnter={() => setMarketClick(true)}
                             onMouseLeave={() => setMarketClick(false)}
                         >
-                            <HeaderNavText>{el}</HeaderNavText>
+                            <HeaderNavText>{activeLang=='Russian'?el:navLinksEn[index]}</HeaderNavText>
                             {marketClick?<DropDownMarkets/>:<></>}
                             <HeaderDropDownLogo src={Dd}/>
                         </Flex>
@@ -49,19 +52,37 @@ const HeaderNav:React.FC = () => {
                             onMouseEnter={() => setListingClick(true)}
                             onMouseLeave={() => setListingClick(false)}
                         >
-                            <HeaderNavText>{el}</HeaderNavText>
+                            <HeaderNavText>{activeLang=='Russian'?el:navLinksEn[index]}</HeaderNavText>
                             {listingClick?<DropDownListing/>:<></>}
                             <HeaderDropDownLogo src={Dd}/>
                         </Flex>
                     }
-                    return <HeaderNavLink key={index} to={navLinksEn[index]}> {el} </HeaderNavLink>
+
+                    if(el === 'Новости и аналитика'){
+                        return <Flex
+                            margin='0 15px'
+                            key={index}
+                            align='center'
+                            style={{position: 'relative'}}
+                            onMouseEnter={() => setNewsClick(true)}
+                            onMouseLeave={() => setNewsClick(false)}
+                        >
+                            <HeaderNavText>{activeLang=='Russian'?el:navLinksEn[index]}</HeaderNavText>
+                            {newsClick?<DropDownNews/>:<></>}
+                            <HeaderDropDownLogo src={Dd}/>
+                        </Flex>
+                    }
+
+                    return <HeaderNavLink key={index} to={navLinksEn[index]}> {activeLang=='Russian'?el:navLinksEn[index].replace('&',' ')} </HeaderNavLink>
                 })}
             </Flex>
 
             <Flex direction='column' align='center' margin='0 0 0 100px' style={{position: 'relative'}}>
-                    <Flex align="center" onClick={() => setShowLangCh(val => !val)}>
-                        <HeaderChangeLang >{activeLang}</HeaderChangeLang>
-                        <HeaderlangLogo src={Dd}/>
+                    <Flex align="center">
+                        <HeaderChangeLang onClick={() => setShowLangCh(val => !val)}>
+                            {activeLang}
+                            <HeaderlangLogo src={Dd} style={{transform: showLangCh?'rotate(180deg)':'rotate(0deg)', transition: '.2s'}}/>
+                        </HeaderChangeLang>
                     </Flex>
 
                     {showLangCh?

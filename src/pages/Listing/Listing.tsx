@@ -13,14 +13,8 @@ const Listing:React.FC = () => {
   const location = useLocation()
   const [listingPath, setListingPath] = React.useState('')
 
-  React.useEffect(() => {
-    console.log(location.state);
-    
-  }, [])
-  
-
   function getSideChoose(){
-    if(listingPath === 'Список компаний' || location.state== 'Список компаний' || listingPath === '' && location.state== '') {
+    if(listingPath === 'Список компаний' || location.state== 'Список компаний') {
       return <ListingC/>
     }
     if(listingPath === 'ESG облигации'  || location.state== 'ESG облигации') {
@@ -30,7 +24,6 @@ const Listing:React.FC = () => {
       return <Disclosures/>
     }
     if(listingPath === 'Дипломанты номинаций' || location.state== 'Дипломанты номинаций') {
-      console.log('work');
       return <IDiploms/>
     }
 
@@ -47,12 +40,6 @@ const Listing:React.FC = () => {
           <SideBar changeLP={changeListingPath}/>
           
             {getSideChoose()}
-            {/* <Routes>
-              <Route path="/" element={<ListingC/>}/>
-              <Route path="/bonds" element={<Bonds/>}/>
-              <Route path="/disclosures" element={<Disclosures/>}/>
-              <Route path="/diploms" element={<IDiploms/>}/>
-            </Routes> */}
         </Flex>
       </Container>
   )

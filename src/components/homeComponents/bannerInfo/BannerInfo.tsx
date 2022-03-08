@@ -89,7 +89,7 @@ const BannerInfo:React.FC = () => {
                 </Flex>
             </Flex>
 
-            <BannerInfoLink to='/'>Посмотреть всю рыночную активность</BannerInfoLink>
+            <BannerInfoLink to='/market'>Посмотреть всю рыночную активность</BannerInfoLink>
         </BannerInfoWrap>
     </BannerInfoS>
   )

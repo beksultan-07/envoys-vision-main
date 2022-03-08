@@ -68,26 +68,26 @@ const HeaderSwiper:React.FC = () => {
     }
     
     React.useEffect(() => {
-        const pricesArr:string[] = []
+        // const pricesArr:string[] = []
 
-        urlReqs.forEach((el, index) => {
-            axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
-                .then(res => res.data)
-                .then(res => {
-                    for(let i in res){
-                        for(let j in res[i]){
-                            if(j === '5. Exchange Rate'){
-                                pricesArr.push(res[i][j])
-                            }
-                        }
-                    }
-                    console.log(pricesArr.length);
-                    if(pricesArr.length >= urlReqs.length){
-                        setPrices(pricesArr)
-                        setShowSwiper(true)
-                    }
-                })
-        })
+        // urlReqs.forEach((el, index) => {
+        //     axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
+        //         .then(res => res.data)
+        //         .then(res => {
+        //             for(let i in res){
+        //                 for(let j in res[i]){
+        //                     if(j === '5. Exchange Rate'){
+        //                         pricesArr.push(res[i][j])
+        //                     }
+        //                 }
+        //             }
+        //             // console.log(pricesArr.length);
+        //             if(pricesArr.length >= urlReqs.length){
+        //                 setPrices(pricesArr)
+        //                 setShowSwiper(true)
+        //             }
+        //         })
+        // })
     }, [])
     
 

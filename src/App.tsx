@@ -13,6 +13,7 @@ import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwi
 import Company from './pages/Company/Company';
 import Listing from "./pages/Listing/Listing";
 import Clearing from "./pages/clearing/Clearing";
+import News from './pages/News/News';
 
 
 
@@ -41,8 +42,9 @@ function App() {
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>
         <Route path="/clearing" element={<Clearing/>}/>
-        <Route path="/earningcelender" element={<EarningC/>}/>
-        <Route path="/dividendcelender" element={<DividendC/>}/>
+        <Route path="/news&analytics" element={<News/>}/>
+        <Route path="/earningcalendar" element={<EarningC/>}/>
+        <Route path="/dividendcalendar" element={<DividendC/>}/>
       </Routes>
 
       <Footer/>

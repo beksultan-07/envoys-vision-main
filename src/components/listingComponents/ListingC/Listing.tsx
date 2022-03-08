@@ -170,12 +170,12 @@ const ListinC:React.FC = () => {
     
 
     const[listItems2, setListItems2] = React.useState ([...listItems])
-    const [NavitemsSort, setNavitemsSort] = React.useState({
-      all: true,
-      listing: false,
-      notListing: false,
-      default: false,
-    })
+    // const [NavitemsSort, setNavitemsSort] = React.useState({
+    //   all: true,
+    //   listing: false,
+    //   notListing: false,
+    //   default: false,
+    // })
 
     const [inputVal, setInputVal] = React.useState<string>('')
 
@@ -183,7 +183,8 @@ const ListinC:React.FC = () => {
     const loc = useLocation()
 
     function linkHandler(e:React.MouseEvent) {
-      navigate(loc.pathname+'/company', {state: {CompanyName: e.target.outerText}})
+      navigate(loc.pathname+'/company', {state: e.target.outerText})
+
     }
         
 
@@ -214,38 +215,43 @@ const ListinC:React.FC = () => {
       setListItems(listItems2)
     }
   }
+
+  function linkCodeHandler(e:React.MouseEvent){
+    navigate(loc.pathname+'/company', {state: e.target.nextElementSibling.outerText})
+    
+  }
     
 
-  function clickSortNav (e){
-    let newNav = {...NavitemsSort}
-    for(let i in newNav){
-      if(newNav[i]){
-        newNav[i] = false
-      }
-    }
+  // function clickSortNav (e){
+  //   let newNav = {...NavitemsSort}
+  //   for(let i in newNav){
+  //     if(newNav[i]){
+  //       newNav[i] = false
+  //     }
+  //   }
     
-    if(e.target.outerText === 'Все'){
-      newNav.all = !newNav.all
-    }else if(e.target.outerText === 'Листинговые'){
-      newNav.listing = !newNav.listing
-    }else if(e.target.outerText === 'Нелистинговые'){
-      newNav.notListing = !newNav.notListing
-    }else if(e.target.outerText === 'Допустившие дефолт'){
-      newNav.default = !newNav.default
-    }
-    setNavitemsSort(newNav)
-  }
+  //   if(e.target.outerText === 'Все'){
+  //     newNav.all = !newNav.all
+  //   }else if(e.target.outerText === 'Листинговые'){
+  //     newNav.listing = !newNav.listing
+  //   }else if(e.target.outerText === 'Нелистинговые'){
+  //     newNav.notListing = !newNav.notListing
+  //   }else if(e.target.outerText === 'Допустившие дефолт'){
+  //     newNav.default = !newNav.default
+  //   }
+  //   setNavitemsSort(newNav)
+  // }
 
     return (
         <ListCompany>
             <LCTitle>Список Компаний</LCTitle>
             <Flex justify={'space-between'}>
-                <LCNav>
+                {/* <LCNav>
                   <NavItem click={NavitemsSort.all} onClick={(e) => clickSortNav (e)}>Все</NavItem>
                   <NavItem click={NavitemsSort.listing} onClick={(e) => clickSortNav (e)}>Листинговые</NavItem>
                   <NavItem click={NavitemsSort.notListing} onClick={(e) => clickSortNav (e)}>Нелистинговые</NavItem>
                   <NavItem click={NavitemsSort.default} onClick={(e) => clickSortNav (e)}>Допустившие дефолт</NavItem>
-                </LCNav>
+                </LCNav> */}
                 <LCCounter>Всего эмитентов - {listItems.length}</LCCounter>
             </Flex>
 
@@ -260,20 +266,20 @@ const ListinC:React.FC = () => {
                 <ListItems>
                   <ListItem style={{color: 'black', textDecoration: 'none'}}>Код</ListItem>
                   <ListItem style={{color: 'black', textDecoration: 'none'}}>Компания</ListItem>
-                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem>
-                  <ListItem style={{color: 'black', textDecoration: 'none'}}>Капитлаизация, млрд сом</ListItem>
+                  {/* <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> */}
+                  <ListItem style={{color: 'black', textDecoration: 'none', textAlign: 'end'}}>Капитлаизация, млрд сом</ListItem>
                 </ListItems>
 
-                    {listItems.map((el, idx) => {
+                    {listItems.map((el:any, idx:number) => {
                       if(el !== undefined){
                          return <ListItems key={idx}>
-                            <ListItem>{el.outside.code}</ListItem>
+                            <ListItem onClick={(e) => linkCodeHandler(e)}>{el.outside.code}</ListItem>
 
                             <ListItem onClick={(e) => linkHandler(e)}>{el.outside.name} </ListItem> 
                             
-                            <ListItem><img src={el.webSite} alt=""/></ListItem>
+                            {/* <ListItem><img src={el.webSite} alt=""/></ListItem> */}
                             
-                            <ListItem style={{cursor: 'auto'}}>{el.outside.money}</ListItem>
+                            <ListItem style={{cursor: 'auto', textAlign: 'end'}}>{el.outside.money}</ListItem>
                         </ListItems>
                       }})}
             </List>

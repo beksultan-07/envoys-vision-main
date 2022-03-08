@@ -19,11 +19,10 @@ const CompanySide:React.FC = () => {
     const navigate = useNavigate() 
 
     React.useEffect(() => {
-        console.log(location);
         if(location.state === null){
             navigate('/listing')
         }else{
-            setCompanyName(location.state.CompanyName)
+            setCompanyName(location.state)
         }
     }, [])
     
@@ -33,22 +32,22 @@ const CompanySide:React.FC = () => {
         <CompanyTitle>{companyName}</CompanyTitle>
 
         <Flex direction='column'>
-            {companyInfo.map((el, index) => {
+            {companyInfo.map((el:any, index:number) => {
                 if(el.inside.name === companyName){
-                    return <>
-                        <Flex margin='30px 0 0 0'  key={index}>
+                    return <Flex direction='column' key={index}>
+                        <Flex margin='30px 0 0 0'>
                             <CompanyInfoName>Контакты:</CompanyInfoName>
                             <CompanyInfoName>{el.inside.address}</CompanyInfoName>
                         </Flex>
-                        <Flex margin='30px 0 0 0'  key={index}>
+                        <Flex margin='30px 0 0 0'>
                             <CompanyInfoName>Основная деятельность:</CompanyInfoName>
                             <CompanyInfoName>{el.inside.kindOfActivity}</CompanyInfoName>
                         </Flex>
-                        <Flex margin='30px 0 0 0'  key={index}>
+                        <Flex margin='30px 0 0 0'>
                             <CompanyInfoName>Руководитель:</CompanyInfoName>
                             <CompanyInfoName>{el.inside.boss}</CompanyInfoName>
                         </Flex>
-                    </>
+                    </Flex>
                 }
             })}
 

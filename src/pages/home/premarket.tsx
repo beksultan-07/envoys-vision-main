@@ -310,22 +310,17 @@ const Premarket : FC = () => {
             <PreMarketHeader>
                 <PrmHeaderTitle>
                   <span style={{fontSize:"28px", lineHeight: '100%', marginRight:'10px'}}> U.S</span>
-                    <span className='title'>{t("premarket.title")}</span>
+                    <span style={{width: 'auto'}} className='title'>{t("premarket.title")}</span>
                 </PrmHeaderTitle>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>
-                    <HeaderBtn>{t("premarket.majorIndex")}</HeaderBtn>
+                    <HeaderBtn >{t("premarket.majorIndex")}</HeaderBtn>
                 </HeaderBtns>
             </PreMarketHeader>
             <CompositeIndexBlock>
                 <CompositeIndexBox>
                     <IndexText>Envoys {t("home.index")}</IndexText>
                     <IndexText>13 768.92 <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
-                    <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
-                </CompositeIndexBox>
-                <CompositeIndexBox>
-                    <IndexText>Envoys {t("home.index")}</IndexText>
-                    <IndexText>13 768.92  <NegativeNumber>-385.10</NegativeNumber> -2.72%</IndexText>
                     <IndexText>{t("premarket.volume")}:5,746,186,301</IndexText>
                 </CompositeIndexBox>
             </CompositeIndexBlock>
@@ -353,25 +348,6 @@ const Premarket : FC = () => {
               </ResponsiveContainer>
           </Chart>
 
-          <Chart>
-              <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart
-                      width={500}
-                      height={400}
-                      data={data}>
-                      <defs>
-                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#53FFD9" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="#53FFD9" stopOpacity={0}/>
-                        </linearGradient>
-                    </defs>
-                      <CartesianGrid horizontal vertical={false}/>
-                      <XAxis hide/>
-                      <YAxis orientation='right'/>
-                      <Area type="monotone" dataKey="uv" stroke="#53FFD9" fill="#53FFD9" />
-                  </AreaChart>
-              </ResponsiveContainer>
-          </Chart>
       </ChartBlock>
             <ChartValues>
                 <ChartValue>
@@ -383,16 +359,6 @@ const Premarket : FC = () => {
                     <span>Envoys-100</span>
                     <span style={{margin: '15px 0'}}>14438.4</span>
                     <NegativeNumber>-408.06 -2.75%</NegativeNumber>
-                </ChartValue>
-                <ChartValue>
-                    <span>Envoys-100</span>
-                   <span style={{margin: '15px 0'}}>14438.4</span>
-                    <PositiveNumber>-408.06 -2.75%</PositiveNumber>
-                </ChartValue>
-                <ChartValue>
-                    <span>Envoys-100</span>
-                   <span style={{margin: '15px 0'}}>14438.4</span>
-                    <PositiveNumber>-408.06 -2.75%</PositiveNumber>
                 </ChartValue>
 
             </ChartValues>

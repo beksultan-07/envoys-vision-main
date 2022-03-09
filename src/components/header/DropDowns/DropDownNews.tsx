@@ -7,12 +7,14 @@ const DropDownNews:React.FC = () => {
     const [links, setLinks] = React.useState([
         'Новости',
         'Календарь Диведент',
-        'Календарь заработка'
+        'Календарь Заработка',
+        'Торговый Календарь'
     ])
     const [linksEn, setLinksEn] = React.useState([
         'News',
         'Dividend Calendar',
-        'Earning Calendar'
+        'Earning Calendar',
+        'Trading Calendar'
     ])
 
     const navigate = useNavigate()

@@ -17,6 +17,7 @@ import GoUpButton from "./components/goUpButton";
 import News from './pages/News/News';
 import axios from 'axios';
 import AboutUs from './pages/AboutUs/AboutUs';
+import TradingCalendar from './pages/TradingCalendar/TradingCalendar';
 
 
 
@@ -124,9 +125,10 @@ function App() {
         {/* <Route path="/news&analytics" element={<News/>}/> */}
         <Route path="/earningcalendar" element={<EarningC/>}/>
         <Route path="/dividendcalendar" element={<DividendC/>}/>
+        <Route path="/tradingcalendar" element={<TradingCalendar/>}/>
       </Routes>
 
-      {/*<Footer/>*/}
+      <Footer/>
     </Suspense>
   );
 }

@@ -11,14 +11,17 @@ i18n
             ru: {translation: Russ},
             en: {translation: Eng},
         },
-        lng: 'ru',
-        fallbackLng: "en",
+        detection:{
+            order:["localStorage", "cookies"],
+            caches:["localStorage", "cookies"]
+        },
+        fallbackLng: "ru",
         interpolation: {escapeValue: false}
     })
 
-export const changeLang = (lang) => {
+export const changeLang = (lang:string) => {
     console.log(lang)
-    i18n.changeLanguage(lang)
+    i18n.changeLanguage(lang).then(r => r)
 }
 
 

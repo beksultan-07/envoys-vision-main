@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
+// @ts-ignore
 import playBtn from '../../assets/play-btn.svg'
+// @ts-ignore
 import handCoin from '../../assets/hand-coin-fill.svg'
+// @ts-ignore
 import changes from '../../assets/home/changes .svg'
+// @ts-ignore
 import funds from '../../assets/funds-box-fill.svg'
 import {Flex} from "../../uikit/uikit";
 import {useTranslation} from "react-i18next";
@@ -390,7 +394,7 @@ const Grid = () => {
             <Grids>
                 <Container>
                     <GridItem3>
-                        <Title2>НАИБОЛЕЕ АКТИВНЫЕ ПО ДОЛЛАРОВОМУ ОБЪЕМУ</Title2>
+                        <Title2>{t("event.dollarActive")}</Title2>
                        <Flex justify={"space-between"}>
                            <ActiveDollar>
                                <ActiveName>Envoys-100</ActiveName>

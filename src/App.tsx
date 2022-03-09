@@ -11,8 +11,9 @@ import Header from './components/header/Header';
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
-import Listing from "./pages/Listing/Listing";
 import Clearing from "./pages/clearing/Clearing";
+import Listing from "./pages/listing/Listing";
+import GoUpButton from "./components/goUpButton";
 
 
 
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <Suspense fallback={'Loader...'} className="App">
-      <Header/>
+      {/*<Header/>*/}
       {showSwiper?<HeaderSwiperBase/>:<></>}
 
       <Routes>
@@ -45,7 +46,7 @@ function App() {
         <Route path="/dividendcelender" element={<DividendC/>}/>
       </Routes>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </Suspense>
   );
 }

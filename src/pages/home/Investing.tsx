@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   border-right: 1px solid #DADADA;
   border-left: 1px solid #DADADA;
@@ -27,17 +27,23 @@ const Container = styled.div`
 const Desc = styled.div`
   width: 100%;
   display: flex;
+  @media(max-width: 769px){
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const DescText = styled.div`
-  max-width: 830px;
+  width: 830px;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 150%;
   padding: 20px 30px;
-
   color: #101010;
+  @media(max-width: 770px){
+    width: 100%;
+  }
 `
 
 const DescLink = styled.button`
@@ -47,8 +53,16 @@ const DescLink = styled.button`
   border-style: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   cursor: pointer;
   align-items: center;
+  @media(max-width: 769px){
+    max-width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 79px 10px 78px;
+  }
 `
 
 const LinkText2 = styled.p`
@@ -80,10 +94,19 @@ const LinkText1 = styled.p`
   }
 `
 const HowInvest = styled.div`
-  max-width: 830px;
+  max-width: 830px; 
   padding: 30px 30px 107px 30px;
   border-right: 1px solid #DADADA;
   position: relative;
+  @media(max-width: 1180px){
+    padding: 0;
+    max-width: 100vw;
+  }
+`
+
+const InvestBG = styled.img`
+  width: 100%;
+  height: 281px;
 `
 
 type Props = {
@@ -155,6 +178,13 @@ const Stonks = styled.div`
   position: relative;
   padding: 30px 30px 0 30px;
 `
+const FlexBlock = styled.div`
+    display: flex;
+    @media(max-width: 1180px){
+      display: flex;
+      flex-direction: column;
+    }
+`
 
 
 
@@ -168,14 +198,14 @@ const Investing: FC = () => {
             <Wrapper>
                 <Container>
                     <Desc>
-                        <DescText>{t("investing.subtitle")}</DescText>
+                        <DescText>{t("investing.subtitle")}What is an investor to do when the market is volatile? In short: Breathe, don't panic, and stay educated. Here are primers for you to stay smart during volatile trading periods.</DescText>
                         <DescLink><LinkText1>{t("investing.goBlock")}</LinkText1><LinkText2>{t("investing.moreInvest")}</LinkText2></DescLink>
                     </Desc>
                 </Container>
             </Wrapper>
             <Container>
-                <Flex>
-                    <HowInvest><img src={investBG} alt=""/>
+                <FlexBlock>
+                    <HowInvest><InvestBG src={investBG} alt=""/>
                         <TextBlock top={'60px'} left={'100px'}>
                             <HowInvestBtn>{t("investing.howInvest")}</HowInvestBtn>
                             <HowInvestDesc fontSize={'30px'}>{t("investing.info")}</HowInvestDesc>
@@ -190,7 +220,7 @@ const Investing: FC = () => {
                             <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </Stonks>
-                </Flex>
+                </FlexBlock>
 
             </Container>
 

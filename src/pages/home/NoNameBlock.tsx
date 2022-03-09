@@ -1,12 +1,19 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
 import {Flex} from "../../uikit/uikit";
+// @ts-ignore
 import listStyle from '../../assets/listItemStyle.svg'
+// @ts-ignore
 import morgan from '../../assets/jpmorgan.svg'
+// @ts-ignore
 import databank from '../../assets/databank2.svg'
+// @ts-ignore
 import ing from '../../assets/ing2).svg'
+// @ts-ignore
 import muzino from '../../assets/mizuno.svg'
+// @ts-ignore
 import natixis from '../../assets/natixis2.svg'
+// @ts-ignore
 import novikom from '../../assets/novicombank).svg'
 import {ActionBtn} from "./Trends";
 

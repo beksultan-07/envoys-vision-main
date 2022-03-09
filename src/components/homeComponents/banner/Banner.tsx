@@ -15,8 +15,8 @@ const Banner:React.FC = () => {
             <Container>
                 <BannerFlex align="center" justify="space-around" margin='50px 0 0 0'>
                     <BannerInfoTexts align="flex-start" direction="column">
-                        <BannerText>{t("home.homeTitle")}</BannerText>
-                        <BannerBtn>{t("home.button")}</BannerBtn>
+                        <BannerText>{t("home.homeTitle")}dgfd</BannerText>
+                        <BannerBtn>{t("home.button")}dsfdsfsfdf</BannerBtn>
                     </BannerInfoTexts>
 
                     <BannerInfo/>

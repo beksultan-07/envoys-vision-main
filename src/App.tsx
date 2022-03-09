@@ -11,12 +11,12 @@ import Header from './components/header/Header';
 import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
-import Listing from "./pages/Listing/Listing";
 import Clearing from "./pages/clearing/Clearing";
+import Listing from "./pages/Listing/Listing";
+import GoUpButton from "./components/goUpButton";
 import News from './pages/News/News';
 import axios from 'axios';
 import AboutUs from './pages/AboutUs/AboutUs';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 
 
@@ -39,37 +39,39 @@ function App() {
   ])
   const location = useLocation() 
 
-  function getRandomNum(min, max) {
+  function getRandomNum(min:number, max:number) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; 
   }
 
-  React.useEffect(() => {    
-    urlReqs.forEach((el, index) => {
-      if(el[0] === 'btc'){
+  function requestGetBtc(el:any){
           let randToken = tokens[getRandomNum(0,4)]
           axios(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${el[0]}&market=${el[1]}&apikey=${randToken}`)
               .then(res => res.data)
               .then(res => {
-
-                  console.log('btc to usd info came')
-                  let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
-                  let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
-                  let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
-                  let newObj = {
-                      name: el[0]=='btc'?el[0].toUpperCase()+' USD':el[0].toUpperCase(),
-                      value: String(priceToday).slice(0, 7),
-                      pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
+                  try{
+                    let resKeys = Object.keys(res['Time Series (Digital Currency Daily)'])
+                    let priceToday = res['Time Series (Digital Currency Daily)'][resKeys[0]]['2b. high (USD)']
+                    let priceYesterday = res['Time Series (Digital Currency Daily)'][resKeys[1]]['2b. high (USD)']
+                    let newObj = {
+                        name: el[0]=='btc'?el[0].toUpperCase()+' USD':el[0].toUpperCase(),
+                        value: String(priceToday).slice(0, 7),
+                        pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
+                    }
+                    setValues(val => [...val, newObj])
+                  }catch (error){
+                    requestGetBtc(el)
                   }
-                  setValues(val => [...val, newObj])
               })
-        }else{
-        let randToken = tokens[getRandomNum(0,4)]
+        }
+
+    function requestGetUsd(el:any){
+      let randToken = tokens[getRandomNum(0,4)]
           axios(`https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${el[0]}&to_symbol=${el[1]}&apikey=${randToken}`)
               .then(res => res.data)
               .then(res => {
-                  console.log('usd to kgs info came')
+                try {
                   let resKeys = Object.keys(res['Time Series FX (Daily)'])
                   let priceToday = res['Time Series FX (Daily)'][resKeys[0]]['2. high']
                   let priceYesterday = res['Time Series FX (Daily)'][resKeys[1]]['2. high']
@@ -79,7 +81,18 @@ function App() {
                       pos: String((parseFloat(priceToday)-parseFloat(priceYesterday))).slice(0, 7)
                   }
                   setValues(val => [...val, newObj])
+                } catch {
+                  requestGetUsd(el)
+                }
               })
+    }
+
+  React.useEffect(() => {    
+    urlReqs.forEach((el, index) => {
+      if(el[0] === 'btc'){
+        requestGetBtc(el)
+      }else{
+        requestGetUsd(el)
       } 
   })
 
@@ -101,7 +114,6 @@ function App() {
     <Suspense fallback={'Loader...'}>
       <Header/>
       {showSwiper?<HeaderSwiperBase swiperValues={values}/>:<></>}
-
       <Routes>
         <Route path="/" element={<Home swiperValues={values}/>}/>
         <Route path="/home" element={<Home swiperValues={values}/>}/>
@@ -114,7 +126,7 @@ function App() {
         <Route path="/dividendcalendar" element={<DividendC/>}/>
       </Routes>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </Suspense>
   );
 }

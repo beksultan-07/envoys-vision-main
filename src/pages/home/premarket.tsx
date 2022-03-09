@@ -13,6 +13,11 @@ const Wrapper = styled.div`
   display: flex;
   margin-top: 100px ;
   justify-content: center;
+  @media(max-width: 1263px){
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 `
 
 const PreMarket = styled.div`
@@ -26,6 +31,9 @@ const PreMarketHeader = styled.div`
   justify-content: space-between;   
   border-bottom: 1px solid #DADADA;
   height: 58px;
+  @media(max-width: 1193px){
+    width: 100vw;
+  }
 `
 // PRM = это сокращение от PreMarket
 const PrmHeaderTitle = styled.h1`
@@ -37,11 +45,18 @@ const PrmHeaderTitle = styled.h1`
   letter-spacing: 0.02em;
   padding: 16px 0 16px 29px;
   align-items: flex-end;
+  .title{
+    width: 100px;
+  }
 `
 
 const HeaderBtns = styled.div`
  display: flex;
-  height: 100%;
+  @media(max-width: 545px){
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+  }
 `
 
 const HeaderBtn = styled.button`
@@ -54,17 +69,39 @@ const HeaderBtn = styled.button`
     color: white;
     font-weight: bold;
   }
+  @media(max-width: 545px){
+    height: 29px;
+    padding: 0 5px;
+  }
 `
 
 const CompositeIndexBlock = styled.div`
     display: flex;
     margin-top: 22px;
     padding-left: 29px;
+   justify-content: space-between;
+  //@media(max-width: 719px){
+  //  display: flex;
+  //  flex-direction: column;
+  //}
+  @media(max-width: 1193px){
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  @media(max-width: 619px){
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 `
 
 const CompositeIndexBox = styled.div`
-max-width: 210px;
-  margin-right: 200px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+    &:last-child{
+    }
 `
 const IndexText = styled.h2`
   font-style: normal;
@@ -85,6 +122,17 @@ const ChartBlock = styled.div`
 display: flex;
   justify-content: space-between;
   padding-left: 29px;
+  @media(max-width: 1193px){
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+      @media(max-width: 619px){
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
 `
 
 const Chart = styled.div`
@@ -98,6 +146,19 @@ const ChartValues = styled.div`
   justify-content: space-between;
   margin-top: 41px;
   padding: 29px 29px 118px 29px;
+  
+  @media(max-width: 611px){
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;  
+    m
+  }
+  @media(max-width: 1193px){
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const ChartValue = styled.div`
@@ -107,11 +168,16 @@ const ChartValue = styled.div`
   font-weight: normal;
   font-size: 16px;
   line-height: 18px;
+  margin-bottom: 35px;
   /* identical to box height, or 112% */
 
   letter-spacing: 0.02em;
 
   color: #101010;
+  margin-right: 20px;
+  &:last-child{
+    margin-right: 0;
+  }
 `
 
 const PositiveNumber = styled.span`
@@ -143,6 +209,9 @@ const NewsBox = styled.div`
       height: 0;
     }
   }
+  @media(max-width: 1263px){
+   width: 100vw;
+  }
 `
 
 const NewsText = styled.p`
@@ -153,6 +222,9 @@ const NewsText = styled.p`
   letter-spacing: 0.02em;
   max-width: 370px;
   color: #000000;
+  @media(max-width: 400px){
+    font-size: 18px;
+  }
 `
 
 //кнока подробнее и дата новости в одном блоке
@@ -166,6 +238,9 @@ const ViewMoreAndData = styled.div`
   letter-spacing: 0.02em;
   color: #045599;
   margin-top: 13px;
+  &:last-child{
+    margin-right: 10px;
+  }
 `
 
  export const ViewMore = styled.a`
@@ -235,7 +310,7 @@ const Premarket : FC = () => {
             <PreMarketHeader>
                 <PrmHeaderTitle>
                   <span style={{fontSize:"28px", lineHeight: '100%', marginRight:'10px'}}> U.S</span>
-                    <span>{t("premarket.title")}</span>
+                    <span className='title'>{t("premarket.title")}</span>
                 </PrmHeaderTitle>
                 <HeaderBtns>
                     <HeaderBtn>U.S</HeaderBtn>

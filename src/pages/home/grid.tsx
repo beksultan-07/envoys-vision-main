@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
+// @ts-ignore
 import playBtn from '../../assets/play-btn.svg'
+// @ts-ignore
 import handCoin from '../../assets/hand-coin-fill.svg'
+// @ts-ignore
 import changes from '../../assets/home/changes .svg'
+// @ts-ignore
 import funds from '../../assets/funds-box-fill.svg'
 import {Flex} from "../../uikit/uikit";
 import {useTranslation} from "react-i18next";
@@ -20,6 +24,7 @@ const Container = styled.div`
     width: 1200px;
     margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 `
 
@@ -38,15 +43,41 @@ const GridItem1 = styled.div`
     display: flex;
     align-items: end;
   }
+  @media(max-width: 1199px){
+    border-right: none;
+    border-left: none;
+    &:nth-child(2){
+      display: none;
+    }
+    &:nth-child(3){
+      display: none;
+    }
+  }
+  @media(max-width: 571px){
+    width: 100%;
+  }
 `
 
 const GridItem3 = styled.div`
   position: relative;
   width: 400px;
-  height:303px;
+  max-height:303px;
   border-right: 1px solid #DADADA;
-  border-left: 1px solid #DADADA;
   padding: 146px 51px 102px 30px;
+  border-left: 1px solid #DADADA;
+  display: flex;
+  margin: 0 auto;
+  @media(max-width: 1200px){
+    border: none;
+    width: 300px;
+    padding: 20px 51px 30px 17px;
+    &:first-child{
+      padding: 146px 0 30px 0 ;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    };
+  }
 `
 
 const GridItem2 = styled.div`
@@ -55,6 +86,27 @@ const GridItem2 = styled.div`
   border-right: 1px solid #DADADA;
   border-left: 1px solid #DADADA;
   padding: 30px 39px 35px 31px;
+  &:last-child{
+    border-top: 1px solid #DADADA;
+    //margin: 0 auto;
+  }
+  @media(max-width: 1199px){
+    display: flex;
+    justify-content: space-between;
+    border-right: 1px solid  #DADADA;
+    border-left: 1px solid  #DADADA;
+    border-bottom: 1px solid  #DADADA;
+    &:last-child{
+      margin: 10px auto 0;
+    }
+  }
+  @media(max-width: 800px){
+    width: 100%;
+    border-right: none;
+    border-left: none;
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const Events = styled.div`
@@ -70,6 +122,10 @@ const EventTitle = styled.h2`
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #045599;
+  margin-right: 20px;
+  @media(max-width: 400px){
+    font-size: 22px;
+  }
 `
 
 const EventQuantity = styled.span`
@@ -97,9 +153,10 @@ const Title = styled.div`
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding-left: 30px;
-  /* Белый */
-
   color: #FFFFFF;
+  @media(max-width: 400px){
+    font-size: 25px;
+  }
 `
 
 const Title2 = styled.div`
@@ -119,9 +176,15 @@ const Title2 = styled.div`
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding-left: 30px;
-  /* Белый */
-
   color: #FFFFFF;
+  @media(max-width: 1200px){
+    font-size: 26px;
+    align-items: center;
+    max-height: 100px;
+  }
+  @media(max-width: 400px){
+    font-size: 20px;
+  }
 `
 
 const BlueEllipse = styled.img`
@@ -131,6 +194,10 @@ const BlueEllipse = styled.img`
   border-radius: 50%;
   margin-right: 15px;
   padding: 7px;
+  @media(max-width: 400px){
+    width: 35px;
+    height: 35px;
+  }
 `
 const OrangeEllipse = styled.img`
   background: #F47F1F;
@@ -138,6 +205,10 @@ const OrangeEllipse = styled.img`
   height:40px;
   border-radius: 50%;
   padding: 7px;
+  @media(max-width: 400px){
+    width: 35px;
+    height: 35px;
+  }
 `
 
 const EventDetalis = styled.div`
@@ -183,6 +254,7 @@ const ActiveDollar = styled.div`
  display: flex;
   flex-direction: column;
   align-items: start;
+  margin-right: 10px;
 `
 
 const ActiveName = styled.span`
@@ -193,6 +265,10 @@ const ActiveName = styled.span`
   /* identical to box height, or 112% */
   letter-spacing: 0.02em;
   color: #101010;
+  @media(max-width: 400px){
+    font-size: 14px;
+  }
+  
 `
 
 const ActiveValue = styled.span`
@@ -204,6 +280,9 @@ const ActiveValue = styled.span`
   letter-spacing: 0.02em;
   color: #101010;
   margin: 15px 0;
+  @media(max-width: 400px){
+    font-size: 14px;
+  }
 `
 
 const Income = styled.span`
@@ -214,6 +293,9 @@ const Income = styled.span`
   /* identical to box height, or 112% */
   letter-spacing: 0.02em;
   color: #2FAF72;
+  @media(max-width: 400px){
+    font-size: 14px;
+  }
 `
 
 
@@ -288,7 +370,7 @@ const Grid = () => {
                         <Events>
                             <Flex margin={'0 0 40px 0 '} justify={"space-between"}>
                                 <div>
-                                    <EventTitle>{t("stock")}</EventTitle>
+                                    <EventTitle>{t("event.stock")}</EventTitle>
                                     <EventQuantity>4 {t("event.eventCount")}</EventQuantity>
                                 </div>
                                 <div>
@@ -316,7 +398,7 @@ const Grid = () => {
             <Grids>
                 <Container>
                     <GridItem3>
-                        <Title2>НАИБОЛЕЕ АКТИВНЫЕ ПО ДОЛЛАРОВОМУ ОБЪЕМУ</Title2>
+                        <Title2>{t("event.dollarActive")}</Title2>
                        <Flex justify={"space-between"}>
                            <ActiveDollar>
                                <ActiveName>Envoys-100</ActiveName>

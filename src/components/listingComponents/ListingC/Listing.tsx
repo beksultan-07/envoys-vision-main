@@ -165,7 +165,9 @@ type NavItemProps = {
 
 const ListinC:React.FC = () => {
 
-    const[listItems, setListItems] = React.useState (require('./listing.json'))
+    // const[listItems, setListItems] = React.useState (require('./listing.json'))
+    const[listItems, setListItems] = React.useState ([])
+
 
     
 
@@ -250,7 +252,7 @@ const ListinC:React.FC = () => {
                   {/* <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> */}
                   <ListItem style={{color: 'black', textDecoration: 'none', textAlign: 'end'}}>Капитлаизация, млрд сом</ListItem>
                 </ListItems>
-{/* 
+
                     {listItems.map((el:any, idx:number) => {
                       if(el !== undefined){
                          return <ListItems key={idx}>
@@ -260,7 +262,7 @@ const ListinC:React.FC = () => {
                             
                             <ListItem style={{cursor: 'auto', textAlign: 'end'}}>{el.outside.money}</ListItem>
                         </ListItems>
-                      }})} */}
+                      }})}
             </List>
         </ListCompany>
     );

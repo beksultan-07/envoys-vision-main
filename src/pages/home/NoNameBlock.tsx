@@ -1,12 +1,19 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
 import {Flex} from "../../uikit/uikit";
+// @ts-ignore
 import listStyle from '../../assets/listItemStyle.svg'
+// @ts-ignore
 import morgan from '../../assets/jpmorgan.svg'
+// @ts-ignore
 import databank from '../../assets/databank2.svg'
+// @ts-ignore
 import ing from '../../assets/ing2).svg'
+// @ts-ignore
 import muzino from '../../assets/mizuno.svg'
+// @ts-ignore
 import natixis from '../../assets/natixis2.svg'
+// @ts-ignore
 import novikom from '../../assets/novicombank).svg'
 import {ActionBtn} from "./Trends";
 
@@ -119,6 +126,15 @@ const Logos2 = styled.img`
  margin-bottom:32px;
 `
 
+const FlexBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 1200px){
+    display: flex;
+    flex-direction: column;
+  }
+`
+
 const NoNameBlock:FC = () => {
     return (
         <>
@@ -132,7 +148,7 @@ const NoNameBlock:FC = () => {
                </Container>
         </Wrapper>
 <Container>
-               <Flex justify={"space-between"}>
+               <FlexBlock>
                    <Flex direction={"column"}>
                        <LeftSideText1>
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus elementum, nunc posuere elit. Turpis a egestas velit velit at. Sed et turpis ipsum ultrices at donec vulputate. Ante eu purus id ac risus nisi, eu amet. Nibh vestibulum viverra gravida ut faucibus suspendisse nunc sapien, ac. Elementum augue non nec urna, et, sit porta. In sit sit tempus erat ac.</LeftSideText1>
@@ -162,7 +178,7 @@ const NoNameBlock:FC = () => {
                            </Logos1>
                        </Flex>
                    </Flex>
-               </Flex>
+               </FlexBlock>
 </Container>
         </>
     );

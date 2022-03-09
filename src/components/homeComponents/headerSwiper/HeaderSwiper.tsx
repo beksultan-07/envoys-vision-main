@@ -15,6 +15,35 @@ type Props = {
     swiperValues: any
 }
 const HeaderSwiper:React.FC<Props> = (props) => {
+    const [urlReqs, setUrlReqs] = React.useState([['usd', 'kgs'], ['btc', 'usd'], ['usd', 'kgs'], ['btc', 'usd']])
+    const [prices, setPrices] = React.useState<string[]>([])
+    const [showSwiper, setShowSwiper] = React.useState(false)
+    const [values, setValues] = React.useState([
+        {
+            name: 'Бензин 80',
+            value: '6 875.93',
+            pos: '+193.15(2.81%)'
+        },
+        {
+            name: 'Бензин 92',
+            value: '6 875.93',
+            pos: '-93.15(2.81%)'
+        },
+        {
+            name: 'Бензин 80',
+            value: '6 875.93',
+            pos: '+193.15(2.81%)'
+        },
+        {
+            name: 'Бензин 92',
+            value: '6 875.93',
+            pos: '-93.15(2.81%)'
+        }
+    ])
+
+ 
+    
+
   return (
     <HeaderSwiperS>
         <Swiper
@@ -48,7 +77,7 @@ const HeaderSwiper:React.FC<Props> = (props) => {
                 }}
               }>
 
-            {props.swiperValues.map((val, index) => {
+            {props.swiperValues.map((val:any, index:number) => {
                 if(props.swiperValues.length > 0){
                     let posB = true
                     if(val.pos[0] === '-') posB = false

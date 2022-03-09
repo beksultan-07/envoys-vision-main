@@ -17,7 +17,7 @@ const Listing:React.FC = () => {
     if(listingPath === 'Листинг' || location.state== 'Листинг') {
       return <ListingC/>
     }
-    if(listingPath === 'Облигации'  || location.state== 'ESG облигации') {
+    if(listingPath === 'Облигации'  || location.state== 'Облигации') {
       return <Bonds/>
     }
     if(listingPath === 'Раскрытие информации компаниями' || location.state== 'Раскрытие информации компаниями') {

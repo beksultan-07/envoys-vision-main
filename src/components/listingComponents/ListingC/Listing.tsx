@@ -222,25 +222,6 @@ const ListinC:React.FC = () => {
   }
     
 
-  // function clickSortNav (e){
-  //   let newNav = {...NavitemsSort}
-  //   for(let i in newNav){
-  //     if(newNav[i]){
-  //       newNav[i] = false
-  //     }
-  //   }
-    
-  //   if(e.target.outerText === 'Все'){
-  //     newNav.all = !newNav.all
-  //   }else if(e.target.outerText === 'Листинговые'){
-  //     newNav.listing = !newNav.listing
-  //   }else if(e.target.outerText === 'Нелистинговые'){
-  //     newNav.notListing = !newNav.notListing
-  //   }else if(e.target.outerText === 'Допустившие дефолт'){
-  //     newNav.default = !newNav.default
-  //   }
-  //   setNavitemsSort(newNav)
-  // }
 
     return (
         <ListCompany>
@@ -269,7 +250,7 @@ const ListinC:React.FC = () => {
                   {/* <ListItem style={{color: 'black', textDecoration: 'none'}}>Сайт</ListItem> */}
                   <ListItem style={{color: 'black', textDecoration: 'none', textAlign: 'end'}}>Капитлаизация, млрд сом</ListItem>
                 </ListItems>
-
+{/* 
                     {listItems.map((el:any, idx:number) => {
                       if(el !== undefined){
                          return <ListItems key={idx}>
@@ -277,11 +258,9 @@ const ListinC:React.FC = () => {
 
                             <ListItem onClick={(e) => linkHandler(e)}>{el.outside.name} </ListItem> 
                             
-                            {/* <ListItem><img src={el.webSite} alt=""/></ListItem> */}
-                            
                             <ListItem style={{cursor: 'auto', textAlign: 'end'}}>{el.outside.money}</ListItem>
                         </ListItems>
-                      }})}
+                      }})} */}
             </List>
         </ListCompany>
     );

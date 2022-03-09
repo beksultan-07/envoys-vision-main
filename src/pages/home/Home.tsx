@@ -7,14 +7,18 @@ import Banner from '../../components/homeComponents/banner/Banner'
 import Investing from "./Investing";
 import Footer from '../../components/footer/Footer';
 
-const Home:React.FC = () => {
+type Props = {
+    swiperValues: any
+}
+
+const Home:React.FC<Props> = (props) => {
     return (
         <div>
-            <Banner/>
+            <Banner swiperValues={props.swiperValues}/>
             <Premarket/>
             <Trends/>
             <Grid/>
-            <NoNameBlock/>
+            {/* <NoNameBlock/> */}
             <Investing/>
         </div>
 

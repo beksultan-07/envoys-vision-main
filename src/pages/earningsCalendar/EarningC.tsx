@@ -19,10 +19,10 @@ const EarningC:React.FC = () => {
   ])
 
   const [infoValue, setInfoValue] = useState ([
-    {icon: 'sun', value:['NXPI','NXP Semiconductors N.V.','$49,984,813,482', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
-    {icon: 'moon  ', value:['SCCO','Southern Copper Corporation','$49,454,008,777', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
-    {icon: 'sun', value:['LHX','L3Harris Technologies, Inc.','$49,984,813,482', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
-    {icon: 'moon  ', value:['TT','Trane Technologies plc','$49,454,008,777', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
+    // {icon: 'sun', value:['NXPI','NXP Semiconductors N.V.','$49,984,813,482', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
+    // {icon: 'moon  ', value:['SCCO','Southern Copper Corporation','$49,454,008,777', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
+    // {icon: 'sun', value:['LHX','L3Harris Technologies, Inc.','$49,984,813,482', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
+    // {icon: 'moon  ', value:['TT','Trane Technologies plc','$49,454,008,777', 'Dec/2021','$2.67','11','02/01/2021', '$2.43']},
     ])
 
 

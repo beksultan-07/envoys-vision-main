@@ -12,10 +12,9 @@ type Props = {
 
 const SideBar:React.FC<Props> = (props) => {
     const [links, setLinks] = React.useState([
-        'Список компаний',
-        'ESG облигации',
-        'Раскрытие информации компаниями',
-        'Дипломанты номинаций'
+        'Листинг',
+        'Облигации',
+        'Раскрытие информации компаниями'
     ])
     const [activeLink, setActivveLink] = React.useState('Список компаний')
     const [sideBarClickIcon, setSideBarClickIcon] = React.useState(false)

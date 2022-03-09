@@ -8,12 +8,12 @@ const DividendC:React.FC = () => {
   const [infoHeader, setInfoHeader] = React.useState(['Symbol','Name','Ex-Dividend Date','Payment Date','Record Date','Dividend','Indicated Annual Dividend','Announcement Date'])
 
   const [infoValue, setInfoValue] = React.useState([
-      ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
-      ['NXPI', 'HighPeak Energy, dsa.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
-      ['NXPI', 'HighPeak Energy, bekas.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
-      ['NXPI', 'HighPeak Energy, lsd.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
-      ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
-      ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, dsa.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, bekas.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, lsd.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
+      // ['NXPI', 'HighPeak Energy, Inc.', '02/01/2022', '02/01/2022', '02/01/2022', '0.025', '0.1', '01/11/2022'],
     ])
     const [infoCopy, setInfoCopy] = React.useState([...infoValue])
     const [inputValue, setInputValue] = React.useState('')

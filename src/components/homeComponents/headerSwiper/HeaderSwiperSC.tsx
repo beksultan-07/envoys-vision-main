@@ -45,6 +45,7 @@ export const HeaderSwiperTitle = styled.h3`
 
 export const HeaderSwiperItem = styled.div`
     padding: 20px 30px;
+    cursor: pointer;
 ` 
 
 export const HeaderSwiperIcon = styled.img`

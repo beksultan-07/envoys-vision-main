@@ -5,12 +5,16 @@ import HeaderSwiper from "../headerSwiper/HeaderSwiper";
 import { BannerBtn, BannerFlex, BannerInfoTexts, BannerText, BannerWrap } from "./BannerSC";
 import {useTranslation} from "react-i18next";
 
-const Banner:React.FC = () => {
+type Props = {
+    swiperValues: any
+}
+
+const Banner:React.FC<Props> = (props) => {
     const {t} = useTranslation()
     return (
         <BannerWrap>
 
-            <HeaderSwiper/>
+            <HeaderSwiper swiperValues={props.swiperValues}/>
 
             <Container>
                 <BannerFlex align="center" justify="space-around" margin='50px 0 0 0'>

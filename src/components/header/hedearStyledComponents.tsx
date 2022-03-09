@@ -147,20 +147,44 @@ export const HeaderDropDownLogo = styled.img`
 export const HeaderDropDownS = styled.div`
     width: 100%;
     height: 35px;
-    background: #045599;
+    background: #ffffff;
     clip-path: polygon(50% 63%,45% 100%,55% 100%);
 `
 export const HeaderDropDownWrap = styled.div`
-color: #fff;
-position: absolute;
-top: 100%;
-left: -13.5rem;
-z-index: 2;
+  color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+`
+
+export const DropDownInside = styled(Flex)`
+  flex-direction: column;
+  align-items: flex-left;
+  background: #fff;
+  padding: 15px;
+  width: 230px;
+  border-radius: 0 5px 5px 5px;
+  border: .1px solid #045599;
+  box-shadow: 0px 50px 30px rgba(0, 0, 0, 0.02), 0px 22px 22px rgba(0, 0, 0, 0.03), 0px 6px 12px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
 `
 
 export const HeaderDropDown = styled.div`
-background: #045599;
+    background: #ffffff;
     padding: 10px;
+`
+
+export const DropDownLink = styled(HeaderNavText)`
+  width: 100%;
+  color: #C0C0C0;
+  transition: .1s;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  :hover{
+    color: #045599;
+    font-weight: 500;
+  }
 `
 
 export const HeaderChangeLang = styled.button`

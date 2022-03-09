@@ -1,32 +1,29 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Flex } from '../../../uikit/uikit'
-import { HeaderDropDown, HeaderDropDownS, HeaderDropDownWrap, HeaderNavText } from '../hedearStyledComponents'
+import { DropDownInside, DropDownLink, HeaderDropDown, HeaderDropDownS, HeaderDropDownWrap, HeaderNavText } from '../hedearStyledComponents'
 
 const DropDownListing:React.FC = () => {
   const [listingList, setListingList] = React.useState([
-    'Список компаний',
-    'ESG облигации',
-    'Раскрытие информации компаниями',
-    'Дипломанты номинаций'
+    'Листинг',
+    'Облигации',
+    'Раскрытие информации компаниями'
   ])
   const navigate = useNavigate()
 
   return (
-    <HeaderDropDownWrap style={{left: '-1.5rem'}}>
-      <HeaderDropDownS></HeaderDropDownS>
-      <HeaderDropDown>
+    <HeaderDropDownWrap>
+      <DropDownInside style={{  height: '160px'}}>
         <Flex direction='column'>
           {listingList.map((el, index) => {
-            return <HeaderNavText
+            return <DropDownLink
                       key={index} 
-                      style={{color: '#fff', margin: '10px 0'}}
                       onClick={() => navigate('listing', {state: el})}>
                     {el}
-                  </HeaderNavText>
+                  </DropDownLink>
           })}
         </Flex>
-      </HeaderDropDown>
+      </DropDownInside>
     </HeaderDropDownWrap>
   )
 }

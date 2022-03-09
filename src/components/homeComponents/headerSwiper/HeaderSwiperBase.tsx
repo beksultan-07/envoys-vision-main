@@ -14,44 +14,14 @@ import { Autoplay} from "swiper";
 import axios from 'axios'
 
 
+type Props = {
+    swiperValues: any
+} 
 
 
-const HeaderSwiperBase:React.FC= () => {
-    const [values, setValues] = React.useState([
-        {
-            name: 'Бензин 80',
-            value: '6 875.93',
-            pos: '+193.15(2.81%)'
-        },
-        {
-            name: 'Бензин 92',
-            value: '6 875.93',
-            pos: '-93.15(2.81%)'
-        },
-        {
-            name: 'Бензин 80',
-            value: '6 875.93',
-            pos: '+193.15(2.81%)'
-        },
-        {
-            name: 'Бензин 92',
-            value: '6 875.93',
-            pos: '-93.15(2.81%)'
-        },
-        {
-            name: 'Бензин 80',
-            value: '6 875.93',
-            pos: '+193.15(2.81%)'
-        },
-        {
-            name: 'Бензин 92',
-            value: '6 875.93',
-            pos: '-93.15(2.81%)'
-        },
-    ])
+const HeaderSwiperBase:React.FC<Props> = (props) => {
     const [locationText, setLocationText] = React.useState('undefined')
     const [pathLocation, setPathLocation] = React.useState<string[]>(['home'])
-    const [urlReqs, setUrlReqs] = React.useState([['usd', 'kgs'], ['btc', 'usd'], ['usd', 'kgs'], ['btc', 'usd']])
     const [showSwiper, setShowSwiper] = React.useState(false)
     const [prices, setPrices] = React.useState<string[]>([])
 
@@ -88,24 +58,6 @@ const HeaderSwiperBase:React.FC= () => {
   
 
   React.useEffect(() => {
-    // const pricesArr:string[] = []
-    // urlReqs.forEach((el, index) => {
-    //     axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
-    //         .then(res => res.data)
-    //         .then(res => {
-    //             for(let i in res){
-    //                 for(let j in res[i]){
-    //                     if(j === '5. Exchange Rate'){
-    //                         pricesArr.push(res[i][j])
-    //                     }
-    //                 }
-    //             }
-    //             if(pricesArr.length >= urlReqs.length){
-    //                 setPrices(pricesArr)
-    //                 setShowSwiper(true)
-    //             }
-    //         })
-    // })
 
     pathControlls()
 
@@ -113,12 +65,12 @@ const HeaderSwiperBase:React.FC= () => {
         setLocationText('Список компаний')
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
-    }else if(location.pathname === '/earningCalendar'){
+    }else if(location.pathname === '/earningcalendar'){
         setLocationText('Earnings Calendar')
-    }else if(location.pathname === '/dividendCalendar'){
+    }else if(location.pathname === '/dividendcalendar'){
         setLocationText('Dividend Calendar ')
-    }else if(location.pathname === '/clearing'){
-        setLocationText('Клириг и Депозитарий ')
+    // }else if(location.pathname === '/clearing'){
+    //     setLocationText('Клириг и Депозитарий ')
     }else{
         setLocationText('Страница не найдена')
     }
@@ -151,46 +103,31 @@ const HeaderSwiperBase:React.FC= () => {
                     1024: {
                         slidesPerView: 4,
                     },
-                    1200: {
+                    1300: {
                         slidesPerView: 5,
                     }
                 }
                   }>
-
-
-                {/* {showSwiper?prices.map((el, index) => {
-                      return <SwiperSlide  key={index}>
-                          <HeaderSwiperItem>
-                                <Flex direction='column'>
-                                    <HeaderSwiperText>{el}</HeaderSwiperText>
-                                    <Flex margin='2px 0 0 0'>
-                                        <HeaderSwiperText style={{textTransform: 'uppercase', margin: '0 10px 0 0'}}>{urlReqs[index][1]}</HeaderSwiperText>
-                                        <HeaderSwiperText style={{textTransform: 'uppercase'}}>{urlReqs[index][0]}</HeaderSwiperText>
-                                    </Flex>
-                                </Flex>
-                          </HeaderSwiperItem>
-                      </SwiperSlide>
-                  }):<></>} */}
     
-                {values.map((val, index) => {
-                    let posB = false
-                    if(val.pos[0] === '+'){
-                        posB = true
-                    } 
-                    return <SwiperSlide  key={index}>
-                        <HeaderSwiperItem>
-                            <Flex align='center'>
-                                <HeaderSwiperIcon src={posB?incr:decr}/>
-                                <Flex direction='column'>
-                                    <HeaderSwiperText>{val.name}</HeaderSwiperText>
-                                    <Flex margin='10px 0 0 0'>
-                                        <HeaderSwiperText>{val.value}</HeaderSwiperText>
-                                        {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>{val.pos}</BannerInfoIncrease>}
+                {props.swiperValues.map((val, index) => {
+                    if(props.swiperValues.length > 0){
+                        let posB = true
+                        if(val.pos[0] === '-') posB = false
+                        return <SwiperSlide  key={index}>
+                            <HeaderSwiperItem>
+                                <Flex align='center'>
+                                    <HeaderSwiperIcon src={posB?incr:decr}/>
+                                    <Flex direction='column'>
+                                        <HeaderSwiperText>{val.name}</HeaderSwiperText>
+                                        <Flex margin='10px 0 0 0'>
+                                            <HeaderSwiperText>{val.value}</HeaderSwiperText>
+                                            {!posB?<BannerInfoDecrease margin={true}>{val.pos}</BannerInfoDecrease>:<BannerInfoIncrease margin={true}>+{val.pos}</BannerInfoIncrease>}
+                                        </Flex>
                                     </Flex>
                                 </Flex>
-                            </Flex>
-                        </HeaderSwiperItem>
-                    </SwiperSlide>
+                            </HeaderSwiperItem>
+                        </SwiperSlide>
+                    }
                 })}
             </Swiper>
         </HeaderSwiperS>

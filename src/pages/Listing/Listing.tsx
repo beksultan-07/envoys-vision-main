@@ -14,17 +14,14 @@ const Listing:React.FC = () => {
   const [listingPath, setListingPath] = React.useState('')
 
   function getSideChoose(){
-    if(listingPath === 'Список компаний' || location.state== 'Список компаний') {
+    if(listingPath === 'Листинг' || location.state== 'Листинг') {
       return <ListingC/>
     }
-    if(listingPath === 'ESG облигации'  || location.state== 'ESG облигации') {
+    if(listingPath === 'Облигации'  || location.state== 'ESG облигации') {
       return <Bonds/>
     }
     if(listingPath === 'Раскрытие информации компаниями' || location.state== 'Раскрытие информации компаниями') {
       return <Disclosures/>
-    }
-    if(listingPath === 'Дипломанты номинаций' || location.state== 'Дипломанты номинаций') {
-      return <IDiploms/>
     }
 
   }

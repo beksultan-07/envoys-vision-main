@@ -77,20 +77,8 @@ type Props = {
 
 
  export const ActionBtn = styled(BannerBtn)<Props>`
-  font-style: normal;
-  border-style: none;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: #F47F1F;
-  border-radius: 2px;
-  height: 60px;
-  padding: 0 20px;
   margin: ${(props) => props.margin};
-  width: 270px;
+  max-width: 300px;
   cursor: pointer;
    @media(max-width: 766px){
     font-size: 14px;
@@ -112,7 +100,7 @@ const Trends : FC = () => {
              <TrendsText>
                  <TrendsTitle>{t("trend.title")}</TrendsTitle>
                  <TrendsSubtitle>{t("trend.subtitle")}</TrendsSubtitle>
-                 <ActionBtn margin={'0'}>{t("home.button")}</ActionBtn>
+                 <BannerBtn>{t("home.button")}</BannerBtn>
              </TrendsText>
          </Container>
 

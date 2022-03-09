@@ -53,15 +53,16 @@ const Contacts = styled.div`
 `
 
 const Contact = styled.a`
-
-font-family: Exo 2;
+  font-family: Exo 2;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
   line-height: 36px;
   letter-spacing: 0.02em;
-  color: #101010;
+  color: #045599;
   width: 283px;
+  text-decoration: none;
+  margin: 0 0 20px 0;
   &:last-child{
     text-transform: lowercase;
   }
@@ -101,11 +102,15 @@ const PrivacyPolicy = styled.span`
     font-family: Exo 2;
       font-style: normal;
       font-weight: normal;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 16px;
       letter-spacing: 0.02em;
-      text-decoration-line: underline;
+      text-decoration: none;
       color: #F47F1F;
+      transition: .1s;
+      :hover{
+        font-size: 15px;
+      }
   }
 `
 
@@ -136,6 +141,12 @@ const NavItem = styled.li`
     color: #101010;
     cursor: pointer;
     white-space: nowrap;
+    transition: .1s;
+    :hover{
+      font-weight: 500;
+      font-size: 18px;
+      color: #045599;
+    }
   }
 `
 
@@ -164,7 +175,7 @@ const Footer = () => {
             <Contacts>
               <Contact href="tel:+996 (559) 18 00 33">+996 (559) 18 00 33</Contact>
               <WorkDays>Пн-Пт 9.00-20.00</WorkDays>
-              <Contact href="info@evde.kg">info@evde.kg</Contact>
+              <Contact href="info@evde.kg" style={{margin: '0'}}>info@evde.kg</Contact>
               <CompanyName>Envoys vision digital exchange 2022</CompanyName>
               <PrivacyPolicy><Link to='#'>Политика конфиденциальности</Link></PrivacyPolicy>
             </Contacts>

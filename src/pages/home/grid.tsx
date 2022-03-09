@@ -6,6 +6,7 @@ import changes from '../../assets/home/changes .svg'
 import funds from '../../assets/funds-box-fill.svg'
 import {Flex} from "../../uikit/uikit";
 import {useTranslation} from "react-i18next";
+import { Link } from 'react-router-dom';
 
 
 
@@ -148,17 +149,20 @@ const EventDetalis = styled.div`
   }
 `
 
-const EventLink = styled.span`
+const EventLink = styled(Link)`
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;
   /* identical to box height */
-
   letter-spacing: 0.02em;
-  text-decoration-line: underline;
-
+  text-decoration: none;
+  cursor: pointer;
   color: #045599;
+  transition: .1s;
+  :hover{
+      font-size: 16px;
+  }
 `
 
 const EventDate = styled.span`
@@ -241,15 +245,15 @@ const Grid = () => {
                        </div>
                             </Flex>
                             <EventDetalis>
-                                <EventLink>NXP Semiconductors N.V.</EventLink>
+                                <EventLink to='#'>NXP Semiconductors N.V.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>Southern Copper Corporation</EventLink>
+                                <EventLink to='#'>Southern Copper Corporation</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>L3Harris Technologies, Inc.</EventLink>
+                                <EventLink to='#'>L3Harris Technologies, Inc.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                     </Events>
@@ -267,15 +271,15 @@ const Grid = () => {
                                 </div>
                             </Flex>
                             <EventDetalis>
-                                <EventLink>The AES Corporation</EventLink>
+                                <EventLink to='#'>The AES Corporation</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>Ally Financial Inc.</EventLink>
+                                <EventLink to='#'>Ally Financial Inc.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>Ames National Corporation</EventLink>
+                                <EventLink to='#'>Ames National Corporation</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                         </Events>
@@ -293,15 +297,15 @@ const Grid = () => {
                                 </div>
                             </Flex>
                             <EventDetalis>
-                                <EventLink>Angel Gold Corp</EventLink>
+                                <EventLink to='#'>Angel Gold Corp</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>Puxin Limited</EventLink>
+                                <EventLink to='#'>Puxin Limited</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
                             <EventDetalis>
-                                <EventLink>SMART Global Holdings, Inc.</EventLink>
+                                <EventLink to='#'>SMART Global Holdings, Inc.</EventLink>
                                 <EventDate>01/31/2022</EventDate>
                             </EventDetalis>
 

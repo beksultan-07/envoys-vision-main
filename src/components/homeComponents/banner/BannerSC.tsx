@@ -29,10 +29,15 @@ export const BannerBtn = styled.button`
     padding: 21px 43px;
     font-family: Exo 2;
     font-style: normal;
+    border-radius: 2px;
     font-weight: bold;
     font-size: 16px;
     line-height: 18px;
     cursor: pointer;
+    transition: .3s;
+    :hover{
+        background: #db731e;
+    }
 ` 
 
 export const BannerInfoTexts = styled(Flex)`

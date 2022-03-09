@@ -4,6 +4,7 @@ import BG from '../../assets/techTrends.jpg'
 import respBG from '../../assets/respBg.jpg'
 import respBG1 from '../../assets/respBg1.jpg'
 import {useTranslation} from "react-i18next";
+import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
 
 
 const Wrapper = styled.div`
@@ -75,7 +76,7 @@ type Props = {
 };
 
 
- export const ActionBtn = styled.button <Props>`
+ export const ActionBtn = styled(BannerBtn)<Props>`
   font-style: normal;
   border-style: none;
   font-weight: 800;
@@ -99,7 +100,6 @@ type Props = {
     width: 250px;
     height: 55px;
     font-size: 16px;
-    
    } 
 `
 

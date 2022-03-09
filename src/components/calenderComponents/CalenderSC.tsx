@@ -2,14 +2,14 @@ import styled from "styled-components"
 import { Flex } from "../../uikit/uikit"
 
 
-export const CelenderHeader = styled(Flex)`
+export const CalendarHeader = styled(Flex)`
     /* padding: 25px 0 40px 0; */
     padding: 25px 0;
     border-top: 1px solid #101010;
     border-bottom: 1px solid #101010;
 `
 
-export const CelenderHeaderText = styled.p`
+export const CalendarHeaderText = styled.p`
     flex: 1;
     font-family: Exo 2;
     font-style: normal;
@@ -32,10 +32,10 @@ export const CelenderHeaderText = styled.p`
         text-transform: capitalize;
     }
 `
-export const CelenderIconWrap = styled.div`
+export const CalendarIconWrap = styled.div`
     flex: .5;
 
 `
-export const CelenderIcon = styled.img`
+export const CalendarIcon = styled.img`
     max-width: 18px;
 `

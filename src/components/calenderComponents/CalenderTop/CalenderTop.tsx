@@ -1,8 +1,8 @@
 import React from 'react'
 import { Flex } from '../../../uikit/uikit'
 import styled from "styled-components";
-import calendar from '../celenderTop/img/calendar.svg'
-import lupa from '../celenderTop/img/lupa.svg'
+import calendar from './img/calendar.svg'
+import lupa from './img/lupa.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Autoplay} from 'swiper'
@@ -96,7 +96,11 @@ const InpCel = styled.input`
 
 `
 
-const CelenderTop:React.FC = () => {
+type CelenderHeaderTop = {
+  setInputValue: Function
+}
+
+const CalendarTop:React.FC<CelenderHeaderTop> = (props) => {
     const days = ['Пт, 28 янв.', 'Пн, 07 фев.', 'Пт, 04 фев.', 'Чт, 03 фев.', 'Ср, 2 фев.']
     const [startDate, setStartDate] = React.useState<Date>(new Date());
 
@@ -105,7 +109,7 @@ const CelenderTop:React.FC = () => {
    <Wrapper>
        <Flex style={{width:'100%'}} align="center" justify='space-between'>
            <SearchBLock >
-               <Search placeholder='Введите название'/>
+               <Search placeholder='Введите название' onChange={(e) => props.setInputValue(e)}/>
                <Lupa/>
            </SearchBLock>
            <Flex style={{ maxWidth: '60%', background:'#F1F1F1', borderRadius: '8px', padding: '21px 26px'}} justify={'space-between'}>
@@ -121,11 +125,9 @@ const CelenderTop:React.FC = () => {
                         className="mySwiper"
                  >
                {days.map((el, idx) => (
-                       <SwiperSlide><Day>{el}</Day></SwiperSlide>
+                       <SwiperSlide key={idx}><Day>{el}</Day></SwiperSlide>
                    ))}
                 </Swiper>
-                  {/* <div className="swiper-button-prev-unique"></div>
-                  <div className="swiper-button-next-unique"></div> */}
            </Flex>
            <InpCel type="date" onChange={e => setStartDate(e.target.value)}/>
 
@@ -134,4 +136,4 @@ const CelenderTop:React.FC = () => {
   )
 }
 
-export default CelenderTop
+export default CalendarTop

@@ -96,7 +96,7 @@ const ListItem = styled.li`
   font-size: 16px;
   line-height: 150%;
   max-width: 515px;
-  text-decoration-line: underline;
+  text-decoration: none;
   color: #101010;
   list-style: none;
   position: relative;

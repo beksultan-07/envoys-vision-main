@@ -4,6 +4,7 @@ import BG from '../../assets/techTrends.jpg'
 import respBG from '../../assets/respBg.jpg'
 import respBG1 from '../../assets/respBg1.jpg'
 import {useTranslation} from "react-i18next";
+import { BannerBtn } from '../../components/homeComponents/banner/BannerSC';
 
 
 const Wrapper = styled.div`
@@ -75,21 +76,9 @@ type Props = {
 };
 
 
- export const ActionBtn = styled.button <Props>`
-  font-style: normal;
-  border-style: none;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: #F47F1F;
-  border-radius: 2px;
-  height: 60px;
-  padding: 0 20px;
+ export const ActionBtn = styled(BannerBtn)<Props>`
   margin: ${(props) => props.margin};
-  width: 270px;
+  max-width: 300px;
   cursor: pointer;
    @media(max-width: 766px){
     font-size: 14px;
@@ -99,7 +88,6 @@ type Props = {
     width: 250px;
     height: 55px;
     font-size: 16px;
-    
    } 
 `
 
@@ -112,7 +100,7 @@ const Trends : FC = () => {
              <TrendsText>
                  <TrendsTitle>{t("trend.title")}</TrendsTitle>
                  <TrendsSubtitle>{t("trend.subtitle")}</TrendsSubtitle>
-                 <ActionBtn margin={'0'}>{t("home.button")}</ActionBtn>
+                 <BannerBtn>{t("home.button")}</BannerBtn>
              </TrendsText>
          </Container>
 

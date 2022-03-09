@@ -253,6 +253,12 @@ const ViewMoreAndData = styled.div`
   line-height: 19px;
   letter-spacing: 0.02em;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  img{
+    margin: 0 0 0 5px;
+  }
 `
 
 const Premarket : FC = () => {

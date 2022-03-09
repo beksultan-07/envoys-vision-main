@@ -26,13 +26,19 @@ export const BannerBtn = styled.button`
     color: #fff;
     background: #F47F1F;
     border: none;
-    padding: 21px 43px;
+    padding: 15px 60px;
     font-family: Exo 2;
     font-style: normal;
+    border-radius: 2px;
     font-weight: bold;
     font-size: 16px;
     line-height: 18px;
     cursor: pointer;
+    transition: .3s;
+    :hover{
+        background: #c5671b;
+        /* transform: scale(1.04); */
+    }
 ` 
 
 export const BannerInfoTexts = styled(Flex)`

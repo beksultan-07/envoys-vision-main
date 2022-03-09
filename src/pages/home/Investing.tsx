@@ -90,7 +90,7 @@ const LinkText1 = styled.p`
     height: 16px;
     width: 15px;
     top: 19%;
-    left: 113%;
+    left: 107%;
   }
 `
 const HowInvest = styled.div`
@@ -151,6 +151,7 @@ const HowInvestDesc = styled.div<Props>`
   /* Белый */
   color: #FFFFFF;
   margin: 20px 0;
+  word-wrap: break-word;
 `
 
 const ReadMoreBtn = styled.button`
@@ -169,8 +170,8 @@ const ReadMoreBtn = styled.button`
     background: url(${readmore});
     width: 8px;
     height: 13px;
-    top: 14%;
-    left: 151px;
+    top: 27%;
+    left: 124px;
   }
 `
 
@@ -216,7 +217,11 @@ const Investing: FC = () => {
                         <img src={stonks} alt=""/>
                         <TextBlock left={'60px'} top={'60px'}>
                             <HowInvestBtn>{t("investing.stock")}</HowInvestBtn>
+<<<<<<< HEAD
                             <HowInvestDesc style={{width:'256px'}} fontSize={'24px'}>{t("investing.bayStock")}</HowInvestDesc>
+=======
+                            <HowInvestDesc fontSize={'24px'} style={{maxWidth: '250px'}}>{t("investing.bayStock")}</HowInvestDesc>
+>>>>>>> adf7ac9b453a683bdad471547721fb889fc623ea
                             <ReadMoreBtn>{t("investing.readMore")}</ReadMoreBtn>
                         </TextBlock>
                     </Stonks>

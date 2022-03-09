@@ -4,12 +4,7 @@ import { LCTitle } from '../../components/listingComponents/ListingC/Listing';
 import {LeftSideText1, LeftSideText2} from '../../pages/home/NoNameBlock'
 import {ActionBtn} from "../home/Trends";
 import {ViewMore} from "../home/premarket";
-import { Flex } from '../../uikit/uikit';
-
-const Container = styled.div`
-    max-width: 1170px;
-  margin: 0 auto;
-`
+import { Container, Flex } from '../../uikit/uikit';
 
 const ReadMore = styled.div`
   margin: 20px 0 45px 45px;

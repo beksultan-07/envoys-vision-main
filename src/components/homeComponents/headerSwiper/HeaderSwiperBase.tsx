@@ -88,26 +88,24 @@ const HeaderSwiperBase:React.FC= () => {
   
 
   React.useEffect(() => {
-    const pricesArr:string[] = []
-
-    urlReqs.forEach((el, index) => {
-        axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
-            .then(res => res.data)
-            .then(res => {
-                for(let i in res){
-                    for(let j in res[i]){
-                        if(j === '5. Exchange Rate'){
-                            pricesArr.push(res[i][j])
-                        }
-                    }
-                }
-                console.log(pricesArr);
-                if(pricesArr.length >= urlReqs.length){
-                    setPrices(pricesArr)
-                    setShowSwiper(true)
-                }
-            })
-    })
+    // const pricesArr:string[] = []
+    // urlReqs.forEach((el, index) => {
+    //     axios(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${el[0]}&to_currency=${el[1]}&apikey=B60Y9G6MUFIB74BR`)
+    //         .then(res => res.data)
+    //         .then(res => {
+    //             for(let i in res){
+    //                 for(let j in res[i]){
+    //                     if(j === '5. Exchange Rate'){
+    //                         pricesArr.push(res[i][j])
+    //                     }
+    //                 }
+    //             }
+    //             if(pricesArr.length >= urlReqs.length){
+    //                 setPrices(pricesArr)
+    //                 setShowSwiper(true)
+    //             }
+    //         })
+    // })
 
     pathControlls()
 
@@ -115,9 +113,9 @@ const HeaderSwiperBase:React.FC= () => {
         setLocationText('Список компаний')
     }else if(location.pathname === '/listing/company'){
         setLocationText('Раскрытие информации компаниями')
-    }else if(location.pathname === '/earningcelender'){
+    }else if(location.pathname === '/earningCalendar'){
         setLocationText('Earnings Calendar')
-    }else if(location.pathname === '/dividendcelender'){
+    }else if(location.pathname === '/dividendCalendar'){
         setLocationText('Dividend Calendar ')
     }else if(location.pathname === '/clearing'){
         setLocationText('Клириг и Депозитарий ')
@@ -160,7 +158,7 @@ const HeaderSwiperBase:React.FC= () => {
                   }>
 
 
-                {showSwiper?prices.map((el, index) => {
+                {/* {showSwiper?prices.map((el, index) => {
                       return <SwiperSlide  key={index}>
                           <HeaderSwiperItem>
                                 <Flex direction='column'>
@@ -172,9 +170,9 @@ const HeaderSwiperBase:React.FC= () => {
                                 </Flex>
                           </HeaderSwiperItem>
                       </SwiperSlide>
-                  }):<></>}
+                  }):<></>} */}
     
-                {/* {values.map((val, index) => {
+                {values.map((val, index) => {
                     let posB = false
                     if(val.pos[0] === '+'){
                         posB = true
@@ -193,7 +191,7 @@ const HeaderSwiperBase:React.FC= () => {
                             </Flex>
                         </HeaderSwiperItem>
                     </SwiperSlide>
-                })} */}
+                })}
             </Swiper>
         </HeaderSwiperS>
 

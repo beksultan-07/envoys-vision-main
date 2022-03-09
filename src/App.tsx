@@ -12,8 +12,12 @@ import { useLocation } from 'react-router-dom'
 import HeaderSwiperBase from './components/homeComponents/headerSwiper/HeaderSwiperBase';
 import Company from './pages/Company/Company';
 import Clearing from "./pages/clearing/Clearing";
+<<<<<<< HEAD
 import Listing from "./pages/listing/Listing";
 import GoUpButton from "./components/goUpButton";
+=======
+import News from './pages/News/News';
+>>>>>>> adf7ac9b453a683bdad471547721fb889fc623ea
 
 
 
@@ -39,11 +43,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/listing" element={<Listing/>}/>
         <Route path="/listing/company" element={<Company/>}/>
         <Route path="/clearing" element={<Clearing/>}/>
-        <Route path="/earningcelender" element={<EarningC/>}/>
-        <Route path="/dividendcelender" element={<DividendC/>}/>
+        <Route path="/news&analytics" element={<News/>}/>
+        <Route path="/earningcalendar" element={<EarningC/>}/>
+        <Route path="/dividendcalendar" element={<DividendC/>}/>
       </Routes>
 
       {/*<Footer/>*/}

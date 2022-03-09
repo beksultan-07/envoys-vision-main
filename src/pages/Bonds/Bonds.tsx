@@ -3,7 +3,7 @@ import React from 'react'
 const Bonds:React.FC = () => {
 
   React.useEffect(() => {
-    console.log('bonds work');
+    // console.log('bonds work');
     
   }, [])
   

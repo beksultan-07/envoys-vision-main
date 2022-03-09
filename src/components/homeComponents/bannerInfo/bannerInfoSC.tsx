@@ -83,12 +83,12 @@ export const BannerInfoDecrease = styled(BannerInfoText)<Props>`
 `
 
 export const BannerInfoLink = styled(Link)`
+    text-decoration: none;
     font-family: Exo 2;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 150%;
     letter-spacing: 0.02em;
-    text-decoration-line: underline;
     color: #045599;
 `
